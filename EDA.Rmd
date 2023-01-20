@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-#F1DataFrame = data.frame(read.csv("C:/Santi/path/goes/here"))
-circuitsDataFrame <- read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
+#circuitsDataFrame = data.frame(read.csv("C:/Santi/path/goes/here"))
+circuitsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
 
 # Fill in the 2 missing altitudes
 circuitsDataFrame[circuitsDataFrame$name == "Losail International Circuit",]$alt = 14
