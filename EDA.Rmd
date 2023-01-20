@@ -1,0 +1,52 @@
+---
+title: "F1 EDA"
+author: "Derek Rogers"
+date: "2023-01-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#F1DataFrame = data.frame(read.csv("C:/Santi/path/goes/here"))
+circuitsDataFrame <- read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
+
+# Fill in the 2 missing altitudes
+circuitsDataFrame[circuitsDataFrame$name == "Losail International Circuit",]$alt = 14
+circuitsDataFrame[circuitsDataFrame$name == "Miami International Autodrome",]$alt = 1
+
+# Convert altitude from character to numeric
+circuitsDataFrame$alt = as.numeric(circuitsDataFrame$alt)
+
+head(circuitsDataFrame)
+```
+
+```{r}
+# Altitude is measured in meters
+# The lowest altitude is -7 so the data is shifted up 8 to avoid zero and negative number for the log transformation
+  #min(circuitsDataFrame$alt)
+
+circuitsDataFrame$logAlt = log(circuitsDataFrame$alt + 8)
+
+# Histogram
+hist(circuitsDataFrame$alt, main='Altitude Histogram')
+
+# Box plot
+boxplot(circuitsDataFrame$alt, main = "Boxplot of Altitude")
+
+# QQ plot
+qqnorm(circuitsDataFrame$alt, pch = 1, frame = FALSE, main = "Q-Q Plot for Altitude")
+qqline(circuitsDataFrame$alt, col = "steelblue", lwd = 2)
+
+# Histogram
+hist(circuitsDataFrame$logAlt, xlab='Altitude', main='Histogram of Log Altitude')
+
+# Box plot
+boxplot(circuitsDataFrame$logAlt, main = "Boxplot of Log Altitude")
+
+# QQ plot
+qqnorm(circuitsDataFrame$logAlt, pch = 1, frame = FALSE, main = "Q-Q Plot for Log Altitude")
+qqline(circuitsDataFrame$logAlt, col = "steelblue", lwd = 2)
+```
