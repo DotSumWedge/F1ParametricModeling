@@ -1,0 +1,9 @@
+Provide summary statistics on a slide and point out any ideas/findings of interest.
+
+When building the objective 1 model:
+	When it comes to presentation, we don't need to interpret every coefficient
+	Just focus on the most important factors
+
+Focus more on the EDA
+
+Due Febuary 5th at midnight

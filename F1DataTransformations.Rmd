@@ -1,0 +1,73 @@
+---
+title: "F1 Data Transformations"
+author: "Derek Rogers"
+date: "2023-01-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#circuitsDataFrame = data.frame(read.csv("C:/Santi/paths/go/here"))
+
+#circuitsDataFrame = data.frame(read.csv("C:/Shawn/paths/go/here"))
+
+circuitsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
+constructorResultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_results.csv")
+constructorStandingsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_standings.csv")
+constructorsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructors.csv")
+driverStandingsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/driver_standings.csv")
+driversDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/drivers.csv")
+lapTimesDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/lap_times.csv")
+pitStopsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/pit_stops.csv")
+qualifyingDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/qualifying.csv")
+racesDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/races.csv")
+resultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/results.csv")
+seasonsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/seasons.csv")
+sprint_resultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/sprint_results.csv")
+statusDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/status.csv")
+
+# Fill in the 2 missing altitudes
+circuitsDataFrame[circuitsDataFrame$name == "Losail International Circuit",]$alt = 14
+circuitsDataFrame[circuitsDataFrame$name == "Miami International Autodrome",]$alt = 1
+
+# Convert altitude from character to numeric
+circuitsDataFrame$alt = as.numeric(circuitsDataFrame$alt)
+```
+
+```{r}
+head(circuitsDataFrame)
+head(constructorResultsDataFrame)
+head(constructorStandingsDataFrame)
+head(constructorsDataFrame)
+head(driverStandingsDataFrame)
+head(driversDataFrame)
+head(lapTimesDataFrame)
+head(pitStopsDataFrame)
+head(qualifyingDataFrame)
+head(racesDataFrame)
+head(resultsDataFrame)
+head(seasonsDataFrame)
+head(sprint_resultsDataFrame)
+head(statusDataFrame)
+```
+
+```{r}
+# Merge of the circuits and races dataframes
+eventDataframe = merge(x = circuitsDataFrame, y = racesDataFrame, by = "circuitId")
+
+#Merge of the constructor dataframes
+constructorResultsFullDataFrame = merge(x = constructorResultsDataFrame, y = constructorsDataFrame, by = "constructorId")
+constructorStandingsFullDataFrame = merge(x = constructorStandingsDataFrame, y = constructorsDataFrame, by = "constructorId")
+
+#Merge of driver dataFrames
+finalDriverStandingsDataframe = merge(x = driversDataFrame, y = driverStandingsDataFrame, by = "driverId")
+
+head(eventDataframe)
+head(constructorResultsFullDataFrame)
+head(constructorStandingsFullDataFrame)
+head(finalDriverStandingsDataframe)
+```
+

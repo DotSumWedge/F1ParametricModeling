@@ -1,0 +1,19 @@
+
+Note: This is an observational study so there isn't random assignment which means only causal inferences can be drawn.
+
+How does the enviornment affect the performance metrics?
+    Elivation on pit times
+
+    Follow up data gathering idea: Gather weather data (percipitation, temperature, humidity, wind)
+
+How much does qualifying postion matter in predicting results?
+    lm(results~qualifying, raceDataFrame)
+
+How much does the constructor (is constructor the accepted term?) matter in predicting results?
+    lm(results~constructor, raceDataFrame)
+
+How much does the driver matter in predicting results?
+    lm(results~driverID, raceDataFrame)
+
+What was the final model we decided on for predicting a race winner?
+    lm(results~attribute1 + attribute2 + ..., raceDataFrame)
