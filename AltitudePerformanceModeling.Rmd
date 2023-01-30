@@ -48,6 +48,8 @@ resultsDataFrame = subset(resultsDataFrame, select = c("resultId", "raceId", "dr
 circuitsDataFrame = subset(circuitsDataFrame, select = c("circuitId", "name", "alt"))
 
 constructorsDataFrame = subset(constructorsDataFrame, select = c("constructorId", "name"))
+
+driversDataFrame = subset(driversDataFrame, select = c("driverId", "forename", "surname"))
 ```
 
 Merge relevant data into raceResultsDataframe
@@ -58,10 +60,10 @@ raceResultsDataFrame = merge(x = raceResultsDataFrame, y = circuitsDataFrame, by
 
 raceResultsDataFrame = merge(x = raceResultsDataFrame, y = constructorsDataFrame, by = "constructorId")
 
-raceResultsDataFrame
+raceResultsDataFrame = merge(x = raceResultsDataFrame, y = driversDataFrame, by = "driverId")
 ```
 
-# Show the number of times constructors appear in the raceResultsDataframe and keep the 10 most popular constructors
+# Show the number of times constructors appear in the raceResultsDataframe and keep the 5 most popular constructors
 ```{r}
 uniqueConstructorResults = raceResultsDataFrame %>% group_by(name) %>% tally()
 
@@ -71,14 +73,34 @@ uniqueConstructorResults = uniqueConstructorResults[order(-uniqueConstructorResu
 
 #uniqueConstructorResults
 
-uniqueConstructorResults = head(uniqueConstructorResults, 10)
+uniqueConstructorResults = head(uniqueConstructorResults, 5)
 
 uniqueConstructorResults
 ```
 
-Only keep race results from the 5 most popular constructors
+# Show the number of times drivers appear in the raceResultsDataframe and keep the 5 most popular constructors
 ```{r}
-raceResultsDataFrame = raceResultsDataFrame %>% filter(raceResultsDataFrame$name == uniqueConstructorResults$name)
+uniqueDriverResults = raceResultsDataFrame %>% group_by(driverId) %>% tally()
+
+uniqueDriverResults$n = as.numeric(uniqueDriverResults$n)
+
+uniqueDriverResults = uniqueDriverResults[order(-uniqueDriverResults$n),]
+
+#uniqueConstructorResults
+
+uniqueDriverResults = head(uniqueDriverResults, 5)
+
+uniqueDriverResults = merge(x = uniqueDriverResults, y = driversDataFrame, by = "driverId")
+
+uniqueDriverResults
+```
+
+Only keep race results from the 10 most popular constructors or the 10 most popular drivers
+```{r}
+raceResultsDataFrame = raceResultsDataFrame %>% filter(raceResultsDataFrame$name == uniqueConstructorResults$name | (raceResultsDataFrame$forename == uniqueDriverResults$forename & raceResultsDataFrame$surname == uniqueDriverResults$surname))
+
+raceResultsDataFrame$fullname = paste(raceResultsDataFrame$forename, raceResultsDataFrame$surname, sep = " ")
+
 raceResultsDataFrame
 ```
 
@@ -89,7 +111,7 @@ ggplot(raceResultsDataFrame, aes(x = alt, y = positionOrder, color = name)) +
 ```
 
 ```{r}
-model = lm(positionOrder ~ alt + name + alt:name, data = raceResultsDataFrame)
+model = lm(positionOrder ~ fullname + grid + alt + name + year + year:name + year:fullname + alt:name, data = raceResultsDataFrame)
 
 summary(model)
 ```
