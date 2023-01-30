@@ -1,7 +1,7 @@
 ---
-title: "F1 Data Transformations"
+title: "Altitude Performance Modeling"
 author: "Derek Rogers"
-date: "2023-01-28"
+date: "2023-01-30"
 output: html_document
 ---
 
@@ -10,10 +10,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-#circuitsDataFrame = data.frame(read.csv("C:/Santi/paths/go/here"))
+library(dplyr)
+```
 
-#circuitsDataFrame = data.frame(read.csv("C:/Shawn/paths/go/here"))
-
+Read in the data and clean it
+```{r}
 circuitsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
 constructorResultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_results.csv")
 constructorStandingsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_standings.csv")
@@ -37,40 +38,7 @@ circuitsDataFrame[circuitsDataFrame$name == "Miami International Autodrome",]$al
 circuitsDataFrame$alt = as.numeric(circuitsDataFrame$alt)
 ```
 
-```{r}
-head(circuitsDataFrame)
-head(constructorResultsDataFrame)
-head(constructorStandingsDataFrame)
-head(constructorsDataFrame)
-head(driverStandingsDataFrame)
-head(driversDataFrame)
-head(lapTimesDataFrame)
-head(pitStopsDataFrame)
-head(qualifyingDataFrame)
-head(racesDataFrame)
-head(resultsDataFrame)
-head(seasonsDataFrame)
-head(sprint_resultsDataFrame)
-head(statusDataFrame)
-```
-
-```{r}
-# Merge of the circuits and races dataframes
-eventDataframe = merge(x = circuitsDataFrame, y = racesDataFrame, by = "circuitId")
-
-#Merge of the constructor dataframes
-constructorResultsFullDataFrame = merge(x = constructorResultsDataFrame, y = constructorsDataFrame, by = "constructorId")
-constructorStandingsFullDataFrame = merge(x = constructorStandingsDataFrame, y = constructorsDataFrame, by = "constructorId")
-
-#Merge of driver dataFrames
-finalDriverStandingsDataframe = merge(x = driversDataFrame, y = driverStandingsDataFrame, by = "driverId")
-
-head(eventDataframe)
-head(constructorResultsFullDataFrame)
-head(constructorStandingsFullDataFrame)
-head(finalDriverStandingsDataframe)
-```
-
+Keep relevant columns for creating a dataframe that holds relevant information for modeling
 ```{r}
 racesDataFrame = subset(racesDataFrame, select = c("raceId", "year", "circuitId", "name"))
 
@@ -79,7 +47,10 @@ resultsDataFrame = subset(resultsDataFrame, select = c("resultId", "raceId", "dr
 circuitsDataFrame = subset(circuitsDataFrame, select = c("circuitId", "name", "alt"))
 
 constructorsDataFrame = subset(constructorsDataFrame, select = c("constructorId", "name"))
+```
 
+Merge relevant data into raceResultsDataframe
+```{r}
 raceResultsDataFrame = merge(x = racesDataFrame, y = resultsDataFrame, by = "raceId")
 
 raceResultsDataFrame = merge(x = raceResultsDataFrame, y = circuitsDataFrame, by = "circuitId")
@@ -89,3 +60,30 @@ raceResultsDataFrame = merge(x = raceResultsDataFrame, y = constructorsDataFrame
 raceResultsDataFrame
 ```
 
+# Show the number of times constructors appear in the raceResultsDataframe and keep the 5 most popular constructors
+```{r}
+uniqueConstructorResults = raceResultsDataFrame %>% group_by(name) %>% tally()
+
+uniqueConstructorResults$n = as.numeric(uniqueConstructorResults$n)
+
+uniqueConstructorResults = uniqueConstructorResults[order(-uniqueConstructorResults$n),]
+
+#uniqueConstructorResults
+
+uniqueConstructorResults = head(uniqueConstructorResults, 5)
+
+uniqueConstructorResults
+```
+
+Only keep race results from the 5 most popular constructors
+```{r}
+raceResultsDataFrame = raceResultsDataFrame %>% filter(raceResultsDataFrame$name == uniqueConstructorResults$name)
+raceResultsDataFrame
+```
+
+
+```{r}
+model = lm(positionOrder ~ alt + name + alt:name, data=raceResultsDataFrame)
+
+summary(model)
+```
