@@ -61,7 +61,7 @@ raceResultsDataFrame = merge(x = raceResultsDataFrame, y = constructorsDataFrame
 raceResultsDataFrame
 ```
 
-# Show the number of times constructors appear in the raceResultsDataframe and keep the 5 most popular constructors
+# Show the number of times constructors appear in the raceResultsDataframe and keep the 10 most popular constructors
 ```{r}
 uniqueConstructorResults = raceResultsDataFrame %>% group_by(name) %>% tally()
 
@@ -71,7 +71,7 @@ uniqueConstructorResults = uniqueConstructorResults[order(-uniqueConstructorResu
 
 #uniqueConstructorResults
 
-uniqueConstructorResults = head(uniqueConstructorResults, 5)
+uniqueConstructorResults = head(uniqueConstructorResults, 10)
 
 uniqueConstructorResults
 ```
@@ -85,11 +85,11 @@ raceResultsDataFrame
 ```{r}
 ggplot(raceResultsDataFrame, aes(x = alt, y = positionOrder, color = name)) +
   geom_point(position = "jitter") +
-  geom_smooth(method=lm)
+  geom_smooth(method = lm)
 ```
 
 ```{r}
-model = lm(positionOrder ~ alt + name + alt:name, data=raceResultsDataFrame)
+model = lm(positionOrder ~ alt + name + alt:name, data = raceResultsDataFrame)
 
 summary(model)
 ```
