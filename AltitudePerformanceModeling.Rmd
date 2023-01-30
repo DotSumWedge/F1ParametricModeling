@@ -11,6 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(dplyr)
+library(ggplot2)
 ```
 
 Read in the data and clean it
@@ -81,6 +82,11 @@ raceResultsDataFrame = raceResultsDataFrame %>% filter(raceResultsDataFrame$name
 raceResultsDataFrame
 ```
 
+```{r}
+ggplot(raceResultsDataFrame, aes(x = alt, y = positionOrder, color = name)) +
+  geom_point(position = "jitter") +
+  geom_smooth(method=lm)
+```
 
 ```{r}
 model = lm(positionOrder ~ alt + name + alt:name, data=raceResultsDataFrame)
