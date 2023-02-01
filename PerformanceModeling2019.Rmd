@@ -1,7 +1,7 @@
 ---
-title: "F1 Data Transformations"
+title: "Altitude Performance Modeling 2019"
 author: "Derek Rogers"
-date: "2023-01-28"
+date: "2023-01-30"
 output: html_document
 ---
 
@@ -10,10 +10,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-#circuitsDataFrame = data.frame(read.csv("C:/Santi/paths/go/here"))
+library(dplyr)
+library(ggplot2)
+```
 
-#circuitsDataFrame = data.frame(read.csv("C:/Shawn/paths/go/here"))
-
+Read in the data and clean it
+```{r}
 circuitsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
 constructorResultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_results.csv")
 constructorStandingsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_standings.csv")
@@ -37,40 +39,7 @@ circuitsDataFrame[circuitsDataFrame$name == "Miami International Autodrome",]$al
 circuitsDataFrame$alt = as.numeric(circuitsDataFrame$alt)
 ```
 
-```{r}
-head(circuitsDataFrame)
-head(constructorResultsDataFrame)
-head(constructorStandingsDataFrame)
-head(constructorsDataFrame)
-head(driverStandingsDataFrame)
-head(driversDataFrame)
-head(lapTimesDataFrame)
-head(pitStopsDataFrame)
-head(qualifyingDataFrame)
-head(racesDataFrame)
-head(resultsDataFrame)
-head(seasonsDataFrame)
-head(sprint_resultsDataFrame)
-head(statusDataFrame)
-```
-
-```{r}
-# Merge of the circuits and races dataframes
-eventDataframe = merge(x = circuitsDataFrame, y = racesDataFrame, by = "circuitId")
-
-#Merge of the constructor dataframes
-constructorResultsFullDataFrame = merge(x = constructorResultsDataFrame, y = constructorsDataFrame, by = "constructorId")
-constructorStandingsFullDataFrame = merge(x = constructorStandingsDataFrame, y = constructorsDataFrame, by = "constructorId")
-
-#Merge of driver dataFrames
-finalDriverStandingsDataframe = merge(x = driversDataFrame, y = driverStandingsDataFrame, by = "driverId")
-
-head(eventDataframe)
-head(constructorResultsFullDataFrame)
-head(constructorStandingsFullDataFrame)
-head(finalDriverStandingsDataframe)
-```
-
+Keep relevant columns for creating a dataframe that holds relevant information for modeling
 ```{r}
 racesDataFrame = subset(racesDataFrame, select = c("raceId", "year", "circuitId", "name"))
 
@@ -80,17 +49,37 @@ circuitsDataFrame = subset(circuitsDataFrame, select = c("circuitId", "name", "a
 
 constructorsDataFrame = subset(constructorsDataFrame, select = c("constructorId", "name"))
 
+driversDataFrame = subset(driversDataFrame, select = c("driverId", "forename", "surname"))
+```
+
+Merge relevant data into raceResultsDataframe
+```{r}
 raceResultsDataFrame = merge(x = racesDataFrame, y = resultsDataFrame, by = "raceId")
 
 raceResultsDataFrame = merge(x = raceResultsDataFrame, y = circuitsDataFrame, by = "circuitId")
 
 raceResultsDataFrame = merge(x = raceResultsDataFrame, y = constructorsDataFrame, by = "constructorId")
 
-raceResultsDataFrame
+raceResultsDataFrame = merge(x = raceResultsDataFrame, y = driversDataFrame, by = "driverId")
 ```
 
-Set top 20 drivers and constructors as categorical variables and the rest as "other"
+Only keep race results from the year 2019
 ```{r}
+raceResultsDataFrame = raceResultsDataFrame %>% filter(raceResultsDataFrame$year == "2019")
+
+raceResultsDataFrame$fullname = paste(raceResultsDataFrame$forename, raceResultsDataFrame$surname, sep = " ")
+
 raceResultsDataFrame
 ```
 
+```{r}
+ggplot(raceResultsDataFrame, aes(x = alt, y = positionOrder, color = name)) +
+  geom_point(position = "jitter") +
+  geom_smooth(method = lm)
+```
+
+```{r}
+model = lm(positionOrder ~ fullname + grid + alt:name + alt:fullname, data = raceResultsDataFrame)
+
+summary(model)
+```
