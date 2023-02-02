@@ -71,6 +71,7 @@ head(constructorStandingsFullDataFrame)
 head(finalDriverStandingsDataframe)
 ```
 
+Keep relevant columns for creating a dataframe that holds relevant information for modeling
 ```{r}
 racesDataFrame = subset(racesDataFrame, select = c("raceId", "year", "circuitId", "name"))
 
@@ -80,17 +81,105 @@ circuitsDataFrame = subset(circuitsDataFrame, select = c("circuitId", "name", "a
 
 constructorsDataFrame = subset(constructorsDataFrame, select = c("constructorId", "name"))
 
+driversDataFrame = subset(driversDataFrame, select = c("driverId", "forename", "surname"))
+```
+
+Merge relevant data into raceResultsDataframe
+```{r}
 raceResultsDataFrame = merge(x = racesDataFrame, y = resultsDataFrame, by = "raceId")
 
 raceResultsDataFrame = merge(x = raceResultsDataFrame, y = circuitsDataFrame, by = "circuitId")
 
 raceResultsDataFrame = merge(x = raceResultsDataFrame, y = constructorsDataFrame, by = "constructorId")
 
+raceResultsDataFrame = merge(x = raceResultsDataFrame, y = driversDataFrame, by = "driverId")
+
+raceResultsDataFrame$fullname = paste(raceResultsDataFrame$forename, raceResultsDataFrame$surname, sep = " ")
+```
+
+# Show the number of times constructors appear in the raceResultsDataframe and keep the 25 most popular constructors
+```{r}
+uniqueConstructorResults = raceResultsDataFrame %>% group_by(name) %>% tally()
+
+uniqueConstructorResults$n = as.numeric(uniqueConstructorResults$n)
+
+uniqueConstructorResults = uniqueConstructorResults[order(-uniqueConstructorResults$n),]
+
+uniqueConstructorResults = head(uniqueConstructorResults[order(-uniqueConstructorResults$n),], 25)
+
+uniqueConstructorResults = merge(x = uniqueConstructorResults, y = constructorsDataFrame, by = "name")
+
+uniqueConstructorResults = uniqueConstructorResults[order(-uniqueConstructorResults$n),]
+
+uniqueConstructorResults
+```
+
+# Show the number of times drivers appear in the raceResultsDataframe and keep the 25 drives with the highest number of races
+```{r}
+uniqueDriverResults = raceResultsDataFrame %>% group_by(driverId) %>% tally()
+
+uniqueDriverResults$n = as.numeric(uniqueDriverResults$n)
+
+uniqueDriverResults = uniqueDriverResults[order(-uniqueDriverResults$n),]
+
+uniqueDriverResults = head(uniqueDriverResults, 25)
+
+uniqueDriverResults = merge(x = uniqueDriverResults, y = driversDataFrame, by = "driverId")
+  
+uniqueDriverResults$fullname = paste(uniqueDriverResults$forename, uniqueDriverResults$surname, sep = " ")
+
+uniqueDriverResults
+```
+
+Set top 20 drivers and constructors as categorical variables and the rest as "other"
+```{r}
+# For every race result check if the driver id matches a driver id from uniqueDriverResults
+# If there isn't a match set the drivers full name to "Other"
+for(i in 1:nrow(raceResultsDataFrame)){
+  isUnique = FALSE
+  for(j in 1:nrow(uniqueDriverResults)){
+    if(raceResultsDataFrame[i,]$driverId == uniqueDriverResults[j,]$driverId){
+      isUnique = TRUE
+    }
+  }
+  if(!isUnique){
+      raceResultsDataFrame[i,]$fullname = "Other"
+  }
+}
+
+raceResultsDataFrame$fullname = as.factor(raceResultsDataFrame$fullname)
+raceResultsDataFrame$fullname = droplevels(raceResultsDataFrame$fullname)
 raceResultsDataFrame
 ```
 
 Set top 20 drivers and constructors as categorical variables and the rest as "other"
 ```{r}
+# For every race result check if the driver id matches a driver id from uniqueDriverResults
+# If there isn't a match set the drivers full name to "Other"
+for(i in 1:nrow(raceResultsDataFrame)){
+  isUnique = FALSE
+  for(j in 1:nrow(uniqueConstructorResults)){
+    if(raceResultsDataFrame[i,]$constructorId == uniqueConstructorResults[j,]$constructorId){
+      isUnique = TRUE
+    }
+  }
+  if(!isUnique){
+      raceResultsDataFrame[i,]$name = "Other"
+  }
+}
+
+raceResultsDataFrame$name = as.factor(raceResultsDataFrame$name)
+raceResultsDataFrame$name = droplevels(raceResultsDataFrame$name)
 raceResultsDataFrame
+```
+```{r}
+unique(raceResultsDataFrame$name)
+unique(raceResultsDataFrame$fullname)
+```
+
+```{r}
+model = lm(positionOrder ~ fullname + grid + alt + name + year + year:name + year:fullname + alt:name, data = raceResultsDataFrame)
+
+summary(model)
 ```
 
