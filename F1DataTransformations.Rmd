@@ -33,6 +33,8 @@ statusDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project
 circuitsDataFrame[circuitsDataFrame$name == "Losail International Circuit",]$alt = 14
 circuitsDataFrame[circuitsDataFrame$name == "Miami International Autodrome",]$alt = 1
 
+racesDataFrame = racesDataFrame %>% filter(racesDataFrame$year > "1989")
+
 # Convert altitude from character to numeric
 circuitsDataFrame$alt = as.numeric(circuitsDataFrame$alt)
 ```
@@ -129,6 +131,33 @@ uniqueDriverResults = merge(x = uniqueDriverResults, y = driversDataFrame, by = 
 uniqueDriverResults$fullname = paste(uniqueDriverResults$forename, uniqueDriverResults$surname, sep = " ")
 
 uniqueDriverResults
+```
+
+Translate the years to the rules of the car configuration
+```{r}
+# For every race result check if the driver id matches a driver id from uniqueDriverResults
+# If there isn't a match set the drivers full name to "Other"
+for(i in 1:nrow(raceResultsDataFrame)){
+  if(raceResultsDataFrame[i,]$year >= "1989" & raceResultsDataFrame[i,]$year <= "1999"){
+    raceResultsDataFrame[i,]$era = "Up to 12 cylinders"
+  }
+  else if(raceResultsDataFrame[i,]$year <= "2005"){
+    raceResultsDataFrame[i,]$era = "V10"
+  }
+  else if(raceResultsDataFrame[i,]$year <= "2008"){
+    raceResultsDataFrame[i,]$era = "90 degrees V8"
+  }
+  else if(raceResultsDataFrame[i,]$year <= "2013"){
+    raceResultsDataFrame[i,]$era = "90 degrees V8 + KERS"
+  }
+  else if(raceResultsDataFrame[i,]$year > "2013"){
+    raceResultsDataFrame[i,]$era = "90 degrees V6 + MGUs"
+  }
+}
+
+raceResultsDataFrame$era = as.factor(raceResultsDataFrame$era)
+raceResultsDataFrame$era = droplevels(raceResultsDataFrame$era)
+raceResultsDataFrame
 ```
 
 Set top 20 drivers and constructors as categorical variables and the rest as "other"
