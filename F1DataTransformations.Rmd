@@ -16,10 +16,6 @@ library(tidyverse)
 ```
 
 ```{r}
-#circuitsDataFrame = data.frame(read.csv("C:/Santi/paths/go/here"))
-
-#circuitsDataFrame = data.frame(read.csv("C:/Shawn/paths/go/here"))
-
 circuitsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
 constructorResultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_results.csv")
 constructorStandingsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_standings.csv")
@@ -39,12 +35,14 @@ statusDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project
 circuitsDataFrame[circuitsDataFrame$name == "Losail International Circuit",]$alt = 14
 circuitsDataFrame[circuitsDataFrame$name == "Miami International Autodrome",]$alt = 1
 
+# Only look at data from 1989 onward
 racesDataFrame = racesDataFrame %>% filter(racesDataFrame$year >= "1989")
 
 # Convert altitude from character to numeric
 circuitsDataFrame$alt = as.numeric(circuitsDataFrame$alt)
 ```
 
+# Print out all of the given dataframes for the project
 ```{r}
 head(circuitsDataFrame)
 head(constructorResultsDataFrame)
@@ -62,6 +60,7 @@ head(sprint_resultsDataFrame)
 head(statusDataFrame)
 ```
 
+# Merge relevant dataframes
 ```{r}
 # Merge of the circuits and races dataframes
 eventDataframe = merge(x = circuitsDataFrame, y = racesDataFrame, by = "circuitId")
@@ -79,7 +78,9 @@ head(constructorStandingsFullDataFrame)
 head(finalDriverStandingsDataframe)
 ```
 
-Keep relevant columns for creating a dataframe that holds relevant information for modeling
+## Formatting dataframe for modeling 
+
+# Keep relevant columns for creating a dataframe that holds relevant information for modeling
 ```{r}
 racesDataFrame = subset(racesDataFrame, select = c("raceId", "year", "circuitId", "name"))
 
@@ -92,7 +93,7 @@ constructorsDataFrame = subset(constructorsDataFrame, select = c("constructorId"
 driversDataFrame = subset(driversDataFrame, select = c("driverId", "forename", "surname"))
 ```
 
-Merge relevant data into raceResultsDataframe
+# Merge relevant data into raceResultsDataframe
 ```{r}
 raceResultsDataFrame = merge(x = racesDataFrame, y = resultsDataFrame, by = "raceId")
 
@@ -104,6 +105,43 @@ raceResultsDataFrame = merge(x = raceResultsDataFrame, y = driversDataFrame, by 
 
 raceResultsDataFrame$fullname = paste(raceResultsDataFrame$forename, raceResultsDataFrame$surname, sep = " ")
 ```
+
+Add era column that translates the years to the rules of the car configuration
+```{r}
+raceResultsDataFrame = raceResultsDataFrame %>% add_column(era = "era")
+
+# For every race result check if the driver id matches a driver id from uniqueDriverResults
+# If there isn't a match set the drivers full name to "Other"
+for(i in 1:nrow(raceResultsDataFrame)){
+  if(raceResultsDataFrame[i,]$year >= "1989" & raceResultsDataFrame[i,]$year <= "1999"){
+    raceResultsDataFrame[i,]$era = "Up to 12 cylinders"
+  }
+  else if(raceResultsDataFrame[i,]$year <= "2005"){
+    raceResultsDataFrame[i,]$era = "V10"
+  }
+  else if(raceResultsDataFrame[i,]$year <= "2008"){
+    raceResultsDataFrame[i,]$era = "90 degrees V8"
+  }
+  else if(raceResultsDataFrame[i,]$year <= "2013"){
+    raceResultsDataFrame[i,]$era = "90 degrees V8 + KERS"
+  }
+  else if(raceResultsDataFrame[i,]$year > "2013"){
+    raceResultsDataFrame[i,]$era = "90 degrees V6 + MGUs"
+  }
+  else{
+    raceResultsDataFrame[i,]$era = "Other"
+  }
+}
+
+head(raceResultsDataFrame)
+```
+
+# Save dataframe to a .csv file for modeling
+```{r}
+write.csv(raceResultsDataFrame, "C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1Modeling.csv")
+```
+
+## Formatting dataframe for modeling with specific constructors and drivers as categorical variables
 
 # Show the number of times constructors appear in the raceResultsDataframe and keep the 25 most popular constructors
 ```{r}
@@ -139,44 +177,6 @@ uniqueDriverResults$fullname = paste(uniqueDriverResults$forename, uniqueDriverR
 uniqueDriverResults
 ```
 
-Add era column that translates the years to the rules of the car configuration
-```{r}
-raceResultsDataFrame = raceResultsDataFrame %>% add_column(era = "era")
-
-# For every race result check if the driver id matches a driver id from uniqueDriverResults
-# If there isn't a match set the drivers full name to "Other"
-for(i in 1:nrow(raceResultsDataFrame)){
-  if(raceResultsDataFrame[i,]$year >= "1989" & raceResultsDataFrame[i,]$year <= "1999"){
-    raceResultsDataFrame[i,]$era = "Up to 12 cylinders"
-  }
-  else if(raceResultsDataFrame[i,]$year <= "2005"){
-    raceResultsDataFrame[i,]$era = "V10"
-  }
-  else if(raceResultsDataFrame[i,]$year <= "2008"){
-    raceResultsDataFrame[i,]$era = "90 degrees V8"
-  }
-  else if(raceResultsDataFrame[i,]$year <= "2013"){
-    raceResultsDataFrame[i,]$era = "90 degrees V8 + KERS"
-  }
-  else if(raceResultsDataFrame[i,]$year > "2013"){
-    raceResultsDataFrame[i,]$era = "90 degrees V6 + MGUs"
-  }
-  else{
-    raceResultsDataFrame[i,]$era = "Other"
-  }
-}
-
-# raceResultsDataFrame$era = as.factor(raceResultsDataFrame$era)
-# raceResultsDataFrame$era = droplevels(raceResultsDataFrame$era)
-#raceResultsDataFrame
-
-raceResultsDataFrame
-```
-
-```{r}
-
-```
-
 Set top 20 drivers and constructors as categorical variables and the rest as "other"
 ```{r}
 # For every race result check if the driver id matches a driver id from uniqueDriverResults
@@ -195,7 +195,7 @@ for(i in 1:nrow(raceResultsDataFrame)){
 
 raceResultsDataFrame$fullname = as.factor(raceResultsDataFrame$fullname)
 raceResultsDataFrame$fullname = droplevels(raceResultsDataFrame$fullname)
-raceResultsDataFrame
+head(raceResultsDataFrame)
 ```
 
 Set top 20 drivers and constructors as categorical variables and the rest as "other"
@@ -216,12 +216,21 @@ for(i in 1:nrow(raceResultsDataFrame)){
 
 raceResultsDataFrame$name = as.factor(raceResultsDataFrame$name)
 raceResultsDataFrame$name = droplevels(raceResultsDataFrame$name)
-raceResultsDataFrame
+head(raceResultsDataFrame)
 ```
+
 ```{r}
 unique(raceResultsDataFrame$name)
 unique(raceResultsDataFrame$fullname)
 ```
+
+# Save dataframe with specific constructor and drivers as categorical variables to a .csv file for modeling
+```{r}
+write.csv(raceResultsDataFrame, "C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1ModelingCustomCategoricalVariables.csv")
+```
+
+
+## Example of linear regression model
 
 ```{r}
 model = lm(positionOrder ~ fullname + grid + alt + name + year + year:name + year:fullname + alt:name, data = raceResultsDataFrame)
@@ -229,6 +238,7 @@ model = lm(positionOrder ~ fullname + grid + alt + name + year + year:name + yea
 summary(model)
 ```
 
+# Print out the final transformation of raceResultsDataFrame
 ```{r}
 raceResultsDataFrame
 ```
