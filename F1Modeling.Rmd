@@ -126,12 +126,37 @@ plot(mymodel)
 summary(mymodel)
 ```
 
-```{r}
-mymodel<-lm(positionOrder ~ grid, data = F1DataFrame)
+# Starting vs finishing plots for each era
 
-ggplot(data = F1DataFrame, aes(x = grid, y = positionOrder, colour = era)) + 
+Seems to show a weak but significant correlation between better starting positions with better finishing positions
+
+```{r}
+V10plot = F1DataFrame %>% filter(F1DataFrame$era == "V10") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
   geom_point(position = "jitter", size = .8) +
   labs(title="starting vs finishing position by era", 
      y="finishing position", 
      x="starting position")
+
+V8plot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V8") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
+  geom_point(position = "jitter", size = .8) +
+  labs(title="starting vs finishing position by era", 
+     y="finishing position", 
+     x="starting position")
+
+V8KERSplot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V8 + KERS") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
+  geom_point(position = "jitter", size = .8) +
+  labs(title="starting vs finishing position by era", 
+     y="finishing position", 
+     x="starting position")
+
+V8MGUsplot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V6 + MGUs") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
+  geom_point(position = "jitter", size = .8) +
+  labs(title="starting vs finishing position by era", 
+     y="finishing position", 
+     x="starting position")
+
+V10plot
+V8plot
+V8KERSplot
+V8MGUsplot
 ```
