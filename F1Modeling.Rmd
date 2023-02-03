@@ -130,6 +130,8 @@ summary(mymodel)
 
 Seems to show a weak but significant correlation between better starting positions with better finishing positions
 
+All plots appear to have comparable distributions
+
 ```{r}
 V10plot = F1DataFrame %>% filter(F1DataFrame$era == "V10") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
   geom_point(position = "jitter", size = .8) +
