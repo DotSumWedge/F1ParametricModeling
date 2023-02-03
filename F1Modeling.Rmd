@@ -14,6 +14,24 @@ library(dplyr)
 library(ggplot2)
 ```
 
+# Import modeling data
+
+Includes all race results since 1989 with attributes:
+
+  - Drive name/id   // currently only the 25 drivers with the most race results have a unique name. All other drivers have there names labeled 'Other'
+  
+  - Constructor name/id   // currently only the 25 constructors with the most reace results have a unique name. All other constructors have there names labeled 'Other' 
+  
+  - Race name/id
+  
+  - Starting position labeled 'grid'
+  
+  - Finishing position labeled 'positionOrder'
+  
+  - The altitude the track is at
+  
+  - The era of engine specifications
+
 ```{r}
 F1DataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1ModelingCustomCategoricalVariables.csv")
 
@@ -26,7 +44,6 @@ Shows evidence of a negative slope with variance that seems to increase as fitte
 
 This means the model is on average predicting worse results for drivers who finish with a good results. As the fitted values increase it seems to get a wider difference in predicted vs actual results.
 
-
 # Q-Q Plot
 
  suggests a normal distribution can be assumed
@@ -35,13 +52,42 @@ This means the model is on average predicting worse results for drivers who fini
 
  Provides more evidence for normality
  
- There seems to be a patterns in starting at each discrete fitted value and traveling parallel to the Y axis with a sin function
+ There seems to be a patterns in starting at each discrete fitted value and traveling parallel to the Y axis with a sin function but with sharp 90 degree transitions.
+ 
+ Currently we don't have an explanation for why this is.
 
 ```{r}
 mymodel<-lm(positionOrder ~ grid + name + fullname + era, data = F1DataFrame)
-par(mfrow = c(2,2))
-plot(mymodel)
 par(mfrow = c(1,1))
+plot(mymodel)
+```
 
+# Summary Statistics of the model
+
+The model doesn't not perform well With R-squared values at 0.27
+
+Surprisingly starting position doesn't appear to be statistically significant which doesn't make sense. One would expect there to be a strong correlation between starting position and finishing position.
+
+```{r}
 summary(mymodel)
+```
+
+# Starting position analysis
+
+
+
+```{r}
+mymodel<-lm(positionOrder ~ grid, data = F1DataFrame)
+
+ggplot(data = F1DataFrame, aes(x = grid, y = positionOrder, colour = era)) + 
+  geom_point(position = "jitter") +
+  
+```
+
+Plots look similar to the full model
+
+```{r}
+mymodel<-lm(positionOrder ~ grid, data = F1DataFrame)
+par(mfrow = c(1,1))
+plot(mymodel)
 ```
