@@ -80,7 +80,7 @@ The grouping of low starting positions and high finishing positions during the e
 mymodel<-lm(positionOrder ~ grid, data = F1DataFrame)
 
 ggplot(data = F1DataFrame, aes(x = grid, y = positionOrder, colour = era)) + 
-  geom_point(position = "jitter") +
+  geom_point(position = "jitter", size = .8) +
   labs(title="starting vs finishing position by era", 
      y="finishing position", 
      x="starting position")
