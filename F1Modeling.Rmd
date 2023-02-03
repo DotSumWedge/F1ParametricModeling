@@ -74,20 +74,42 @@ summary(mymodel)
 
 # Starting position analysis
 
-
+The grouping of low starting positions and high finishing positions during the era of up to 12 cylinders explains the irregularities from normality in the models residual plots and lack of statistical significance in the model for stating position.
 
 ```{r}
 mymodel<-lm(positionOrder ~ grid, data = F1DataFrame)
 
 ggplot(data = F1DataFrame, aes(x = grid, y = positionOrder, colour = era)) + 
   geom_point(position = "jitter") +
-  
+  labs(title="starting vs finishing position by era", 
+     y="finishing position", 
+     x="starting position")
 ```
 
-Plots look similar to the full model
+Plots look similar to the full model as expected
 
 ```{r}
 mymodel<-lm(positionOrder ~ grid, data = F1DataFrame)
 par(mfrow = c(1,1))
 plot(mymodel)
+```
+
+# Model with interaction term between grid and era
+
+The residual plots look similar to the first model
+
+```{r}
+mymodel<-lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1DataFrame)
+par(mfrow = c(1,1))
+plot(mymodel)
+```
+
+# Summary statistics with interaction term between grid and era
+
+The model performs significantly better With R-squared values going from 0.27 to 0.32
+
+Surprisingly starting position doesn't appear to be statistically significant which doesn't make sense. One would expect there to be a strong correlation between starting position and finishing position.
+
+```{r}
+summary(mymodel)
 ```
