@@ -1,0 +1,25 @@
+---
+title: "F1Modeling"
+author: "Derek Rogers"
+date: "2023-02-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+F1DataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1ModelingCustomCategoricalVariables.csv")
+
+F1DataFrame
+```
+
+```{r}
+
+```
