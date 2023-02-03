@@ -1,3 +1,5 @@
+This is an observational study so There isn't random assignment which means only causal inferences can be drawn.
+
 Provide summary statistics on a slide and point out any ideas/findings of interest.
 
 When building the objective 1 model:

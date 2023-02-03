@@ -17,3 +17,4 @@ How much does the driver matter in predicting results?
 
 What was the final model we decided on for predicting a race winner?
     lm(results~attribute1 + attribute2 + ..., raceDataFrame)
+    
