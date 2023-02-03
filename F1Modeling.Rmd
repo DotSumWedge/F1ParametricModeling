@@ -20,6 +20,28 @@ F1DataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1
 F1DataFrame
 ```
 
-```{r}
+# Residuals Vs Fitted Plot 
 
+Shows evidence of a negative slope with variance that seems to increase as fitted values increase. 
+
+This means the model is on average predicting worse results for drivers who finish with a good results. As the fitted values increase it seems to get a wider difference in predicted vs actual results.
+
+
+# Q-Q Plot
+
+ suggests a normal distribution can be assumed
+ 
+# Scale-Location Plot
+
+ Provides more evidence for normality
+ 
+ There seems to be a patterns in starting at each discrete fitted value and traveling parallel to the Y axis with a sin function
+
+```{r}
+mymodel<-lm(positionOrder ~ grid + name + fullname + era, data = F1DataFrame)
+par(mfrow = c(2,2))
+plot(mymodel)
+par(mfrow = c(1,1))
+
+summary(mymodel)
 ```
