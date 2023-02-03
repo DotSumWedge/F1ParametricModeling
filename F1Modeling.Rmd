@@ -104,12 +104,34 @@ par(mfrow = c(1,1))
 plot(mymodel)
 ```
 
-# Summary statistics with interaction term between grid and era
+# Summary statistics with interaction term between grid and era with and without 12 cylinders era
 
 The model performs significantly better With R-squared values going from 0.27 to 0.32
+Taking out the data from the 12 cylinders era further improves the R-squared values to 0.39
 
 Surprisingly starting position doesn't appear to be statistically significant which doesn't make sense. One would expect there to be a strong correlation between starting position and finishing position.
 
 ```{r}
 summary(mymodel)
+```
+
+```{r}
+F1DataFrame = F1DataFrame %>% filter(F1DataFrame$year >= "2005")
+mymodel<-lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1DataFrame)
+par(mfrow = c(1,1))
+plot(mymodel)
+```
+
+```{r}
+summary(mymodel)
+```
+
+```{r}
+mymodel<-lm(positionOrder ~ grid, data = F1DataFrame)
+
+ggplot(data = F1DataFrame, aes(x = grid, y = positionOrder, colour = era)) + 
+  geom_point(position = "jitter", size = .8) +
+  labs(title="starting vs finishing position by era", 
+     y="finishing position", 
+     x="starting position")
 ```
