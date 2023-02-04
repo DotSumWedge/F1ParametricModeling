@@ -116,7 +116,7 @@ summary(mymodel)
 ```
 
 ```{r}
-F1DataFrame = F1DataFrame %>% filter(F1DataFrame$year >= "2005")
+F1DataFrame = F1DataFrame %>% filter(F1DataFrame$year >= "2000")
 mymodel<-lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1DataFrame)
 par(mfrow = c(1,1))
 plot(mymodel)
