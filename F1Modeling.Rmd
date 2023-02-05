@@ -3,13 +3,13 @@ title: "Formula 1 Analysis"
 author: "Santiago Gutierrez, Derek Rogers, Shawn Deng"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     toc: yes
     number_sections: yes
     theme: spacelab
     highlight: tango
+  pdf_document:
+    toc: yes
 ---
 
 ```{r setup, include = FALSE}
@@ -71,7 +71,7 @@ In this analysis, we will analyze Formula 1 data from the year 2,000 and onward.
 Furthermore, our analysis dives into the relationship between a driver's starting position and the likelihood of obtaining a certain finishing result. One would assume that the better one qualifies, the higher the change of winning the race. Also, it is known that there are a few big teams/drivers who have dominated the sport over the years and continue to do so, thus providing relatively consistent results. One can easily assume that certain teams are much more likely to win a Grand Prix thus those teams are more statistically significant in determining the result of a race. Because of this, we also investigate the relationship between the results/points given the constructors (teams) and drivers.
 
 Lastly, we create several prediction models that allow for predicting a race results. We use ONLY the parameters that one would have available just before a race: the team name, the driver name, the era (engine size) and the starting position.
-
+  
 <br>
 
 # - Packages
