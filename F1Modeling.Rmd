@@ -14,6 +14,8 @@ output:
 
 ```{r setup, include = FALSE}
 knitr::opts_knit$set(root.dir = '/Users/santigtz/Desktop/SMU_D.S./Semester_2/6372-AppliedStatistics/Project_1/F1ParametricModeling')
+
+# knitr::opts_knit$set(root.dir = 'C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling')
 ```
 
 ```{css, echo=FALSE}
@@ -297,12 +299,6 @@ V8plot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V8") %>% ggplot(a
      y="finishing position", 
      x="starting position")
 
-V8KERSplot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V8 + KERS") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
-  geom_point(position = "jitter", size = .8) +
-  labs(title="starting vs finishing position by era", 
-     y="finishing position", 
-     x="starting position")
-
 V8MGUsplot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V6 + MGUs") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
   geom_point(position = "jitter", size = .8) +
   labs(title="starting vs finishing position by era", 
@@ -311,7 +307,6 @@ V8MGUsplot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V6 + MGUs") %
 
 V10plot
 V8plot
-V8KERSplot
 V8MGUsplot
 ```
 
