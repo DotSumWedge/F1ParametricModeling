@@ -162,3 +162,24 @@ V8plot
 V8KERSplot
 V8MGUsplot
 ```
+
+```{r}
+F1DataFrame
+```
+
+# Logic to split data into training and testing set
+```{r}
+modelVariables = c('positionOrder', 'grid', 'name', 'fullname', 'era')
+modelDataframe = F1DataFrame[, modelVariables]
+
+set.seed(4)
+
+trainingIndices = sample(c(1:dim(modelDataframe)[1]), dim(modelDataframe)[1]*0.8)
+
+trainingDataframe = modelDataframe[trainingIndices,]
+testingDataframe = modelDataframe[-trainingIndices,]
+```
+
+```{r}
+
+```
