@@ -38,6 +38,19 @@ F1DataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1
 F1DataFrame
 ```
 
+# Logic to split data into training and testing set
+```{r}
+modelVariables = c('positionOrder', 'grid', 'name', 'fullname', 'era')
+modelDataframe = F1DataFrame[, modelVariables]
+
+set.seed(4)
+
+trainingIndices = sample(c(1:dim(modelDataframe)[1]), dim(modelDataframe)[1]*0.8)
+
+trainingDataframe = modelDataframe[trainingIndices,]
+testingDataframe = modelDataframe[-trainingIndices,]
+```
+
 # Residuals Vs Fitted Plot 
 
 Shows evidence of a negative slope with variance that seems to increase as fitted values increase. 
@@ -161,23 +174,6 @@ V10plot
 V8plot
 V8KERSplot
 V8MGUsplot
-```
-
-```{r}
-F1DataFrame
-```
-
-# Logic to split data into training and testing set
-```{r}
-modelVariables = c('positionOrder', 'grid', 'name', 'fullname', 'era')
-modelDataframe = F1DataFrame[, modelVariables]
-
-set.seed(4)
-
-trainingIndices = sample(c(1:dim(modelDataframe)[1]), dim(modelDataframe)[1]*0.8)
-
-trainingDataframe = modelDataframe[trainingIndices,]
-testingDataframe = modelDataframe[-trainingIndices,]
 ```
 
 ```{r}
