@@ -58,7 +58,7 @@ h1,h2,h3,h4,h5,h6,p,
 <hr>
 <div style="width: 100%;">
 
-  <div style="background-color: #00D2BE;width:9px;height:785px;float: left;"></div>
+  <div style="background-color: #00D2BE;width:9px;height:792px;float: left;"></div>
   
   
   <div style="float:left; margin-left:0px; margin-top:15px; font-size:20px; color:black;">
