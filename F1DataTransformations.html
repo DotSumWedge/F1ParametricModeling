@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Derek Rogers" />
+<meta name="author" content="Santiago Gutierrez, Derek Rogers, Shawn Deng" />
 
-<meta name="date" content="2023-01-28" />
+<meta name="date" content="2023-02-05" />
 
 <title>F1 Data Transformations</title>
 
@@ -299,23 +299,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -357,46 +351,30 @@ display: none;
 
 
 <h1 class="title toc-ignore">F1 Data Transformations</h1>
-<h4 class="author">Derek Rogers</h4>
-<h4 class="date">2023-01-28</h4>
+<h4 class="author">Santiago Gutierrez, Derek Rogers, Shawn Deng</h4>
+<h4 class="date">2023-02-05</h4>
 
 </div>
 
 
-<pre class="r"><code>library(dplyr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>library(ggplot2)
+<pre class="r"><code>knitr::opts_knit$set(root.dir = &#39;/Users/santigtz/Desktop/SMU_D.S./Semester_2/6372-AppliedStatistics/Project_1/F1ParametricModeling&#39;)</code></pre>
+<pre class="r"><code>library(dplyr)
+library(ggplot2)
 library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages
-## ───────────────────────────────────────
-## tidyverse 1.3.2 ──</code></pre>
-<pre><code>## ✔ tibble  3.1.8     ✔ purrr   0.3.4
-## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-## ✔ readr   2.1.2     ✔ forcats 0.5.2
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>circuitsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv&quot;)
-constructorResultsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_results.csv&quot;)
-constructorStandingsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_standings.csv&quot;)
-constructorsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructors.csv&quot;)
-driverStandingsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/driver_standings.csv&quot;)
-driversDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/drivers.csv&quot;)
-lapTimesDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/lap_times.csv&quot;)
-pitStopsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/pit_stops.csv&quot;)
-qualifyingDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/qualifying.csv&quot;)
-racesDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/races.csv&quot;)
-resultsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/results.csv&quot;)
-seasonsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/seasons.csv&quot;)
-sprint_resultsDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/sprint_results.csv&quot;)
-statusDataFrame = read.csv(&quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/status.csv&quot;)
+<pre class="r"><code>circuitsDataFrame = read.csv(&quot;Data/circuits.csv&quot;)
+constructorResultsDataFrame = read.csv(&quot;Data/constructor_results.csv&quot;)
+constructorStandingsDataFrame = read.csv(&quot;Data/constructor_standings.csv&quot;)
+constructorsDataFrame = read.csv(&quot;Data/constructors.csv&quot;, header=TRUE)
+driverStandingsDataFrame = read.csv(&quot;Data/driver_standings.csv&quot;)
+driversDataFrame = read.csv(&quot;Data/drivers.csv&quot;)
+lapTimesDataFrame = read.csv(&quot;Data/lap_Times.csv&quot;)
+pitStopsDataFrame = read.csv(&quot;Data/pit_stops.csv&quot;)
+qualifyingDataFrame = read.csv(&quot;Data/qualifying.csv&quot;)
+racesDataFrame = read.csv(&quot;Data/races.csv&quot;)
+resultsDataFrame = read.csv(&quot;Data/results.csv&quot;)
+seasonsDataFrame = read.csv(&quot;Data/seasons.csv&quot;)
+sprint_resultsDataFrame = read.csv(&quot;Data/sprint_results.csv&quot;)
+statusDataFrame = read.csv(&quot;Data/status.csv&quot;)
 
 # Fill in the 2 missing altitudes
 circuitsDataFrame[circuitsDataFrame$name == &quot;Losail International Circuit&quot;,]$alt = 14
@@ -797,7 +775,7 @@ head(raceResultsDataFrame)</code></pre>
 </div>
 <div id="save-dataframe-to-a-.csv-file-for-modeling" class="section level1">
 <h1>Save dataframe to a .csv file for modeling</h1>
-<pre class="r"><code>write.csv(raceResultsDataFrame, &quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1Modeling.csv&quot;)</code></pre>
+<pre class="r"><code>write.csv(raceResultsDataFrame, &quot;ModelingData/F1Modeling.csv&quot;)</code></pre>
 <div id="formatting-dataframe-for-modeling-with-specific-constructors-and-drivers-as-categorical-variables" class="section level2">
 <h2>Formatting dataframe for modeling with specific constructors and
 drivers as categorical variables</h2>
@@ -991,7 +969,7 @@ head(raceResultsDataFrame)</code></pre>
 <div id="save-dataframe-with-specific-constructor-and-drivers-as-categorical-variables-to-a-.csv-file-for-modeling" class="section level1">
 <h1>Save dataframe with specific constructor and drivers as categorical
 variables to a .csv file for modeling</h1>
-<pre class="r"><code>write.csv(raceResultsDataFrame, &quot;C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1ModelingCustomCategoricalVariables.csv&quot;)</code></pre>
+<pre class="r"><code>write.csv(raceResultsDataFrame, &quot;ModelingData/F1ModelingCustomCategoricalVariables.csv&quot;)</code></pre>
 <div id="example-of-linear-regression-model" class="section level2">
 <h2>Example of linear regression model</h2>
 <pre class="r"><code>model = lm(positionOrder ~ fullname + grid + alt + name + year + year:name + year:fullname + alt:name, data = raceResultsDataFrame)
