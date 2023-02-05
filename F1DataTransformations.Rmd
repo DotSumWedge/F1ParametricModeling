@@ -119,11 +119,8 @@ for(i in 1:nrow(raceResultsDataFrame)){
   else if(raceResultsDataFrame[i,]$year <= "2005"){
     raceResultsDataFrame[i,]$era = "V10"
   }
-  else if(raceResultsDataFrame[i,]$year <= "2008"){
-    raceResultsDataFrame[i,]$era = "90 degrees V8"
-  }
   else if(raceResultsDataFrame[i,]$year <= "2013"){
-    raceResultsDataFrame[i,]$era = "90 degrees V8 + KERS"
+    raceResultsDataFrame[i,]$era = "90 degrees V8"
   }
   else if(raceResultsDataFrame[i,]$year > "2013"){
     raceResultsDataFrame[i,]$era = "90 degrees V6 + MGUs"

@@ -761,11 +761,8 @@ for(i in 1:nrow(raceResultsDataFrame)){
   else if(raceResultsDataFrame[i,]$year &lt;= &quot;2005&quot;){
     raceResultsDataFrame[i,]$era = &quot;V10&quot;
   }
-  else if(raceResultsDataFrame[i,]$year &lt;= &quot;2008&quot;){
-    raceResultsDataFrame[i,]$era = &quot;90 degrees V8&quot;
-  }
   else if(raceResultsDataFrame[i,]$year &lt;= &quot;2013&quot;){
-    raceResultsDataFrame[i,]$era = &quot;90 degrees V8 + KERS&quot;
+    raceResultsDataFrame[i,]$era = &quot;90 degrees V8&quot;
   }
   else if(raceResultsDataFrame[i,]$year &gt; &quot;2013&quot;){
     raceResultsDataFrame[i,]$era = &quot;90 degrees V6 + MGUs&quot;
@@ -791,12 +788,12 @@ head(raceResultsDataFrame)</code></pre>
 ## 5    2             1              Baku City Circuit   -7 Mercedes    Lewis
 ## 6    2            12 Circuit de Barcelona-Catalunya  109 Mercedes    Lewis
 ##    surname       fullname                  era
-## 1 Hamilton Lewis Hamilton 90 degrees V8 + KERS
+## 1 Hamilton Lewis Hamilton        90 degrees V8
 ## 2 Hamilton Lewis Hamilton 90 degrees V6 + MGUs
-## 3 Hamilton Lewis Hamilton 90 degrees V8 + KERS
-## 4 Hamilton Lewis Hamilton 90 degrees V8 + KERS
+## 3 Hamilton Lewis Hamilton        90 degrees V8
+## 4 Hamilton Lewis Hamilton        90 degrees V8
 ## 5 Hamilton Lewis Hamilton 90 degrees V6 + MGUs
-## 6 Hamilton Lewis Hamilton 90 degrees V8 + KERS</code></pre>
+## 6 Hamilton Lewis Hamilton        90 degrees V8</code></pre>
 </div>
 <div id="save-dataframe-to-a-.csv-file-for-modeling" class="section level1">
 <h1>Save dataframe to a .csv file for modeling</h1>
@@ -925,12 +922,12 @@ head(raceResultsDataFrame)</code></pre>
 ## 5    2             1              Baku City Circuit   -7 Mercedes    Lewis
 ## 6    2            12 Circuit de Barcelona-Catalunya  109 Mercedes    Lewis
 ##    surname       fullname                  era
-## 1 Hamilton Lewis Hamilton 90 degrees V8 + KERS
+## 1 Hamilton Lewis Hamilton        90 degrees V8
 ## 2 Hamilton Lewis Hamilton 90 degrees V6 + MGUs
-## 3 Hamilton Lewis Hamilton 90 degrees V8 + KERS
-## 4 Hamilton Lewis Hamilton 90 degrees V8 + KERS
+## 3 Hamilton Lewis Hamilton        90 degrees V8
+## 4 Hamilton Lewis Hamilton        90 degrees V8
 ## 5 Hamilton Lewis Hamilton 90 degrees V6 + MGUs
-## 6 Hamilton Lewis Hamilton 90 degrees V8 + KERS</code></pre>
+## 6 Hamilton Lewis Hamilton        90 degrees V8</code></pre>
 <p>Set top 20 drivers and constructors as categorical variables and the
 rest as “other”</p>
 <pre class="r"><code># For every race result check if the driver id matches a driver id from uniqueDriverResults
@@ -965,12 +962,12 @@ head(raceResultsDataFrame)</code></pre>
 ## 5    2             1              Baku City Circuit   -7 Mercedes    Lewis
 ## 6    2            12 Circuit de Barcelona-Catalunya  109 Mercedes    Lewis
 ##    surname       fullname                  era
-## 1 Hamilton Lewis Hamilton 90 degrees V8 + KERS
+## 1 Hamilton Lewis Hamilton        90 degrees V8
 ## 2 Hamilton Lewis Hamilton 90 degrees V6 + MGUs
-## 3 Hamilton Lewis Hamilton 90 degrees V8 + KERS
-## 4 Hamilton Lewis Hamilton 90 degrees V8 + KERS
+## 3 Hamilton Lewis Hamilton        90 degrees V8
+## 4 Hamilton Lewis Hamilton        90 degrees V8
 ## 5 Hamilton Lewis Hamilton 90 degrees V6 + MGUs
-## 6 Hamilton Lewis Hamilton 90 degrees V8 + KERS</code></pre>
+## 6 Hamilton Lewis Hamilton        90 degrees V8</code></pre>
 <pre class="r"><code>unique(raceResultsDataFrame$name)</code></pre>
 <pre><code>##  [1] McLaren        Mercedes       BMW Sauber     Renault        Sauber        
 ##  [6] Jordan         Williams       Other          Ferrari        Alpine F1 Team
@@ -19902,48 +19899,48 @@ summary(model)</code></pre>
 ## 6248       Lotus F1       Pastor     Maldonado                Other
 ## 6249       Williams       Pastor     Maldonado                Other
 ##                       era
-## 1    90 degrees V8 + KERS
+## 1           90 degrees V8
 ## 2    90 degrees V6 + MGUs
-## 3    90 degrees V8 + KERS
-## 4    90 degrees V8 + KERS
+## 3           90 degrees V8
+## 4           90 degrees V8
 ## 5    90 degrees V6 + MGUs
-## 6    90 degrees V8 + KERS
-## 7    90 degrees V8 + KERS
-## 8    90 degrees V8 + KERS
+## 6           90 degrees V8
+## 7           90 degrees V8
+## 8           90 degrees V8
 ## 9           90 degrees V8
-## 10   90 degrees V8 + KERS
+## 10          90 degrees V8
 ## 11   90 degrees V6 + MGUs
-## 12   90 degrees V8 + KERS
+## 12          90 degrees V8
 ## 13          90 degrees V8
 ## 14   90 degrees V6 + MGUs
-## 15   90 degrees V8 + KERS
+## 15          90 degrees V8
 ## 16   90 degrees V6 + MGUs
-## 17   90 degrees V8 + KERS
+## 17          90 degrees V8
 ## 18          90 degrees V8
 ## 19   90 degrees V6 + MGUs
-## 20   90 degrees V8 + KERS
+## 20          90 degrees V8
 ## 21   90 degrees V6 + MGUs
 ## 22   90 degrees V6 + MGUs
 ## 23   90 degrees V6 + MGUs
 ## 24   90 degrees V6 + MGUs
 ## 25   90 degrees V6 + MGUs
 ## 26   90 degrees V6 + MGUs
-## 27   90 degrees V8 + KERS
+## 27          90 degrees V8
 ## 28          90 degrees V8
-## 29   90 degrees V8 + KERS
-## 30   90 degrees V8 + KERS
+## 29          90 degrees V8
+## 30          90 degrees V8
 ## 31   90 degrees V6 + MGUs
 ## 32   90 degrees V6 + MGUs
 ## 33   90 degrees V6 + MGUs
 ## 34   90 degrees V6 + MGUs
-## 35   90 degrees V8 + KERS
-## 36   90 degrees V8 + KERS
+## 35          90 degrees V8
+## 36          90 degrees V8
 ## 37          90 degrees V8
-## 38   90 degrees V8 + KERS
+## 38          90 degrees V8
 ## 39   90 degrees V6 + MGUs
 ## 40   90 degrees V6 + MGUs
-## 41   90 degrees V8 + KERS
-## 42   90 degrees V8 + KERS
+## 41          90 degrees V8
+## 42          90 degrees V8
 ## 43   90 degrees V6 + MGUs
 ## 44   90 degrees V6 + MGUs
 ## 45   90 degrees V6 + MGUs
@@ -19951,43 +19948,43 @@ summary(model)</code></pre>
 ## 47          90 degrees V8
 ## 48   90 degrees V6 + MGUs
 ## 49   90 degrees V6 + MGUs
-## 50   90 degrees V8 + KERS
+## 50          90 degrees V8
 ## 51   90 degrees V6 + MGUs
 ## 52          90 degrees V8
-## 53   90 degrees V8 + KERS
-## 54   90 degrees V8 + KERS
-## 55   90 degrees V8 + KERS
+## 53          90 degrees V8
+## 54          90 degrees V8
+## 55          90 degrees V8
 ## 56          90 degrees V8
 ## 57          90 degrees V8
-## 58   90 degrees V8 + KERS
+## 58          90 degrees V8
 ## 59   90 degrees V6 + MGUs
 ## 60   90 degrees V6 + MGUs
-## 61   90 degrees V8 + KERS
-## 62   90 degrees V8 + KERS
+## 61          90 degrees V8
+## 62          90 degrees V8
 ## 63   90 degrees V6 + MGUs
 ## 64   90 degrees V6 + MGUs
-## 65   90 degrees V8 + KERS
+## 65          90 degrees V8
 ## 66   90 degrees V6 + MGUs
-## 67   90 degrees V8 + KERS
+## 67          90 degrees V8
 ## 68   90 degrees V6 + MGUs
 ## 69   90 degrees V6 + MGUs
-## 70   90 degrees V8 + KERS
+## 70          90 degrees V8
 ## 71   90 degrees V6 + MGUs
 ## 72   90 degrees V6 + MGUs
-## 73   90 degrees V8 + KERS
+## 73          90 degrees V8
 ## 74   90 degrees V6 + MGUs
 ## 75   90 degrees V6 + MGUs
 ## 76   90 degrees V6 + MGUs
 ## 77          90 degrees V8
 ## 78   90 degrees V6 + MGUs
-## 79   90 degrees V8 + KERS
+## 79          90 degrees V8
 ## 80          90 degrees V8
-## 81   90 degrees V8 + KERS
+## 81          90 degrees V8
 ## 82          90 degrees V8
-## 83   90 degrees V8 + KERS
-## 84   90 degrees V8 + KERS
-## 85   90 degrees V8 + KERS
-## 86   90 degrees V8 + KERS
+## 83          90 degrees V8
+## 84          90 degrees V8
+## 85          90 degrees V8
+## 86          90 degrees V8
 ## 87          90 degrees V8
 ## 88   90 degrees V6 + MGUs
 ## 89   90 degrees V6 + MGUs
@@ -19998,15 +19995,15 @@ summary(model)</code></pre>
 ## 94   90 degrees V6 + MGUs
 ## 95   90 degrees V6 + MGUs
 ## 96   90 degrees V6 + MGUs
-## 97   90 degrees V8 + KERS
-## 98   90 degrees V8 + KERS
+## 97          90 degrees V8
+## 98          90 degrees V8
 ## 99   90 degrees V6 + MGUs
-## 100  90 degrees V8 + KERS
-## 101  90 degrees V8 + KERS
-## 102  90 degrees V8 + KERS
+## 100         90 degrees V8
+## 101         90 degrees V8
+## 102         90 degrees V8
 ## 103  90 degrees V6 + MGUs
 ## 104  90 degrees V6 + MGUs
-## 105  90 degrees V8 + KERS
+## 105         90 degrees V8
 ## 106  90 degrees V6 + MGUs
 ## 107  90 degrees V6 + MGUs
 ## 108  90 degrees V6 + MGUs
@@ -20018,13 +20015,13 @@ summary(model)</code></pre>
 ## 114  90 degrees V6 + MGUs
 ## 115  90 degrees V6 + MGUs
 ## 116  90 degrees V6 + MGUs
-## 117  90 degrees V8 + KERS
-## 118  90 degrees V8 + KERS
+## 117         90 degrees V8
+## 118         90 degrees V8
 ## 119  90 degrees V6 + MGUs
-## 120  90 degrees V8 + KERS
-## 121  90 degrees V8 + KERS
+## 120         90 degrees V8
+## 121         90 degrees V8
 ## 122  90 degrees V6 + MGUs
-## 123  90 degrees V8 + KERS
+## 123         90 degrees V8
 ## 124         90 degrees V8
 ## 125         90 degrees V8
 ## 126  90 degrees V6 + MGUs
@@ -20032,49 +20029,49 @@ summary(model)</code></pre>
 ## 128         90 degrees V8
 ## 129  90 degrees V6 + MGUs
 ## 130  90 degrees V6 + MGUs
-## 131  90 degrees V8 + KERS
+## 131         90 degrees V8
 ## 132         90 degrees V8
 ## 133  90 degrees V6 + MGUs
 ## 134  90 degrees V6 + MGUs
 ## 135  90 degrees V6 + MGUs
-## 136  90 degrees V8 + KERS
+## 136         90 degrees V8
 ## 137  90 degrees V6 + MGUs
 ## 138         90 degrees V8
 ## 139  90 degrees V6 + MGUs
-## 140  90 degrees V8 + KERS
+## 140         90 degrees V8
 ## 141  90 degrees V6 + MGUs
 ## 142  90 degrees V6 + MGUs
 ## 143  90 degrees V6 + MGUs
-## 144  90 degrees V8 + KERS
-## 145  90 degrees V8 + KERS
+## 144         90 degrees V8
+## 145         90 degrees V8
 ## 146  90 degrees V6 + MGUs
 ## 147  90 degrees V6 + MGUs
-## 148  90 degrees V8 + KERS
+## 148         90 degrees V8
 ## 149  90 degrees V6 + MGUs
-## 150  90 degrees V8 + KERS
+## 150         90 degrees V8
 ## 151  90 degrees V6 + MGUs
 ## 152  90 degrees V6 + MGUs
 ## 153  90 degrees V6 + MGUs
-## 154  90 degrees V8 + KERS
+## 154         90 degrees V8
 ## 155  90 degrees V6 + MGUs
 ## 156         90 degrees V8
-## 157  90 degrees V8 + KERS
+## 157         90 degrees V8
 ## 158  90 degrees V6 + MGUs
 ## 159         90 degrees V8
-## 160  90 degrees V8 + KERS
+## 160         90 degrees V8
 ## 161  90 degrees V6 + MGUs
 ## 162  90 degrees V6 + MGUs
 ## 163  90 degrees V6 + MGUs
-## 164  90 degrees V8 + KERS
+## 164         90 degrees V8
 ## 165  90 degrees V6 + MGUs
 ## 166  90 degrees V6 + MGUs
 ## 167  90 degrees V6 + MGUs
-## 168  90 degrees V8 + KERS
+## 168         90 degrees V8
 ## 169  90 degrees V6 + MGUs
 ## 170  90 degrees V6 + MGUs
-## 171  90 degrees V8 + KERS
+## 171         90 degrees V8
 ## 172  90 degrees V6 + MGUs
-## 173  90 degrees V8 + KERS
+## 173         90 degrees V8
 ## 174  90 degrees V6 + MGUs
 ## 175  90 degrees V6 + MGUs
 ## 176         90 degrees V8
@@ -20086,47 +20083,47 @@ summary(model)</code></pre>
 ## 182  90 degrees V6 + MGUs
 ## 183  90 degrees V6 + MGUs
 ## 184  90 degrees V6 + MGUs
-## 185  90 degrees V8 + KERS
-## 186  90 degrees V8 + KERS
-## 187  90 degrees V8 + KERS
-## 188  90 degrees V8 + KERS
+## 185         90 degrees V8
+## 186         90 degrees V8
+## 187         90 degrees V8
+## 188         90 degrees V8
 ## 189         90 degrees V8
 ## 190  90 degrees V6 + MGUs
 ## 191  90 degrees V6 + MGUs
-## 192  90 degrees V8 + KERS
+## 192         90 degrees V8
 ## 193         90 degrees V8
 ## 194  90 degrees V6 + MGUs
 ## 195  90 degrees V6 + MGUs
 ## 196  90 degrees V6 + MGUs
 ## 197  90 degrees V6 + MGUs
-## 198  90 degrees V8 + KERS
+## 198         90 degrees V8
 ## 199  90 degrees V6 + MGUs
 ## 200  90 degrees V6 + MGUs
 ## 201  90 degrees V6 + MGUs
-## 202  90 degrees V8 + KERS
+## 202         90 degrees V8
 ## 203  90 degrees V6 + MGUs
 ## 204  90 degrees V6 + MGUs
 ## 205  90 degrees V6 + MGUs
 ## 206  90 degrees V6 + MGUs
 ## 207  90 degrees V6 + MGUs
-## 208  90 degrees V8 + KERS
-## 209  90 degrees V8 + KERS
-## 210  90 degrees V8 + KERS
+## 208         90 degrees V8
+## 209         90 degrees V8
+## 210         90 degrees V8
 ## 211  90 degrees V6 + MGUs
-## 212  90 degrees V8 + KERS
+## 212         90 degrees V8
 ## 213  90 degrees V6 + MGUs
-## 214  90 degrees V8 + KERS
+## 214         90 degrees V8
 ## 215  90 degrees V6 + MGUs
 ## 216  90 degrees V6 + MGUs
 ## 217  90 degrees V6 + MGUs
 ## 218  90 degrees V6 + MGUs
 ## 219         90 degrees V8
-## 220  90 degrees V8 + KERS
-## 221  90 degrees V8 + KERS
+## 220         90 degrees V8
+## 221         90 degrees V8
 ## 222  90 degrees V6 + MGUs
 ## 223  90 degrees V6 + MGUs
 ## 224         90 degrees V8
-## 225  90 degrees V8 + KERS
+## 225         90 degrees V8
 ## 226  90 degrees V6 + MGUs
 ## 227  90 degrees V6 + MGUs
 ## 228  90 degrees V6 + MGUs
@@ -20134,7 +20131,7 @@ summary(model)</code></pre>
 ## 230  90 degrees V6 + MGUs
 ## 231         90 degrees V8
 ## 232  90 degrees V6 + MGUs
-## 233  90 degrees V8 + KERS
+## 233         90 degrees V8
 ## 234  90 degrees V6 + MGUs
 ## 235  90 degrees V6 + MGUs
 ## 236  90 degrees V6 + MGUs
@@ -20148,10 +20145,10 @@ summary(model)</code></pre>
 ## 244  90 degrees V6 + MGUs
 ## 245  90 degrees V6 + MGUs
 ## 246         90 degrees V8
-## 247  90 degrees V8 + KERS
-## 248  90 degrees V8 + KERS
-## 249  90 degrees V8 + KERS
-## 250  90 degrees V8 + KERS
+## 247         90 degrees V8
+## 248         90 degrees V8
+## 249         90 degrees V8
+## 250         90 degrees V8
 ## 251  90 degrees V6 + MGUs
 ## 252  90 degrees V6 + MGUs
 ## 253  90 degrees V6 + MGUs
@@ -20159,17 +20156,17 @@ summary(model)</code></pre>
 ## 255  90 degrees V6 + MGUs
 ## 256  90 degrees V6 + MGUs
 ## 257  90 degrees V6 + MGUs
-## 258  90 degrees V8 + KERS
+## 258         90 degrees V8
 ## 259  90 degrees V6 + MGUs
 ## 260  90 degrees V6 + MGUs
 ## 261  90 degrees V6 + MGUs
-## 262  90 degrees V8 + KERS
-## 263  90 degrees V8 + KERS
+## 262         90 degrees V8
+## 263         90 degrees V8
 ## 264  90 degrees V6 + MGUs
 ## 265         90 degrees V8
-## 266  90 degrees V8 + KERS
-## 267  90 degrees V8 + KERS
-## 268  90 degrees V8 + KERS
+## 266         90 degrees V8
+## 267         90 degrees V8
+## 268         90 degrees V8
 ## 269  90 degrees V6 + MGUs
 ## 270  90 degrees V6 + MGUs
 ## 271  90 degrees V6 + MGUs
@@ -20178,14 +20175,14 @@ summary(model)</code></pre>
 ## 274  90 degrees V6 + MGUs
 ## 275  90 degrees V6 + MGUs
 ## 276         90 degrees V8
-## 277  90 degrees V8 + KERS
-## 278  90 degrees V8 + KERS
+## 277         90 degrees V8
+## 278         90 degrees V8
 ## 279  90 degrees V6 + MGUs
 ## 280  90 degrees V6 + MGUs
 ## 281  90 degrees V6 + MGUs
-## 282  90 degrees V8 + KERS
+## 282         90 degrees V8
 ## 283  90 degrees V6 + MGUs
-## 284  90 degrees V8 + KERS
+## 284         90 degrees V8
 ## 285  90 degrees V6 + MGUs
 ## 286         90 degrees V8
 ## 287         90 degrees V8
@@ -20195,8 +20192,8 @@ summary(model)</code></pre>
 ## 291  90 degrees V6 + MGUs
 ## 292  90 degrees V6 + MGUs
 ## 293  90 degrees V6 + MGUs
-## 294  90 degrees V8 + KERS
-## 295  90 degrees V8 + KERS
+## 294         90 degrees V8
+## 295         90 degrees V8
 ## 296  90 degrees V6 + MGUs
 ## 297  90 degrees V6 + MGUs
 ## 298  90 degrees V6 + MGUs
@@ -20206,32 +20203,32 @@ summary(model)</code></pre>
 ## 302         90 degrees V8
 ## 303  90 degrees V6 + MGUs
 ## 304  90 degrees V6 + MGUs
-## 305  90 degrees V8 + KERS
+## 305         90 degrees V8
 ## 306         90 degrees V8
 ## 307  90 degrees V6 + MGUs
 ## 308  90 degrees V6 + MGUs
 ## 309  90 degrees V6 + MGUs
 ## 310  90 degrees V6 + MGUs
 ## 311         90 degrees V8
-## 312  90 degrees V8 + KERS
-## 313  90 degrees V8 + KERS
+## 312         90 degrees V8
+## 313         90 degrees V8
 ## 314                   V10
 ## 315                   V10
 ## 316                   V10
 ## 317         90 degrees V8
 ## 318                   V10
 ## 319         90 degrees V8
-## 320  90 degrees V8 + KERS
+## 320         90 degrees V8
 ## 321                   V10
 ## 322                   V10
-## 323  90 degrees V8 + KERS
+## 323         90 degrees V8
 ## 324         90 degrees V8
 ## 325                   V10
 ## 326                   V10
 ## 327                   V10
 ## 328         90 degrees V8
 ## 329                   V10
-## 330  90 degrees V8 + KERS
+## 330         90 degrees V8
 ## 331                   V10
 ## 332                   V10
 ## 333         90 degrees V8
@@ -20244,12 +20241,12 @@ summary(model)</code></pre>
 ## 340                   V10
 ## 341         90 degrees V8
 ## 342                   V10
-## 343  90 degrees V8 + KERS
+## 343         90 degrees V8
 ## 344         90 degrees V8
-## 345  90 degrees V8 + KERS
+## 345         90 degrees V8
 ## 346         90 degrees V8
 ## 347         90 degrees V8
-## 348  90 degrees V8 + KERS
+## 348         90 degrees V8
 ## 349                   V10
 ## 350                   V10
 ## 351                   V10
@@ -20258,39 +20255,39 @@ summary(model)</code></pre>
 ## 354         90 degrees V8
 ## 355                   V10
 ## 356                   V10
-## 357  90 degrees V8 + KERS
+## 357         90 degrees V8
 ## 358                   V10
 ## 359         90 degrees V8
 ## 360                   V10
 ## 361                   V10
 ## 362                   V10
-## 363  90 degrees V8 + KERS
+## 363         90 degrees V8
 ## 364         90 degrees V8
 ## 365         90 degrees V8
 ## 366                   V10
 ## 367                   V10
-## 368  90 degrees V8 + KERS
-## 369  90 degrees V8 + KERS
+## 368         90 degrees V8
+## 369         90 degrees V8
 ## 370                   V10
 ## 371         90 degrees V8
 ## 372                   V10
 ## 373                   V10
 ## 374         90 degrees V8
-## 375  90 degrees V8 + KERS
+## 375         90 degrees V8
 ## 376         90 degrees V8
 ## 377                   V10
 ## 378                   V10
 ## 379                   V10
 ## 380                   V10
-## 381  90 degrees V8 + KERS
+## 381         90 degrees V8
 ## 382                   V10
 ## 383                   V10
 ## 384                   V10
 ## 385                   V10
-## 386  90 degrees V8 + KERS
+## 386         90 degrees V8
 ## 387                   V10
 ## 388                   V10
-## 389  90 degrees V8 + KERS
+## 389         90 degrees V8
 ## 390                   V10
 ## 391                   V10
 ## 392         90 degrees V8
@@ -20299,16 +20296,16 @@ summary(model)</code></pre>
 ## 395                   V10
 ## 396                   V10
 ## 397                   V10
-## 398  90 degrees V8 + KERS
+## 398         90 degrees V8
 ## 399                   V10
 ## 400         90 degrees V8
 ## 401         90 degrees V8
 ## 402                   V10
 ## 403         90 degrees V8
 ## 404                   V10
-## 405  90 degrees V8 + KERS
+## 405         90 degrees V8
 ## 406         90 degrees V8
-## 407  90 degrees V8 + KERS
+## 407         90 degrees V8
 ## 408         90 degrees V8
 ## 409         90 degrees V8
 ## 410                   V10
@@ -20318,22 +20315,22 @@ summary(model)</code></pre>
 ## 414         90 degrees V8
 ## 415                   V10
 ## 416         90 degrees V8
-## 417  90 degrees V8 + KERS
+## 417         90 degrees V8
 ## 418         90 degrees V8
-## 419  90 degrees V8 + KERS
-## 420  90 degrees V8 + KERS
+## 419         90 degrees V8
+## 420         90 degrees V8
 ## 421                   V10
 ## 422                   V10
 ## 423                   V10
-## 424  90 degrees V8 + KERS
+## 424         90 degrees V8
 ## 425                   V10
 ## 426         90 degrees V8
 ## 427                   V10
 ## 428                   V10
-## 429  90 degrees V8 + KERS
+## 429         90 degrees V8
 ## 430         90 degrees V8
 ## 431                   V10
-## 432  90 degrees V8 + KERS
+## 432         90 degrees V8
 ## 433                   V10
 ## 434                   V10
 ## 435                   V10
@@ -20351,12 +20348,12 @@ summary(model)</code></pre>
 ## 447                   V10
 ## 448                   V10
 ## 449                   V10
-## 450  90 degrees V8 + KERS
+## 450         90 degrees V8
 ## 451                   V10
 ## 452                   V10
 ## 453                   V10
 ## 454                   V10
-## 455  90 degrees V8 + KERS
+## 455         90 degrees V8
 ## 456         90 degrees V8
 ## 457                   V10
 ## 458                   V10
@@ -20368,20 +20365,20 @@ summary(model)</code></pre>
 ## 464                   V10
 ## 465                   V10
 ## 466         90 degrees V8
-## 467  90 degrees V8 + KERS
-## 468  90 degrees V8 + KERS
+## 467         90 degrees V8
+## 468         90 degrees V8
 ## 469                   V10
 ## 470                   V10
 ## 471         90 degrees V8
-## 472  90 degrees V8 + KERS
+## 472         90 degrees V8
 ## 473         90 degrees V8
-## 474  90 degrees V8 + KERS
+## 474         90 degrees V8
 ## 475         90 degrees V8
 ## 476                   V10
 ## 477                   V10
 ## 478         90 degrees V8
 ## 479                   V10
-## 480  90 degrees V8 + KERS
+## 480         90 degrees V8
 ## 481                   V10
 ## 482                   V10
 ## 483                   V10
@@ -20389,56 +20386,56 @@ summary(model)</code></pre>
 ## 485         90 degrees V8
 ## 486         90 degrees V8
 ## 487         90 degrees V8
-## 488  90 degrees V8 + KERS
+## 488         90 degrees V8
 ## 489                   V10
 ## 490                   V10
 ## 491         90 degrees V8
 ## 492                   V10
 ## 493         90 degrees V8
 ## 494                   V10
-## 495  90 degrees V8 + KERS
-## 496  90 degrees V8 + KERS
+## 495         90 degrees V8
+## 496         90 degrees V8
 ## 497         90 degrees V8
 ## 498  90 degrees V6 + MGUs
 ## 499         90 degrees V8
-## 500  90 degrees V8 + KERS
-## 501  90 degrees V8 + KERS
-## 502  90 degrees V8 + KERS
-## 503  90 degrees V8 + KERS
-## 504  90 degrees V8 + KERS
-## 505  90 degrees V8 + KERS
-## 506  90 degrees V8 + KERS
+## 500         90 degrees V8
+## 501         90 degrees V8
+## 502         90 degrees V8
+## 503         90 degrees V8
+## 504         90 degrees V8
+## 505         90 degrees V8
+## 506         90 degrees V8
 ## 507  90 degrees V6 + MGUs
-## 508  90 degrees V8 + KERS
-## 509  90 degrees V8 + KERS
+## 508         90 degrees V8
+## 509         90 degrees V8
 ## 510  90 degrees V6 + MGUs
 ## 511         90 degrees V8
-## 512  90 degrees V8 + KERS
+## 512         90 degrees V8
 ## 513         90 degrees V8
-## 514  90 degrees V8 + KERS
+## 514         90 degrees V8
 ## 515         90 degrees V8
-## 516  90 degrees V8 + KERS
-## 517  90 degrees V8 + KERS
-## 518  90 degrees V8 + KERS
-## 519  90 degrees V8 + KERS
+## 516         90 degrees V8
+## 517         90 degrees V8
+## 518         90 degrees V8
+## 519         90 degrees V8
 ## 520  90 degrees V6 + MGUs
 ## 521  90 degrees V6 + MGUs
 ## 522         90 degrees V8
-## 523  90 degrees V8 + KERS
+## 523         90 degrees V8
 ## 524  90 degrees V6 + MGUs
-## 525  90 degrees V8 + KERS
+## 525         90 degrees V8
 ## 526  90 degrees V6 + MGUs
 ## 527         90 degrees V8
-## 528  90 degrees V8 + KERS
+## 528         90 degrees V8
 ## 529         90 degrees V8
-## 530  90 degrees V8 + KERS
-## 531  90 degrees V8 + KERS
+## 530         90 degrees V8
+## 531         90 degrees V8
 ## 532         90 degrees V8
 ## 533         90 degrees V8
-## 534  90 degrees V8 + KERS
+## 534         90 degrees V8
 ## 535  90 degrees V6 + MGUs
-## 536  90 degrees V8 + KERS
-## 537  90 degrees V8 + KERS
+## 536         90 degrees V8
+## 537         90 degrees V8
 ## 538         90 degrees V8
 ## 539  90 degrees V6 + MGUs
 ## 540         90 degrees V8
@@ -20446,170 +20443,170 @@ summary(model)</code></pre>
 ## 542         90 degrees V8
 ## 543  90 degrees V6 + MGUs
 ## 544  90 degrees V6 + MGUs
-## 545  90 degrees V8 + KERS
-## 546  90 degrees V8 + KERS
+## 545         90 degrees V8
+## 546         90 degrees V8
 ## 547         90 degrees V8
-## 548  90 degrees V8 + KERS
+## 548         90 degrees V8
 ## 549  90 degrees V6 + MGUs
 ## 550         90 degrees V8
 ## 551  90 degrees V6 + MGUs
 ## 552  90 degrees V6 + MGUs
 ## 553  90 degrees V6 + MGUs
 ## 554         90 degrees V8
-## 555  90 degrees V8 + KERS
+## 555         90 degrees V8
 ## 556         90 degrees V8
-## 557  90 degrees V8 + KERS
-## 558  90 degrees V8 + KERS
+## 557         90 degrees V8
+## 558         90 degrees V8
 ## 559  90 degrees V6 + MGUs
 ## 560  90 degrees V6 + MGUs
 ## 561         90 degrees V8
-## 562  90 degrees V8 + KERS
-## 563  90 degrees V8 + KERS
+## 562         90 degrees V8
+## 563         90 degrees V8
 ## 564         90 degrees V8
 ## 565         90 degrees V8
-## 566  90 degrees V8 + KERS
-## 567  90 degrees V8 + KERS
-## 568  90 degrees V8 + KERS
-## 569  90 degrees V8 + KERS
+## 566         90 degrees V8
+## 567         90 degrees V8
+## 568         90 degrees V8
+## 569         90 degrees V8
 ## 570  90 degrees V6 + MGUs
-## 571  90 degrees V8 + KERS
-## 572  90 degrees V8 + KERS
+## 571         90 degrees V8
+## 572         90 degrees V8
 ## 573  90 degrees V6 + MGUs
-## 574  90 degrees V8 + KERS
+## 574         90 degrees V8
 ## 575  90 degrees V6 + MGUs
-## 576  90 degrees V8 + KERS
-## 577  90 degrees V8 + KERS
+## 576         90 degrees V8
+## 577         90 degrees V8
 ## 578         90 degrees V8
-## 579  90 degrees V8 + KERS
+## 579         90 degrees V8
 ## 580         90 degrees V8
 ## 581  90 degrees V6 + MGUs
-## 582  90 degrees V8 + KERS
-## 583  90 degrees V8 + KERS
+## 582         90 degrees V8
+## 583         90 degrees V8
 ## 584  90 degrees V6 + MGUs
 ## 585  90 degrees V6 + MGUs
 ## 586  90 degrees V6 + MGUs
-## 587  90 degrees V8 + KERS
+## 587         90 degrees V8
 ## 588         90 degrees V8
 ## 589  90 degrees V6 + MGUs
-## 590  90 degrees V8 + KERS
+## 590         90 degrees V8
 ## 591         90 degrees V8
 ## 592  90 degrees V6 + MGUs
-## 593  90 degrees V8 + KERS
-## 594  90 degrees V8 + KERS
+## 593         90 degrees V8
+## 594         90 degrees V8
 ## 595         90 degrees V8
 ## 596  90 degrees V6 + MGUs
 ## 597         90 degrees V8
-## 598  90 degrees V8 + KERS
+## 598         90 degrees V8
 ## 599  90 degrees V6 + MGUs
-## 600  90 degrees V8 + KERS
+## 600         90 degrees V8
 ## 601  90 degrees V6 + MGUs
-## 602  90 degrees V8 + KERS
-## 603  90 degrees V8 + KERS
+## 602         90 degrees V8
+## 603         90 degrees V8
 ## 604  90 degrees V6 + MGUs
 ## 605  90 degrees V6 + MGUs
-## 606  90 degrees V8 + KERS
+## 606         90 degrees V8
 ## 607         90 degrees V8
-## 608  90 degrees V8 + KERS
-## 609  90 degrees V8 + KERS
-## 610  90 degrees V8 + KERS
+## 608         90 degrees V8
+## 609         90 degrees V8
+## 610         90 degrees V8
 ## 611         90 degrees V8
-## 612  90 degrees V8 + KERS
+## 612         90 degrees V8
 ## 613  90 degrees V6 + MGUs
-## 614  90 degrees V8 + KERS
-## 615  90 degrees V8 + KERS
-## 616  90 degrees V8 + KERS
-## 617  90 degrees V8 + KERS
+## 614         90 degrees V8
+## 615         90 degrees V8
+## 616         90 degrees V8
+## 617         90 degrees V8
 ## 618         90 degrees V8
 ## 619  90 degrees V6 + MGUs
 ## 620  90 degrees V6 + MGUs
 ## 621         90 degrees V8
 ## 622  90 degrees V6 + MGUs
-## 623  90 degrees V8 + KERS
-## 624  90 degrees V8 + KERS
+## 623         90 degrees V8
+## 624         90 degrees V8
 ## 625         90 degrees V8
 ## 626         90 degrees V8
 ## 627  90 degrees V6 + MGUs
-## 628  90 degrees V8 + KERS
+## 628         90 degrees V8
 ## 629         90 degrees V8
 ## 630         90 degrees V8
-## 631  90 degrees V8 + KERS
+## 631         90 degrees V8
 ## 632         90 degrees V8
-## 633  90 degrees V8 + KERS
+## 633         90 degrees V8
 ## 634         90 degrees V8
-## 635  90 degrees V8 + KERS
-## 636  90 degrees V8 + KERS
+## 635         90 degrees V8
+## 636         90 degrees V8
 ## 637  90 degrees V6 + MGUs
 ## 638         90 degrees V8
 ## 639  90 degrees V6 + MGUs
-## 640  90 degrees V8 + KERS
+## 640         90 degrees V8
 ## 641  90 degrees V6 + MGUs
 ## 642         90 degrees V8
-## 643  90 degrees V8 + KERS
+## 643         90 degrees V8
 ## 644  90 degrees V6 + MGUs
 ## 645         90 degrees V8
-## 646  90 degrees V8 + KERS
-## 647  90 degrees V8 + KERS
-## 648  90 degrees V8 + KERS
-## 649  90 degrees V8 + KERS
-## 650  90 degrees V8 + KERS
+## 646         90 degrees V8
+## 647         90 degrees V8
+## 648         90 degrees V8
+## 649         90 degrees V8
+## 650         90 degrees V8
 ## 651  90 degrees V6 + MGUs
 ## 652  90 degrees V6 + MGUs
-## 653  90 degrees V8 + KERS
-## 654  90 degrees V8 + KERS
+## 653         90 degrees V8
+## 654         90 degrees V8
 ## 655         90 degrees V8
 ## 656  90 degrees V6 + MGUs
 ## 657         90 degrees V8
-## 658  90 degrees V8 + KERS
-## 659  90 degrees V8 + KERS
-## 660  90 degrees V8 + KERS
+## 658         90 degrees V8
+## 659         90 degrees V8
+## 660         90 degrees V8
 ## 661  90 degrees V6 + MGUs
-## 662  90 degrees V8 + KERS
+## 662         90 degrees V8
 ## 663  90 degrees V6 + MGUs
 ## 664  90 degrees V6 + MGUs
-## 665  90 degrees V8 + KERS
+## 665         90 degrees V8
 ## 666  90 degrees V6 + MGUs
 ## 667         90 degrees V8
 ## 668  90 degrees V6 + MGUs
 ## 669  90 degrees V6 + MGUs
 ## 670  90 degrees V6 + MGUs
 ## 671  90 degrees V6 + MGUs
-## 672  90 degrees V8 + KERS
-## 673  90 degrees V8 + KERS
-## 674  90 degrees V8 + KERS
+## 672         90 degrees V8
+## 673         90 degrees V8
+## 674         90 degrees V8
 ## 675         90 degrees V8
-## 676  90 degrees V8 + KERS
-## 677  90 degrees V8 + KERS
+## 676         90 degrees V8
+## 677         90 degrees V8
 ## 678  90 degrees V6 + MGUs
 ## 679         90 degrees V8
 ## 680         90 degrees V8
-## 681  90 degrees V8 + KERS
+## 681         90 degrees V8
 ## 682         90 degrees V8
 ## 683  90 degrees V6 + MGUs
-## 684  90 degrees V8 + KERS
-## 685  90 degrees V8 + KERS
-## 686  90 degrees V8 + KERS
+## 684         90 degrees V8
+## 685         90 degrees V8
+## 686         90 degrees V8
 ## 687         90 degrees V8
 ## 688         90 degrees V8
-## 689  90 degrees V8 + KERS
+## 689         90 degrees V8
 ## 690         90 degrees V8
 ## 691         90 degrees V8
 ## 692  90 degrees V6 + MGUs
 ## 693  90 degrees V6 + MGUs
 ## 694  90 degrees V6 + MGUs
 ## 695  90 degrees V6 + MGUs
-## 696  90 degrees V8 + KERS
+## 696         90 degrees V8
 ## 697  90 degrees V6 + MGUs
 ## 698         90 degrees V8
 ## 699         90 degrees V8
 ## 700         90 degrees V8
-## 701  90 degrees V8 + KERS
+## 701         90 degrees V8
 ## 702         90 degrees V8
-## 703  90 degrees V8 + KERS
+## 703         90 degrees V8
 ## 704         90 degrees V8
 ## 705  90 degrees V6 + MGUs
 ## 706         90 degrees V8
 ## 707  90 degrees V6 + MGUs
-## 708  90 degrees V8 + KERS
+## 708         90 degrees V8
 ## 709  90 degrees V6 + MGUs
 ## 710  90 degrees V6 + MGUs
 ## 711  90 degrees V6 + MGUs
@@ -20624,44 +20621,44 @@ summary(model)</code></pre>
 ## 720  90 degrees V6 + MGUs
 ## 721                   V10
 ## 722         90 degrees V8
-## 723  90 degrees V8 + KERS
+## 723         90 degrees V8
 ## 724                   V10
 ## 725  90 degrees V6 + MGUs
 ## 726         90 degrees V8
-## 727  90 degrees V8 + KERS
+## 727         90 degrees V8
 ## 728         90 degrees V8
-## 729  90 degrees V8 + KERS
+## 729         90 degrees V8
 ## 730  90 degrees V6 + MGUs
-## 731  90 degrees V8 + KERS
+## 731         90 degrees V8
 ## 732  90 degrees V6 + MGUs
-## 733  90 degrees V8 + KERS
-## 734  90 degrees V8 + KERS
+## 733         90 degrees V8
+## 734         90 degrees V8
 ## 735  90 degrees V6 + MGUs
-## 736  90 degrees V8 + KERS
+## 736         90 degrees V8
 ## 737         90 degrees V8
 ## 738  90 degrees V6 + MGUs
-## 739  90 degrees V8 + KERS
-## 740  90 degrees V8 + KERS
-## 741  90 degrees V8 + KERS
+## 739         90 degrees V8
+## 740         90 degrees V8
+## 741         90 degrees V8
 ## 742                   V10
 ## 743                   V10
-## 744  90 degrees V8 + KERS
+## 744         90 degrees V8
 ## 745  90 degrees V6 + MGUs
 ## 746         90 degrees V8
 ## 747  90 degrees V6 + MGUs
 ## 748  90 degrees V6 + MGUs
-## 749  90 degrees V8 + KERS
+## 749         90 degrees V8
 ## 750  90 degrees V6 + MGUs
-## 751  90 degrees V8 + KERS
+## 751         90 degrees V8
 ## 752         90 degrees V8
-## 753  90 degrees V8 + KERS
+## 753         90 degrees V8
 ## 754  90 degrees V6 + MGUs
 ## 755  90 degrees V6 + MGUs
 ## 756                   V10
 ## 757                   V10
 ## 758  90 degrees V6 + MGUs
-## 759  90 degrees V8 + KERS
-## 760  90 degrees V8 + KERS
+## 759         90 degrees V8
+## 760         90 degrees V8
 ## 761  90 degrees V6 + MGUs
 ## 762  90 degrees V6 + MGUs
 ## 763  90 degrees V6 + MGUs
@@ -20671,26 +20668,26 @@ summary(model)</code></pre>
 ## 767  90 degrees V6 + MGUs
 ## 768         90 degrees V8
 ## 769  90 degrees V6 + MGUs
-## 770  90 degrees V8 + KERS
-## 771  90 degrees V8 + KERS
+## 770         90 degrees V8
+## 771         90 degrees V8
 ## 772                   V10
 ## 773  90 degrees V6 + MGUs
-## 774  90 degrees V8 + KERS
-## 775  90 degrees V8 + KERS
+## 774         90 degrees V8
+## 775         90 degrees V8
 ## 776         90 degrees V8
 ## 777         90 degrees V8
 ## 778  90 degrees V6 + MGUs
 ## 779  90 degrees V6 + MGUs
-## 780  90 degrees V8 + KERS
-## 781  90 degrees V8 + KERS
+## 780         90 degrees V8
+## 781         90 degrees V8
 ## 782  90 degrees V6 + MGUs
 ## 783                   V10
 ## 784  90 degrees V6 + MGUs
-## 785  90 degrees V8 + KERS
+## 785         90 degrees V8
 ## 786         90 degrees V8
 ## 787  90 degrees V6 + MGUs
-## 788  90 degrees V8 + KERS
-## 789  90 degrees V8 + KERS
+## 788         90 degrees V8
+## 789         90 degrees V8
 ## 790  90 degrees V6 + MGUs
 ## 791  90 degrees V6 + MGUs
 ## 792                   V10
@@ -20699,7 +20696,7 @@ summary(model)</code></pre>
 ## 795                   V10
 ## 796                   V10
 ## 797                   V10
-## 798  90 degrees V8 + KERS
+## 798         90 degrees V8
 ## 799  90 degrees V6 + MGUs
 ## 800                   V10
 ## 801  90 degrees V6 + MGUs
@@ -20707,22 +20704,22 @@ summary(model)</code></pre>
 ## 803                   V10
 ## 804                   V10
 ## 805                   V10
-## 806  90 degrees V8 + KERS
-## 807  90 degrees V8 + KERS
+## 806         90 degrees V8
+## 807         90 degrees V8
 ## 808  90 degrees V6 + MGUs
 ## 809  90 degrees V6 + MGUs
-## 810  90 degrees V8 + KERS
+## 810         90 degrees V8
 ## 811         90 degrees V8
 ## 812  90 degrees V6 + MGUs
 ## 813  90 degrees V6 + MGUs
-## 814  90 degrees V8 + KERS
+## 814         90 degrees V8
 ## 815  90 degrees V6 + MGUs
-## 816  90 degrees V8 + KERS
+## 816         90 degrees V8
 ## 817                   V10
 ## 818                   V10
-## 819  90 degrees V8 + KERS
+## 819         90 degrees V8
 ## 820                   V10
-## 821  90 degrees V8 + KERS
+## 821         90 degrees V8
 ## 822  90 degrees V6 + MGUs
 ## 823  90 degrees V6 + MGUs
 ## 824         90 degrees V8
@@ -20736,23 +20733,23 @@ summary(model)</code></pre>
 ## 832                   V10
 ## 833  90 degrees V6 + MGUs
 ## 834  90 degrees V6 + MGUs
-## 835  90 degrees V8 + KERS
+## 835         90 degrees V8
 ## 836                   V10
 ## 837  90 degrees V6 + MGUs
 ## 838  90 degrees V6 + MGUs
 ## 839                   V10
-## 840  90 degrees V8 + KERS
+## 840         90 degrees V8
 ## 841  90 degrees V6 + MGUs
-## 842  90 degrees V8 + KERS
-## 843  90 degrees V8 + KERS
+## 842         90 degrees V8
+## 843         90 degrees V8
 ## 844  90 degrees V6 + MGUs
 ## 845         90 degrees V8
-## 846  90 degrees V8 + KERS
+## 846         90 degrees V8
 ## 847                   V10
 ## 848  90 degrees V6 + MGUs
-## 849  90 degrees V8 + KERS
+## 849         90 degrees V8
 ## 850  90 degrees V6 + MGUs
-## 851  90 degrees V8 + KERS
+## 851         90 degrees V8
 ## 852  90 degrees V6 + MGUs
 ## 853  90 degrees V6 + MGUs
 ## 854  90 degrees V6 + MGUs
@@ -20760,28 +20757,28 @@ summary(model)</code></pre>
 ## 856         90 degrees V8
 ## 857                   V10
 ## 858         90 degrees V8
-## 859  90 degrees V8 + KERS
-## 860  90 degrees V8 + KERS
-## 861  90 degrees V8 + KERS
+## 859         90 degrees V8
+## 860         90 degrees V8
+## 861         90 degrees V8
 ## 862  90 degrees V6 + MGUs
 ## 863  90 degrees V6 + MGUs
 ## 864         90 degrees V8
 ## 865  90 degrees V6 + MGUs
 ## 866                   V10
 ## 867         90 degrees V8
-## 868  90 degrees V8 + KERS
+## 868         90 degrees V8
 ## 869         90 degrees V8
-## 870  90 degrees V8 + KERS
+## 870         90 degrees V8
 ## 871  90 degrees V6 + MGUs
 ## 872                   V10
 ## 873                   V10
 ## 874  90 degrees V6 + MGUs
 ## 875  90 degrees V6 + MGUs
-## 876  90 degrees V8 + KERS
+## 876         90 degrees V8
 ## 877  90 degrees V6 + MGUs
-## 878  90 degrees V8 + KERS
-## 879  90 degrees V8 + KERS
-## 880  90 degrees V8 + KERS
+## 878         90 degrees V8
+## 879         90 degrees V8
+## 880         90 degrees V8
 ## 881                   V10
 ## 882         90 degrees V8
 ## 883                   V10
@@ -20790,21 +20787,21 @@ summary(model)</code></pre>
 ## 886                   V10
 ## 887  90 degrees V6 + MGUs
 ## 888                   V10
-## 889  90 degrees V8 + KERS
+## 889         90 degrees V8
 ## 890         90 degrees V8
 ## 891         90 degrees V8
 ## 892  90 degrees V6 + MGUs
-## 893  90 degrees V8 + KERS
+## 893         90 degrees V8
 ## 894         90 degrees V8
-## 895  90 degrees V8 + KERS
-## 896  90 degrees V8 + KERS
+## 895         90 degrees V8
+## 896         90 degrees V8
 ## 897  90 degrees V6 + MGUs
 ## 898         90 degrees V8
 ## 899  90 degrees V6 + MGUs
-## 900  90 degrees V8 + KERS
+## 900         90 degrees V8
 ## 901  90 degrees V6 + MGUs
 ## 902  90 degrees V6 + MGUs
-## 903  90 degrees V8 + KERS
+## 903         90 degrees V8
 ## 904                   V10
 ## 905  90 degrees V6 + MGUs
 ## 906         90 degrees V8
@@ -20812,56 +20809,56 @@ summary(model)</code></pre>
 ## 908                   V10
 ## 909                   V10
 ## 910  90 degrees V6 + MGUs
-## 911  90 degrees V8 + KERS
-## 912  90 degrees V8 + KERS
+## 911         90 degrees V8
+## 912         90 degrees V8
 ## 913  90 degrees V6 + MGUs
-## 914  90 degrees V8 + KERS
+## 914         90 degrees V8
 ## 915  90 degrees V6 + MGUs
 ## 916                   V10
 ## 917  90 degrees V6 + MGUs
 ## 918         90 degrees V8
 ## 919  90 degrees V6 + MGUs
 ## 920  90 degrees V6 + MGUs
-## 921  90 degrees V8 + KERS
+## 921         90 degrees V8
 ## 922  90 degrees V6 + MGUs
 ## 923  90 degrees V6 + MGUs
 ## 924         90 degrees V8
 ## 925  90 degrees V6 + MGUs
 ## 926  90 degrees V6 + MGUs
-## 927  90 degrees V8 + KERS
+## 927         90 degrees V8
 ## 928  90 degrees V6 + MGUs
-## 929  90 degrees V8 + KERS
+## 929         90 degrees V8
 ## 930  90 degrees V6 + MGUs
-## 931  90 degrees V8 + KERS
+## 931         90 degrees V8
 ## 932  90 degrees V6 + MGUs
 ## 933  90 degrees V6 + MGUs
-## 934  90 degrees V8 + KERS
+## 934         90 degrees V8
 ## 935         90 degrees V8
-## 936  90 degrees V8 + KERS
+## 936         90 degrees V8
 ## 937  90 degrees V6 + MGUs
 ## 938  90 degrees V6 + MGUs
 ## 939                   V10
 ## 940  90 degrees V6 + MGUs
 ## 941         90 degrees V8
 ## 942  90 degrees V6 + MGUs
-## 943  90 degrees V8 + KERS
+## 943         90 degrees V8
 ## 944         90 degrees V8
 ## 945  90 degrees V6 + MGUs
-## 946  90 degrees V8 + KERS
+## 946         90 degrees V8
 ## 947  90 degrees V6 + MGUs
 ## 948                   V10
-## 949  90 degrees V8 + KERS
+## 949         90 degrees V8
 ## 950  90 degrees V6 + MGUs
 ## 951  90 degrees V6 + MGUs
-## 952  90 degrees V8 + KERS
+## 952         90 degrees V8
 ## 953  90 degrees V6 + MGUs
 ## 954  90 degrees V6 + MGUs
 ## 955  90 degrees V6 + MGUs
 ## 956  90 degrees V6 + MGUs
 ## 957  90 degrees V6 + MGUs
-## 958  90 degrees V8 + KERS
+## 958         90 degrees V8
 ## 959         90 degrees V8
-## 960  90 degrees V8 + KERS
+## 960         90 degrees V8
 ## 961  90 degrees V6 + MGUs
 ## 962         90 degrees V8
 ## 963                   V10
@@ -20870,8 +20867,8 @@ summary(model)</code></pre>
 ## 966                   V10
 ## 967                   V10
 ## 968                   V10
-## 969  90 degrees V8 + KERS
-## 970  90 degrees V8 + KERS
+## 969         90 degrees V8
+## 970         90 degrees V8
 ## 971  90 degrees V6 + MGUs
 ## 972  90 degrees V6 + MGUs
 ## 973                   V10
@@ -20881,40 +20878,40 @@ summary(model)</code></pre>
 ## 977  90 degrees V6 + MGUs
 ## 978                   V10
 ## 979  90 degrees V6 + MGUs
-## 980  90 degrees V8 + KERS
-## 981  90 degrees V8 + KERS
+## 980         90 degrees V8
+## 981         90 degrees V8
 ## 982                   V10
 ## 983  90 degrees V6 + MGUs
 ## 984  90 degrees V6 + MGUs
 ## 985                   V10
 ## 986         90 degrees V8
 ## 987  90 degrees V6 + MGUs
-## 988  90 degrees V8 + KERS
+## 988         90 degrees V8
 ## 989  90 degrees V6 + MGUs
 ## 990  90 degrees V6 + MGUs
 ## 991                   V10
 ## 992                   V10
 ## 993         90 degrees V8
-## 994  90 degrees V8 + KERS
-## 995  90 degrees V8 + KERS
+## 994         90 degrees V8
+## 995         90 degrees V8
 ## 996         90 degrees V8
-## 997  90 degrees V8 + KERS
+## 997         90 degrees V8
 ## 998         90 degrees V8
 ## 999  90 degrees V6 + MGUs
 ## 1000                  V10
-## 1001 90 degrees V8 + KERS
-## 1002 90 degrees V8 + KERS
-## 1003 90 degrees V8 + KERS
+## 1001        90 degrees V8
+## 1002        90 degrees V8
+## 1003        90 degrees V8
 ## 1004        90 degrees V8
 ## 1005                  V10
 ## 1006 90 degrees V6 + MGUs
 ## 1007                  V10
 ## 1008 90 degrees V6 + MGUs
-## 1009 90 degrees V8 + KERS
+## 1009        90 degrees V8
 ## 1010        90 degrees V8
 ## 1011                  V10
-## 1012 90 degrees V8 + KERS
-## 1013 90 degrees V8 + KERS
+## 1012        90 degrees V8
+## 1013        90 degrees V8
 ## 1014 90 degrees V6 + MGUs
 ## 1015 90 degrees V6 + MGUs
 ## 1016                  V10
@@ -20929,29 +20926,29 @@ summary(model)</code></pre>
 ## 1025 90 degrees V6 + MGUs
 ## 1026        90 degrees V8
 ## 1027 90 degrees V6 + MGUs
-## 1028 90 degrees V8 + KERS
+## 1028        90 degrees V8
 ## 1029 90 degrees V6 + MGUs
 ## 1030                  V10
 ## 1031 90 degrees V6 + MGUs
 ## 1032        90 degrees V8
-## 1033 90 degrees V8 + KERS
+## 1033        90 degrees V8
 ## 1034 90 degrees V6 + MGUs
 ## 1035        90 degrees V8
 ## 1036 90 degrees V6 + MGUs
 ## 1037 90 degrees V6 + MGUs
-## 1038 90 degrees V8 + KERS
-## 1039 90 degrees V8 + KERS
+## 1038        90 degrees V8
+## 1039        90 degrees V8
 ## 1040        90 degrees V8
 ## 1041                  V10
 ## 1042 90 degrees V6 + MGUs
-## 1043 90 degrees V8 + KERS
-## 1044 90 degrees V8 + KERS
+## 1043        90 degrees V8
+## 1044        90 degrees V8
 ## 1045 90 degrees V6 + MGUs
 ## 1046                  V10
 ## 1047        90 degrees V8
 ## 1048                  V10
 ## 1049                  V10
-## 1050 90 degrees V8 + KERS
+## 1050        90 degrees V8
 ## 1051                  V10
 ## 1052                  V10
 ## 1053 90 degrees V6 + MGUs
@@ -20961,178 +20958,178 @@ summary(model)</code></pre>
 ## 1057 90 degrees V6 + MGUs
 ## 1058 90 degrees V6 + MGUs
 ## 1059        90 degrees V8
-## 1060 90 degrees V8 + KERS
+## 1060        90 degrees V8
 ## 1061        90 degrees V8
 ## 1062        90 degrees V8
-## 1063 90 degrees V8 + KERS
-## 1064 90 degrees V8 + KERS
+## 1063        90 degrees V8
+## 1064        90 degrees V8
 ## 1065        90 degrees V8
 ## 1066        90 degrees V8
 ## 1067        90 degrees V8
-## 1068 90 degrees V8 + KERS
-## 1069 90 degrees V8 + KERS
-## 1070 90 degrees V8 + KERS
+## 1068        90 degrees V8
+## 1069        90 degrees V8
+## 1070        90 degrees V8
 ## 1071        90 degrees V8
-## 1072 90 degrees V8 + KERS
-## 1073 90 degrees V8 + KERS
-## 1074 90 degrees V8 + KERS
-## 1075 90 degrees V8 + KERS
-## 1076 90 degrees V8 + KERS
-## 1077 90 degrees V8 + KERS
-## 1078 90 degrees V8 + KERS
-## 1079 90 degrees V8 + KERS
-## 1080 90 degrees V8 + KERS
+## 1072        90 degrees V8
+## 1073        90 degrees V8
+## 1074        90 degrees V8
+## 1075        90 degrees V8
+## 1076        90 degrees V8
+## 1077        90 degrees V8
+## 1078        90 degrees V8
+## 1079        90 degrees V8
+## 1080        90 degrees V8
 ## 1081        90 degrees V8
-## 1082 90 degrees V8 + KERS
-## 1083 90 degrees V8 + KERS
+## 1082        90 degrees V8
+## 1083        90 degrees V8
 ## 1084        90 degrees V8
 ## 1085        90 degrees V8
 ## 1086        90 degrees V8
-## 1087 90 degrees V8 + KERS
-## 1088 90 degrees V8 + KERS
+## 1087        90 degrees V8
+## 1088        90 degrees V8
 ## 1089        90 degrees V8
 ## 1090        90 degrees V8
-## 1091 90 degrees V8 + KERS
-## 1092 90 degrees V8 + KERS
+## 1091        90 degrees V8
+## 1092        90 degrees V8
 ## 1093        90 degrees V8
-## 1094 90 degrees V8 + KERS
-## 1095 90 degrees V8 + KERS
-## 1096 90 degrees V8 + KERS
-## 1097 90 degrees V8 + KERS
-## 1098 90 degrees V8 + KERS
-## 1099 90 degrees V8 + KERS
-## 1100 90 degrees V8 + KERS
-## 1101 90 degrees V8 + KERS
+## 1094        90 degrees V8
+## 1095        90 degrees V8
+## 1096        90 degrees V8
+## 1097        90 degrees V8
+## 1098        90 degrees V8
+## 1099        90 degrees V8
+## 1100        90 degrees V8
+## 1101        90 degrees V8
 ## 1102        90 degrees V8
 ## 1103        90 degrees V8
-## 1104 90 degrees V8 + KERS
-## 1105 90 degrees V8 + KERS
-## 1106 90 degrees V8 + KERS
-## 1107 90 degrees V8 + KERS
-## 1108 90 degrees V8 + KERS
+## 1104        90 degrees V8
+## 1105        90 degrees V8
+## 1106        90 degrees V8
+## 1107        90 degrees V8
+## 1108        90 degrees V8
 ## 1109        90 degrees V8
-## 1110 90 degrees V8 + KERS
+## 1110        90 degrees V8
 ## 1111        90 degrees V8
-## 1112 90 degrees V8 + KERS
-## 1113 90 degrees V8 + KERS
-## 1114 90 degrees V8 + KERS
-## 1115 90 degrees V8 + KERS
+## 1112        90 degrees V8
+## 1113        90 degrees V8
+## 1114        90 degrees V8
+## 1115        90 degrees V8
 ## 1116        90 degrees V8
 ## 1117        90 degrees V8
-## 1118 90 degrees V8 + KERS
-## 1119 90 degrees V8 + KERS
-## 1120 90 degrees V8 + KERS
-## 1121 90 degrees V8 + KERS
-## 1122 90 degrees V8 + KERS
-## 1123 90 degrees V8 + KERS
+## 1118        90 degrees V8
+## 1119        90 degrees V8
+## 1120        90 degrees V8
+## 1121        90 degrees V8
+## 1122        90 degrees V8
+## 1123        90 degrees V8
 ## 1124        90 degrees V8
 ## 1125        90 degrees V8
-## 1126 90 degrees V8 + KERS
-## 1127 90 degrees V8 + KERS
-## 1128 90 degrees V8 + KERS
+## 1126        90 degrees V8
+## 1127        90 degrees V8
+## 1128        90 degrees V8
 ## 1129        90 degrees V8
-## 1130 90 degrees V8 + KERS
-## 1131 90 degrees V8 + KERS
-## 1132 90 degrees V8 + KERS
+## 1130        90 degrees V8
+## 1131        90 degrees V8
+## 1132        90 degrees V8
 ## 1133        90 degrees V8
-## 1134 90 degrees V8 + KERS
-## 1135 90 degrees V8 + KERS
-## 1136 90 degrees V8 + KERS
-## 1137 90 degrees V8 + KERS
+## 1134        90 degrees V8
+## 1135        90 degrees V8
+## 1136        90 degrees V8
+## 1137        90 degrees V8
 ## 1138        90 degrees V8
 ## 1139        90 degrees V8
-## 1140 90 degrees V8 + KERS
-## 1141 90 degrees V8 + KERS
+## 1140        90 degrees V8
+## 1141        90 degrees V8
 ## 1142        90 degrees V8
-## 1143 90 degrees V8 + KERS
-## 1144 90 degrees V8 + KERS
-## 1145 90 degrees V8 + KERS
-## 1146 90 degrees V8 + KERS
-## 1147 90 degrees V8 + KERS
-## 1148 90 degrees V8 + KERS
-## 1149 90 degrees V8 + KERS
-## 1150 90 degrees V8 + KERS
+## 1143        90 degrees V8
+## 1144        90 degrees V8
+## 1145        90 degrees V8
+## 1146        90 degrees V8
+## 1147        90 degrees V8
+## 1148        90 degrees V8
+## 1149        90 degrees V8
+## 1150        90 degrees V8
 ## 1151        90 degrees V8
-## 1152 90 degrees V8 + KERS
-## 1153 90 degrees V8 + KERS
+## 1152        90 degrees V8
+## 1153        90 degrees V8
 ## 1154        90 degrees V8
-## 1155 90 degrees V8 + KERS
-## 1156 90 degrees V8 + KERS
-## 1157 90 degrees V8 + KERS
-## 1158 90 degrees V8 + KERS
+## 1155        90 degrees V8
+## 1156        90 degrees V8
+## 1157        90 degrees V8
+## 1158        90 degrees V8
 ## 1159        90 degrees V8
 ## 1160        90 degrees V8
-## 1161 90 degrees V8 + KERS
-## 1162 90 degrees V8 + KERS
+## 1161        90 degrees V8
+## 1162        90 degrees V8
 ## 1163        90 degrees V8
 ## 1164        90 degrees V8
-## 1165 90 degrees V8 + KERS
+## 1165        90 degrees V8
 ## 1166        90 degrees V8
-## 1167 90 degrees V8 + KERS
-## 1168 90 degrees V8 + KERS
+## 1167        90 degrees V8
+## 1168        90 degrees V8
 ## 1169        90 degrees V8
-## 1170 90 degrees V8 + KERS
-## 1171 90 degrees V8 + KERS
+## 1170        90 degrees V8
+## 1171        90 degrees V8
 ## 1172        90 degrees V8
-## 1173 90 degrees V8 + KERS
-## 1174 90 degrees V8 + KERS
-## 1175 90 degrees V8 + KERS
+## 1173        90 degrees V8
+## 1174        90 degrees V8
+## 1175        90 degrees V8
 ## 1176        90 degrees V8
 ## 1177        90 degrees V8
-## 1178 90 degrees V8 + KERS
+## 1178        90 degrees V8
 ## 1179        90 degrees V8
 ## 1180        90 degrees V8
 ## 1181        90 degrees V8
-## 1182 90 degrees V8 + KERS
+## 1182        90 degrees V8
 ## 1183        90 degrees V8
-## 1184 90 degrees V8 + KERS
+## 1184        90 degrees V8
 ## 1185        90 degrees V8
-## 1186 90 degrees V8 + KERS
-## 1187 90 degrees V8 + KERS
+## 1186        90 degrees V8
+## 1187        90 degrees V8
 ## 1188        90 degrees V8
-## 1189 90 degrees V8 + KERS
+## 1189        90 degrees V8
 ## 1190        90 degrees V8
 ## 1191        90 degrees V8
 ## 1192        90 degrees V8
 ## 1193        90 degrees V8
-## 1194 90 degrees V8 + KERS
+## 1194        90 degrees V8
 ## 1195        90 degrees V8
-## 1196 90 degrees V8 + KERS
+## 1196        90 degrees V8
 ## 1197        90 degrees V8
 ## 1198        90 degrees V8
 ## 1199        90 degrees V8
-## 1200 90 degrees V8 + KERS
-## 1201 90 degrees V8 + KERS
-## 1202 90 degrees V8 + KERS
+## 1200        90 degrees V8
+## 1201        90 degrees V8
+## 1202        90 degrees V8
 ## 1203        90 degrees V8
 ## 1204        90 degrees V8
-## 1205 90 degrees V8 + KERS
-## 1206 90 degrees V8 + KERS
+## 1205        90 degrees V8
+## 1206        90 degrees V8
 ## 1207        90 degrees V8
-## 1208 90 degrees V8 + KERS
+## 1208        90 degrees V8
 ## 1209        90 degrees V8
 ## 1210        90 degrees V8
 ## 1211        90 degrees V8
 ## 1212        90 degrees V8
-## 1213 90 degrees V8 + KERS
-## 1214 90 degrees V8 + KERS
+## 1213        90 degrees V8
+## 1214        90 degrees V8
 ## 1215        90 degrees V8
 ## 1216        90 degrees V8
 ## 1217        90 degrees V8
-## 1218 90 degrees V8 + KERS
+## 1218        90 degrees V8
 ## 1219        90 degrees V8
 ## 1220        90 degrees V8
-## 1221 90 degrees V8 + KERS
+## 1221        90 degrees V8
 ## 1222        90 degrees V8
 ## 1223        90 degrees V8
-## 1224 90 degrees V8 + KERS
-## 1225 90 degrees V8 + KERS
+## 1224        90 degrees V8
+## 1225        90 degrees V8
 ## 1226        90 degrees V8
 ## 1227        90 degrees V8
-## 1228 90 degrees V8 + KERS
+## 1228        90 degrees V8
 ## 1229        90 degrees V8
 ## 1230        90 degrees V8
-## 1231 90 degrees V8 + KERS
+## 1231        90 degrees V8
 ## 1232        90 degrees V8
 ## 1233        90 degrees V8
 ## 1234        90 degrees V8
@@ -21150,7 +21147,7 @@ summary(model)</code></pre>
 ## 1246 90 degrees V6 + MGUs
 ## 1247                  V10
 ## 1248 90 degrees V6 + MGUs
-## 1249 90 degrees V8 + KERS
+## 1249        90 degrees V8
 ## 1250                  V10
 ## 1251 90 degrees V6 + MGUs
 ## 1252 90 degrees V6 + MGUs
@@ -21173,9 +21170,9 @@ summary(model)</code></pre>
 ## 1269 90 degrees V6 + MGUs
 ## 1270                  V10
 ## 1271 90 degrees V6 + MGUs
-## 1272 90 degrees V8 + KERS
+## 1272        90 degrees V8
 ## 1273                  V10
-## 1274 90 degrees V8 + KERS
+## 1274        90 degrees V8
 ## 1275 90 degrees V6 + MGUs
 ## 1276                  V10
 ## 1277        90 degrees V8
@@ -21187,12 +21184,12 @@ summary(model)</code></pre>
 ## 1283 90 degrees V6 + MGUs
 ## 1284                  V10
 ## 1285 90 degrees V6 + MGUs
-## 1286 90 degrees V8 + KERS
+## 1286        90 degrees V8
 ## 1287                  V10
 ## 1288                  V10
 ## 1289 90 degrees V6 + MGUs
 ## 1290 90 degrees V6 + MGUs
-## 1291 90 degrees V8 + KERS
+## 1291        90 degrees V8
 ## 1292 90 degrees V6 + MGUs
 ## 1293 90 degrees V6 + MGUs
 ## 1294        90 degrees V8
@@ -21207,30 +21204,30 @@ summary(model)</code></pre>
 ## 1303 90 degrees V6 + MGUs
 ## 1304                  V10
 ## 1305                  V10
-## 1306 90 degrees V8 + KERS
+## 1306        90 degrees V8
 ## 1307        90 degrees V8
-## 1308 90 degrees V8 + KERS
-## 1309 90 degrees V8 + KERS
-## 1310 90 degrees V8 + KERS
+## 1308        90 degrees V8
+## 1309        90 degrees V8
+## 1310        90 degrees V8
 ## 1311 90 degrees V6 + MGUs
 ## 1312 90 degrees V6 + MGUs
 ## 1313                  V10
 ## 1314 90 degrees V6 + MGUs
-## 1315 90 degrees V8 + KERS
+## 1315        90 degrees V8
 ## 1316 90 degrees V6 + MGUs
 ## 1317        90 degrees V8
 ## 1318 90 degrees V6 + MGUs
 ## 1319 90 degrees V6 + MGUs
 ## 1320                  V10
 ## 1321 90 degrees V6 + MGUs
-## 1322 90 degrees V8 + KERS
+## 1322        90 degrees V8
 ## 1323 90 degrees V6 + MGUs
 ## 1324                  V10
 ## 1325        90 degrees V8
 ## 1326 90 degrees V6 + MGUs
 ## 1327                  V10
 ## 1328 90 degrees V6 + MGUs
-## 1329 90 degrees V8 + KERS
+## 1329        90 degrees V8
 ## 1330                  V10
 ## 1331                  V10
 ## 1332 90 degrees V6 + MGUs
@@ -21240,9 +21237,9 @@ summary(model)</code></pre>
 ## 1336                  V10
 ## 1337 90 degrees V6 + MGUs
 ## 1338        90 degrees V8
-## 1339 90 degrees V8 + KERS
+## 1339        90 degrees V8
 ## 1340        90 degrees V8
-## 1341 90 degrees V8 + KERS
+## 1341        90 degrees V8
 ## 1342                  V10
 ## 1343 90 degrees V6 + MGUs
 ## 1344 90 degrees V6 + MGUs
@@ -21257,19 +21254,19 @@ summary(model)</code></pre>
 ## 1353                  V10
 ## 1354                  V10
 ## 1355                  V10
-## 1356 90 degrees V8 + KERS
-## 1357 90 degrees V8 + KERS
+## 1356        90 degrees V8
+## 1357        90 degrees V8
 ## 1358 90 degrees V6 + MGUs
 ## 1359 90 degrees V6 + MGUs
 ## 1360 90 degrees V6 + MGUs
 ## 1361                  V10
-## 1362 90 degrees V8 + KERS
+## 1362        90 degrees V8
 ## 1363 90 degrees V6 + MGUs
 ## 1364                  V10
 ## 1365 90 degrees V6 + MGUs
 ## 1366 90 degrees V6 + MGUs
 ## 1367 90 degrees V6 + MGUs
-## 1368 90 degrees V8 + KERS
+## 1368        90 degrees V8
 ## 1369        90 degrees V8
 ## 1370                  V10
 ## 1371                  V10
@@ -21281,7 +21278,7 @@ summary(model)</code></pre>
 ## 1377 90 degrees V6 + MGUs
 ## 1378                  V10
 ## 1379 90 degrees V6 + MGUs
-## 1380 90 degrees V8 + KERS
+## 1380        90 degrees V8
 ## 1381                  V10
 ## 1382                  V10
 ## 1383        90 degrees V8
@@ -21291,11 +21288,11 @@ summary(model)</code></pre>
 ## 1387 90 degrees V6 + MGUs
 ## 1388        90 degrees V8
 ## 1389 90 degrees V6 + MGUs
-## 1390 90 degrees V8 + KERS
+## 1390        90 degrees V8
 ## 1391 90 degrees V6 + MGUs
 ## 1392 90 degrees V6 + MGUs
-## 1393 90 degrees V8 + KERS
-## 1394 90 degrees V8 + KERS
+## 1393        90 degrees V8
+## 1394        90 degrees V8
 ## 1395        90 degrees V8
 ## 1396 90 degrees V6 + MGUs
 ## 1397 90 degrees V6 + MGUs
@@ -21318,16 +21315,16 @@ summary(model)</code></pre>
 ## 1414                  V10
 ## 1415 90 degrees V6 + MGUs
 ## 1416                  V10
-## 1417 90 degrees V8 + KERS
+## 1417        90 degrees V8
 ## 1418                  V10
 ## 1419        90 degrees V8
 ## 1420 90 degrees V6 + MGUs
-## 1421 90 degrees V8 + KERS
+## 1421        90 degrees V8
 ## 1422 90 degrees V6 + MGUs
 ## 1423                  V10
-## 1424 90 degrees V8 + KERS
+## 1424        90 degrees V8
 ## 1425        90 degrees V8
-## 1426 90 degrees V8 + KERS
+## 1426        90 degrees V8
 ## 1427        90 degrees V8
 ## 1428        90 degrees V8
 ## 1429        90 degrees V8
@@ -21337,21 +21334,21 @@ summary(model)</code></pre>
 ## 1433 90 degrees V6 + MGUs
 ## 1434 90 degrees V6 + MGUs
 ## 1435        90 degrees V8
-## 1436 90 degrees V8 + KERS
+## 1436        90 degrees V8
 ## 1437                  V10
 ## 1438 90 degrees V6 + MGUs
-## 1439 90 degrees V8 + KERS
+## 1439        90 degrees V8
 ## 1440                  V10
 ## 1441                  V10
-## 1442 90 degrees V8 + KERS
+## 1442        90 degrees V8
 ## 1443 90 degrees V6 + MGUs
 ## 1444 90 degrees V6 + MGUs
 ## 1445                  V10
 ## 1446 90 degrees V6 + MGUs
 ## 1447 90 degrees V6 + MGUs
 ## 1448                  V10
-## 1449 90 degrees V8 + KERS
-## 1450 90 degrees V8 + KERS
+## 1449        90 degrees V8
+## 1450        90 degrees V8
 ## 1451 90 degrees V6 + MGUs
 ## 1452 90 degrees V6 + MGUs
 ## 1453 90 degrees V6 + MGUs
@@ -21359,7 +21356,7 @@ summary(model)</code></pre>
 ## 1455 90 degrees V6 + MGUs
 ## 1456 90 degrees V6 + MGUs
 ## 1457 90 degrees V6 + MGUs
-## 1458 90 degrees V8 + KERS
+## 1458        90 degrees V8
 ## 1459 90 degrees V6 + MGUs
 ## 1460 90 degrees V6 + MGUs
 ## 1461        90 degrees V8
@@ -21368,23 +21365,23 @@ summary(model)</code></pre>
 ## 1464                  V10
 ## 1465 90 degrees V6 + MGUs
 ## 1466        90 degrees V8
-## 1467 90 degrees V8 + KERS
-## 1468 90 degrees V8 + KERS
+## 1467        90 degrees V8
+## 1468        90 degrees V8
 ## 1469        90 degrees V8
 ## 1470                  V10
 ## 1471 90 degrees V6 + MGUs
 ## 1472 90 degrees V6 + MGUs
 ## 1473                  V10
 ## 1474                  V10
-## 1475 90 degrees V8 + KERS
+## 1475        90 degrees V8
 ## 1476        90 degrees V8
 ## 1477 90 degrees V6 + MGUs
 ## 1478 90 degrees V6 + MGUs
 ## 1479                  V10
 ## 1480 90 degrees V6 + MGUs
 ## 1481 90 degrees V6 + MGUs
-## 1482 90 degrees V8 + KERS
-## 1483 90 degrees V8 + KERS
+## 1482        90 degrees V8
+## 1483        90 degrees V8
 ## 1484 90 degrees V6 + MGUs
 ## 1485 90 degrees V6 + MGUs
 ## 1486 90 degrees V6 + MGUs
@@ -21392,7 +21389,7 @@ summary(model)</code></pre>
 ## 1488        90 degrees V8
 ## 1489 90 degrees V6 + MGUs
 ## 1490 90 degrees V6 + MGUs
-## 1491 90 degrees V8 + KERS
+## 1491        90 degrees V8
 ## 1492 90 degrees V6 + MGUs
 ## 1493 90 degrees V6 + MGUs
 ## 1494        90 degrees V8
@@ -21401,27 +21398,27 @@ summary(model)</code></pre>
 ## 1497        90 degrees V8
 ## 1498                  V10
 ## 1499 90 degrees V6 + MGUs
-## 1500 90 degrees V8 + KERS
+## 1500        90 degrees V8
 ## 1501 90 degrees V6 + MGUs
 ## 1502 90 degrees V6 + MGUs
 ## 1503        90 degrees V8
 ## 1504        90 degrees V8
-## 1505 90 degrees V8 + KERS
+## 1505        90 degrees V8
 ## 1506                  V10
 ## 1507 90 degrees V6 + MGUs
-## 1508 90 degrees V8 + KERS
+## 1508        90 degrees V8
 ## 1509                  V10
 ## 1510 90 degrees V6 + MGUs
-## 1511 90 degrees V8 + KERS
-## 1512 90 degrees V8 + KERS
+## 1511        90 degrees V8
+## 1512        90 degrees V8
 ## 1513                  V10
 ## 1514 90 degrees V6 + MGUs
-## 1515 90 degrees V8 + KERS
+## 1515        90 degrees V8
 ## 1516 90 degrees V6 + MGUs
 ## 1517 90 degrees V6 + MGUs
 ## 1518 90 degrees V6 + MGUs
 ## 1519        90 degrees V8
-## 1520 90 degrees V8 + KERS
+## 1520        90 degrees V8
 ## 1521                  V10
 ## 1522 90 degrees V6 + MGUs
 ## 1523 90 degrees V6 + MGUs
@@ -21441,14 +21438,14 @@ summary(model)</code></pre>
 ## 1537                  V10
 ## 1538                  V10
 ## 1539        90 degrees V8
-## 1540 90 degrees V8 + KERS
+## 1540        90 degrees V8
 ## 1541                  V10
 ## 1542                  V10
 ## 1543        90 degrees V8
 ## 1544 90 degrees V6 + MGUs
 ## 1545 90 degrees V6 + MGUs
-## 1546 90 degrees V8 + KERS
-## 1547 90 degrees V8 + KERS
+## 1546        90 degrees V8
+## 1547        90 degrees V8
 ## 1548 90 degrees V6 + MGUs
 ## 1549                  V10
 ## 1550                  V10
@@ -21458,9 +21455,9 @@ summary(model)</code></pre>
 ## 1554 90 degrees V6 + MGUs
 ## 1555                  V10
 ## 1556 90 degrees V6 + MGUs
-## 1557 90 degrees V8 + KERS
+## 1557        90 degrees V8
 ## 1558        90 degrees V8
-## 1559 90 degrees V8 + KERS
+## 1559        90 degrees V8
 ## 1560                  V10
 ## 1561                  V10
 ## 1562 90 degrees V6 + MGUs
@@ -21472,8 +21469,8 @@ summary(model)</code></pre>
 ## 1568 90 degrees V6 + MGUs
 ## 1569                  V10
 ## 1570 90 degrees V6 + MGUs
-## 1571 90 degrees V8 + KERS
-## 1572 90 degrees V8 + KERS
+## 1571        90 degrees V8
+## 1572        90 degrees V8
 ## 1573 90 degrees V6 + MGUs
 ## 1574                  V10
 ## 1575 90 degrees V6 + MGUs
@@ -21482,49 +21479,49 @@ summary(model)</code></pre>
 ## 1578                  V10
 ## 1579 90 degrees V6 + MGUs
 ## 1580        90 degrees V8
-## 1581 90 degrees V8 + KERS
+## 1581        90 degrees V8
 ## 1582 90 degrees V6 + MGUs
 ## 1583 90 degrees V6 + MGUs
 ## 1584 90 degrees V6 + MGUs
-## 1585 90 degrees V8 + KERS
+## 1585        90 degrees V8
 ## 1586 90 degrees V6 + MGUs
-## 1587 90 degrees V8 + KERS
+## 1587        90 degrees V8
 ## 1588        90 degrees V8
 ## 1589        90 degrees V8
 ## 1590 90 degrees V6 + MGUs
-## 1591 90 degrees V8 + KERS
+## 1591        90 degrees V8
 ## 1592        90 degrees V8
-## 1593 90 degrees V8 + KERS
+## 1593        90 degrees V8
 ## 1594        90 degrees V8
 ## 1595        90 degrees V8
 ## 1596        90 degrees V8
 ## 1597        90 degrees V8
 ## 1598        90 degrees V8
-## 1599 90 degrees V8 + KERS
-## 1600 90 degrees V8 + KERS
-## 1601 90 degrees V8 + KERS
-## 1602 90 degrees V8 + KERS
+## 1599        90 degrees V8
+## 1600        90 degrees V8
+## 1601        90 degrees V8
+## 1602        90 degrees V8
 ## 1603        90 degrees V8
 ## 1604        90 degrees V8
 ## 1605        90 degrees V8
 ## 1606 90 degrees V6 + MGUs
-## 1607 90 degrees V8 + KERS
+## 1607        90 degrees V8
 ## 1608 90 degrees V6 + MGUs
 ## 1609        90 degrees V8
-## 1610 90 degrees V8 + KERS
-## 1611 90 degrees V8 + KERS
+## 1610        90 degrees V8
+## 1611        90 degrees V8
 ## 1612 90 degrees V6 + MGUs
-## 1613 90 degrees V8 + KERS
+## 1613        90 degrees V8
 ## 1614        90 degrees V8
 ## 1615 90 degrees V6 + MGUs
-## 1616 90 degrees V8 + KERS
-## 1617 90 degrees V8 + KERS
+## 1616        90 degrees V8
+## 1617        90 degrees V8
 ## 1618        90 degrees V8
 ## 1619        90 degrees V8
-## 1620 90 degrees V8 + KERS
+## 1620        90 degrees V8
 ## 1621 90 degrees V6 + MGUs
-## 1622 90 degrees V8 + KERS
-## 1623 90 degrees V8 + KERS
+## 1622        90 degrees V8
+## 1623        90 degrees V8
 ## 1624        90 degrees V8
 ## 1625        90 degrees V8
 ## 1626 90 degrees V6 + MGUs
@@ -21533,34 +21530,34 @@ summary(model)</code></pre>
 ## 1629        90 degrees V8
 ## 1630        90 degrees V8
 ## 1631        90 degrees V8
-## 1632 90 degrees V8 + KERS
-## 1633 90 degrees V8 + KERS
-## 1634 90 degrees V8 + KERS
-## 1635 90 degrees V8 + KERS
-## 1636 90 degrees V8 + KERS
+## 1632        90 degrees V8
+## 1633        90 degrees V8
+## 1634        90 degrees V8
+## 1635        90 degrees V8
+## 1636        90 degrees V8
 ## 1637 90 degrees V6 + MGUs
 ## 1638 90 degrees V6 + MGUs
 ## 1639 90 degrees V6 + MGUs
-## 1640 90 degrees V8 + KERS
+## 1640        90 degrees V8
 ## 1641        90 degrees V8
-## 1642 90 degrees V8 + KERS
+## 1642        90 degrees V8
 ## 1643        90 degrees V8
-## 1644 90 degrees V8 + KERS
+## 1644        90 degrees V8
 ## 1645        90 degrees V8
 ## 1646        90 degrees V8
 ## 1647        90 degrees V8
-## 1648 90 degrees V8 + KERS
+## 1648        90 degrees V8
 ## 1649        90 degrees V8
 ## 1650 90 degrees V6 + MGUs
 ## 1651 90 degrees V6 + MGUs
-## 1652 90 degrees V8 + KERS
+## 1652        90 degrees V8
 ## 1653 90 degrees V6 + MGUs
-## 1654 90 degrees V8 + KERS
+## 1654        90 degrees V8
 ## 1655        90 degrees V8
-## 1656 90 degrees V8 + KERS
+## 1656        90 degrees V8
 ## 1657 90 degrees V6 + MGUs
 ## 1658        90 degrees V8
-## 1659 90 degrees V8 + KERS
+## 1659        90 degrees V8
 ## 1660        90 degrees V8
 ## 1661        90 degrees V8
 ## 1662        90 degrees V8
@@ -21568,118 +21565,118 @@ summary(model)</code></pre>
 ## 1664 90 degrees V6 + MGUs
 ## 1665        90 degrees V8
 ## 1666        90 degrees V8
-## 1667 90 degrees V8 + KERS
+## 1667        90 degrees V8
 ## 1668 90 degrees V6 + MGUs
-## 1669 90 degrees V8 + KERS
+## 1669        90 degrees V8
 ## 1670        90 degrees V8
 ## 1671        90 degrees V8
 ## 1672 90 degrees V6 + MGUs
-## 1673 90 degrees V8 + KERS
-## 1674 90 degrees V8 + KERS
+## 1673        90 degrees V8
+## 1674        90 degrees V8
 ## 1675        90 degrees V8
 ## 1676        90 degrees V8
 ## 1677 90 degrees V6 + MGUs
 ## 1678 90 degrees V6 + MGUs
 ## 1679 90 degrees V6 + MGUs
-## 1680 90 degrees V8 + KERS
-## 1681 90 degrees V8 + KERS
+## 1680        90 degrees V8
+## 1681        90 degrees V8
 ## 1682        90 degrees V8
-## 1683 90 degrees V8 + KERS
+## 1683        90 degrees V8
 ## 1684        90 degrees V8
-## 1685 90 degrees V8 + KERS
-## 1686 90 degrees V8 + KERS
-## 1687 90 degrees V8 + KERS
-## 1688 90 degrees V8 + KERS
-## 1689 90 degrees V8 + KERS
-## 1690 90 degrees V8 + KERS
-## 1691 90 degrees V8 + KERS
-## 1692 90 degrees V8 + KERS
-## 1693 90 degrees V8 + KERS
-## 1694 90 degrees V8 + KERS
-## 1695 90 degrees V8 + KERS
+## 1685        90 degrees V8
+## 1686        90 degrees V8
+## 1687        90 degrees V8
+## 1688        90 degrees V8
+## 1689        90 degrees V8
+## 1690        90 degrees V8
+## 1691        90 degrees V8
+## 1692        90 degrees V8
+## 1693        90 degrees V8
+## 1694        90 degrees V8
+## 1695        90 degrees V8
 ## 1696        90 degrees V8
-## 1697 90 degrees V8 + KERS
-## 1698 90 degrees V8 + KERS
-## 1699 90 degrees V8 + KERS
-## 1700 90 degrees V8 + KERS
-## 1701 90 degrees V8 + KERS
+## 1697        90 degrees V8
+## 1698        90 degrees V8
+## 1699        90 degrees V8
+## 1700        90 degrees V8
+## 1701        90 degrees V8
 ## 1702        90 degrees V8
-## 1703 90 degrees V8 + KERS
+## 1703        90 degrees V8
 ## 1704        90 degrees V8
-## 1705 90 degrees V8 + KERS
-## 1706 90 degrees V8 + KERS
-## 1707 90 degrees V8 + KERS
-## 1708 90 degrees V8 + KERS
+## 1705        90 degrees V8
+## 1706        90 degrees V8
+## 1707        90 degrees V8
+## 1708        90 degrees V8
 ## 1709        90 degrees V8
-## 1710 90 degrees V8 + KERS
-## 1711 90 degrees V8 + KERS
-## 1712 90 degrees V8 + KERS
-## 1713 90 degrees V8 + KERS
+## 1710        90 degrees V8
+## 1711        90 degrees V8
+## 1712        90 degrees V8
+## 1713        90 degrees V8
 ## 1714        90 degrees V8
-## 1715 90 degrees V8 + KERS
+## 1715        90 degrees V8
 ## 1716        90 degrees V8
-## 1717 90 degrees V8 + KERS
-## 1718 90 degrees V8 + KERS
-## 1719 90 degrees V8 + KERS
-## 1720 90 degrees V8 + KERS
+## 1717        90 degrees V8
+## 1718        90 degrees V8
+## 1719        90 degrees V8
+## 1720        90 degrees V8
 ## 1721        90 degrees V8
-## 1722 90 degrees V8 + KERS
-## 1723 90 degrees V8 + KERS
-## 1724 90 degrees V8 + KERS
-## 1725 90 degrees V8 + KERS
-## 1726 90 degrees V8 + KERS
+## 1722        90 degrees V8
+## 1723        90 degrees V8
+## 1724        90 degrees V8
+## 1725        90 degrees V8
+## 1726        90 degrees V8
 ## 1727        90 degrees V8
 ## 1728                  V10
-## 1729 90 degrees V8 + KERS
+## 1729        90 degrees V8
 ## 1730        90 degrees V8
 ## 1731        90 degrees V8
-## 1732 90 degrees V8 + KERS
-## 1733 90 degrees V8 + KERS
-## 1734 90 degrees V8 + KERS
+## 1732        90 degrees V8
+## 1733        90 degrees V8
+## 1734        90 degrees V8
 ## 1735                  V10
-## 1736 90 degrees V8 + KERS
-## 1737 90 degrees V8 + KERS
-## 1738 90 degrees V8 + KERS
-## 1739 90 degrees V8 + KERS
-## 1740 90 degrees V8 + KERS
-## 1741 90 degrees V8 + KERS
-## 1742 90 degrees V8 + KERS
-## 1743 90 degrees V8 + KERS
+## 1736        90 degrees V8
+## 1737        90 degrees V8
+## 1738        90 degrees V8
+## 1739        90 degrees V8
+## 1740        90 degrees V8
+## 1741        90 degrees V8
+## 1742        90 degrees V8
+## 1743        90 degrees V8
 ## 1744        90 degrees V8
-## 1745 90 degrees V8 + KERS
-## 1746 90 degrees V8 + KERS
-## 1747 90 degrees V8 + KERS
-## 1748 90 degrees V8 + KERS
+## 1745        90 degrees V8
+## 1746        90 degrees V8
+## 1747        90 degrees V8
+## 1748        90 degrees V8
 ## 1749        90 degrees V8
-## 1750 90 degrees V8 + KERS
+## 1750        90 degrees V8
 ## 1751        90 degrees V8
-## 1752 90 degrees V8 + KERS
-## 1753 90 degrees V8 + KERS
-## 1754 90 degrees V8 + KERS
+## 1752        90 degrees V8
+## 1753        90 degrees V8
+## 1754        90 degrees V8
 ## 1755        90 degrees V8
-## 1756 90 degrees V8 + KERS
-## 1757 90 degrees V8 + KERS
+## 1756        90 degrees V8
+## 1757        90 degrees V8
 ## 1758        90 degrees V8
-## 1759 90 degrees V8 + KERS
-## 1760 90 degrees V8 + KERS
-## 1761 90 degrees V8 + KERS
-## 1762 90 degrees V8 + KERS
-## 1763 90 degrees V8 + KERS
+## 1759        90 degrees V8
+## 1760        90 degrees V8
+## 1761        90 degrees V8
+## 1762        90 degrees V8
+## 1763        90 degrees V8
 ## 1764                  V10
-## 1765 90 degrees V8 + KERS
-## 1766 90 degrees V8 + KERS
+## 1765        90 degrees V8
+## 1766        90 degrees V8
 ## 1767        90 degrees V8
-## 1768 90 degrees V8 + KERS
-## 1769 90 degrees V8 + KERS
-## 1770 90 degrees V8 + KERS
-## 1771 90 degrees V8 + KERS
+## 1768        90 degrees V8
+## 1769        90 degrees V8
+## 1770        90 degrees V8
+## 1771        90 degrees V8
 ## 1772                  V10
-## 1773 90 degrees V8 + KERS
-## 1774 90 degrees V8 + KERS
+## 1773        90 degrees V8
+## 1774        90 degrees V8
 ## 1775        90 degrees V8
-## 1776 90 degrees V8 + KERS
-## 1777 90 degrees V8 + KERS
-## 1778 90 degrees V8 + KERS
+## 1776        90 degrees V8
+## 1777        90 degrees V8
+## 1778        90 degrees V8
 ## 1779        90 degrees V8
 ## 1780                  V10
 ## 1781                  V10
@@ -21773,12 +21770,12 @@ summary(model)</code></pre>
 ## 1869                  V10
 ## 1870                  V10
 ## 1871        90 degrees V8
-## 1872 90 degrees V8 + KERS
+## 1872        90 degrees V8
 ## 1873        90 degrees V8
-## 1874 90 degrees V8 + KERS
-## 1875 90 degrees V8 + KERS
-## 1876 90 degrees V8 + KERS
-## 1877 90 degrees V8 + KERS
+## 1874        90 degrees V8
+## 1875        90 degrees V8
+## 1876        90 degrees V8
+## 1877        90 degrees V8
 ## 1878        90 degrees V8
 ## 1879        90 degrees V8
 ## 1880        90 degrees V8
@@ -21786,20 +21783,20 @@ summary(model)</code></pre>
 ## 1882        90 degrees V8
 ## 1883        90 degrees V8
 ## 1884        90 degrees V8
-## 1885 90 degrees V8 + KERS
-## 1886 90 degrees V8 + KERS
+## 1885        90 degrees V8
+## 1886        90 degrees V8
 ## 1887        90 degrees V8
 ## 1888        90 degrees V8
 ## 1889        90 degrees V8
-## 1890 90 degrees V8 + KERS
+## 1890        90 degrees V8
 ## 1891        90 degrees V8
 ## 1892        90 degrees V8
 ## 1893        90 degrees V8
-## 1894 90 degrees V8 + KERS
+## 1894        90 degrees V8
 ## 1895        90 degrees V8
 ## 1896        90 degrees V8
 ## 1897        90 degrees V8
-## 1898 90 degrees V8 + KERS
+## 1898        90 degrees V8
 ## 1899                  V10
 ## 1900        90 degrees V8
 ## 1901        90 degrees V8
@@ -21807,23 +21804,23 @@ summary(model)</code></pre>
 ## 1903        90 degrees V8
 ## 1904 90 degrees V6 + MGUs
 ## 1905        90 degrees V8
-## 1906 90 degrees V8 + KERS
+## 1906        90 degrees V8
 ## 1907        90 degrees V8
-## 1908 90 degrees V8 + KERS
+## 1908        90 degrees V8
 ## 1909 90 degrees V6 + MGUs
-## 1910 90 degrees V8 + KERS
-## 1911 90 degrees V8 + KERS
+## 1910        90 degrees V8
+## 1911        90 degrees V8
 ## 1912        90 degrees V8
 ## 1913 90 degrees V6 + MGUs
 ## 1914                  V10
-## 1915 90 degrees V8 + KERS
-## 1916 90 degrees V8 + KERS
-## 1917 90 degrees V8 + KERS
+## 1915        90 degrees V8
+## 1916        90 degrees V8
+## 1917        90 degrees V8
 ## 1918        90 degrees V8
-## 1919 90 degrees V8 + KERS
+## 1919        90 degrees V8
 ## 1920 90 degrees V6 + MGUs
 ## 1921 90 degrees V6 + MGUs
-## 1922 90 degrees V8 + KERS
+## 1922        90 degrees V8
 ## 1923                  V10
 ## 1924                  V10
 ## 1925 90 degrees V6 + MGUs
@@ -21832,36 +21829,36 @@ summary(model)</code></pre>
 ## 1928 90 degrees V6 + MGUs
 ## 1929        90 degrees V8
 ## 1930                  V10
-## 1931 90 degrees V8 + KERS
+## 1931        90 degrees V8
 ## 1932                  V10
 ## 1933 90 degrees V6 + MGUs
-## 1934 90 degrees V8 + KERS
+## 1934        90 degrees V8
 ## 1935 90 degrees V6 + MGUs
-## 1936 90 degrees V8 + KERS
-## 1937 90 degrees V8 + KERS
+## 1936        90 degrees V8
+## 1937        90 degrees V8
 ## 1938                  V10
 ## 1939 90 degrees V6 + MGUs
 ## 1940 90 degrees V6 + MGUs
 ## 1941        90 degrees V8
 ## 1942 90 degrees V6 + MGUs
-## 1943 90 degrees V8 + KERS
+## 1943        90 degrees V8
 ## 1944                  V10
-## 1945 90 degrees V8 + KERS
-## 1946 90 degrees V8 + KERS
+## 1945        90 degrees V8
+## 1946        90 degrees V8
 ## 1947        90 degrees V8
 ## 1948 90 degrees V6 + MGUs
 ## 1949 90 degrees V6 + MGUs
 ## 1950                  V10
 ## 1951        90 degrees V8
 ## 1952                  V10
-## 1953 90 degrees V8 + KERS
-## 1954 90 degrees V8 + KERS
+## 1953        90 degrees V8
+## 1954        90 degrees V8
 ## 1955                  V10
 ## 1956                  V10
 ## 1957 90 degrees V6 + MGUs
 ## 1958        90 degrees V8
 ## 1959 90 degrees V6 + MGUs
-## 1960 90 degrees V8 + KERS
+## 1960        90 degrees V8
 ## 1961 90 degrees V6 + MGUs
 ## 1962        90 degrees V8
 ## 1963                  V10
@@ -21872,67 +21869,67 @@ summary(model)</code></pre>
 ## 1968        90 degrees V8
 ## 1969                  V10
 ## 1970        90 degrees V8
-## 1971 90 degrees V8 + KERS
-## 1972 90 degrees V8 + KERS
+## 1971        90 degrees V8
+## 1972        90 degrees V8
 ## 1973                  V10
 ## 1974                  V10
-## 1975 90 degrees V8 + KERS
-## 1976 90 degrees V8 + KERS
+## 1975        90 degrees V8
+## 1976        90 degrees V8
 ## 1977 90 degrees V6 + MGUs
 ## 1978                  V10
 ## 1979        90 degrees V8
 ## 1980 90 degrees V6 + MGUs
 ## 1981                  V10
-## 1982 90 degrees V8 + KERS
-## 1983 90 degrees V8 + KERS
+## 1982        90 degrees V8
+## 1983        90 degrees V8
 ## 1984 90 degrees V6 + MGUs
 ## 1985 90 degrees V6 + MGUs
 ## 1986                  V10
 ## 1987        90 degrees V8
 ## 1988 90 degrees V6 + MGUs
-## 1989 90 degrees V8 + KERS
+## 1989        90 degrees V8
 ## 1990                  V10
-## 1991 90 degrees V8 + KERS
+## 1991        90 degrees V8
 ## 1992 90 degrees V6 + MGUs
 ## 1993        90 degrees V8
 ## 1994                  V10
 ## 1995 90 degrees V6 + MGUs
-## 1996 90 degrees V8 + KERS
+## 1996        90 degrees V8
 ## 1997 90 degrees V6 + MGUs
-## 1998 90 degrees V8 + KERS
-## 1999 90 degrees V8 + KERS
-## 2000 90 degrees V8 + KERS
-## 2001 90 degrees V8 + KERS
+## 1998        90 degrees V8
+## 1999        90 degrees V8
+## 2000        90 degrees V8
+## 2001        90 degrees V8
 ## 2002        90 degrees V8
-## 2003 90 degrees V8 + KERS
-## 2004 90 degrees V8 + KERS
+## 2003        90 degrees V8
+## 2004        90 degrees V8
 ## 2005 90 degrees V6 + MGUs
 ## 2006 90 degrees V6 + MGUs
 ## 2007                  V10
 ## 2008 90 degrees V6 + MGUs
 ## 2009        90 degrees V8
 ## 2010                  V10
-## 2011 90 degrees V8 + KERS
-## 2012 90 degrees V8 + KERS
+## 2011        90 degrees V8
+## 2012        90 degrees V8
 ## 2013                  V10
 ## 2014 90 degrees V6 + MGUs
 ## 2015 90 degrees V6 + MGUs
 ## 2016        90 degrees V8
 ## 2017 90 degrees V6 + MGUs
-## 2018 90 degrees V8 + KERS
-## 2019 90 degrees V8 + KERS
+## 2018        90 degrees V8
+## 2019        90 degrees V8
 ## 2020 90 degrees V6 + MGUs
 ## 2021                  V10
-## 2022 90 degrees V8 + KERS
+## 2022        90 degrees V8
 ## 2023        90 degrees V8
 ## 2024        90 degrees V8
-## 2025 90 degrees V8 + KERS
+## 2025        90 degrees V8
 ## 2026        90 degrees V8
-## 2027 90 degrees V8 + KERS
-## 2028 90 degrees V8 + KERS
+## 2027        90 degrees V8
+## 2028        90 degrees V8
 ## 2029 90 degrees V6 + MGUs
 ## 2030 90 degrees V6 + MGUs
-## 2031 90 degrees V8 + KERS
+## 2031        90 degrees V8
 ## 2032        90 degrees V8
 ## 2033        90 degrees V8
 ## 2034        90 degrees V8
@@ -21943,75 +21940,75 @@ summary(model)</code></pre>
 ## 2039                  V10
 ## 2040        90 degrees V8
 ## 2041        90 degrees V8
-## 2042 90 degrees V8 + KERS
-## 2043 90 degrees V8 + KERS
+## 2042        90 degrees V8
+## 2043        90 degrees V8
 ## 2044 90 degrees V6 + MGUs
 ## 2045 90 degrees V6 + MGUs
-## 2046 90 degrees V8 + KERS
-## 2047 90 degrees V8 + KERS
+## 2046        90 degrees V8
+## 2047        90 degrees V8
 ## 2048 90 degrees V6 + MGUs
-## 2049 90 degrees V8 + KERS
-## 2050 90 degrees V8 + KERS
-## 2051 90 degrees V8 + KERS
-## 2052 90 degrees V8 + KERS
-## 2053 90 degrees V8 + KERS
-## 2054 90 degrees V8 + KERS
+## 2049        90 degrees V8
+## 2050        90 degrees V8
+## 2051        90 degrees V8
+## 2052        90 degrees V8
+## 2053        90 degrees V8
+## 2054        90 degrees V8
 ## 2055 90 degrees V6 + MGUs
 ## 2056        90 degrees V8
 ## 2057        90 degrees V8
-## 2058 90 degrees V8 + KERS
+## 2058        90 degrees V8
 ## 2059        90 degrees V8
-## 2060 90 degrees V8 + KERS
+## 2060        90 degrees V8
 ## 2061        90 degrees V8
 ## 2062 90 degrees V6 + MGUs
 ## 2063 90 degrees V6 + MGUs
 ## 2064 90 degrees V6 + MGUs
-## 2065 90 degrees V8 + KERS
+## 2065        90 degrees V8
 ## 2066 90 degrees V6 + MGUs
 ## 2067        90 degrees V8
 ## 2068 90 degrees V6 + MGUs
-## 2069 90 degrees V8 + KERS
+## 2069        90 degrees V8
 ## 2070 90 degrees V6 + MGUs
 ## 2071        90 degrees V8
 ## 2072 90 degrees V6 + MGUs
 ## 2073 90 degrees V6 + MGUs
 ## 2074        90 degrees V8
 ## 2075                  V10
-## 2076 90 degrees V8 + KERS
-## 2077 90 degrees V8 + KERS
+## 2076        90 degrees V8
+## 2077        90 degrees V8
 ## 2078                  V10
-## 2079 90 degrees V8 + KERS
+## 2079        90 degrees V8
 ## 2080                  V10
-## 2081 90 degrees V8 + KERS
+## 2081        90 degrees V8
 ## 2082        90 degrees V8
 ## 2083 90 degrees V6 + MGUs
-## 2084 90 degrees V8 + KERS
+## 2084        90 degrees V8
 ## 2085                  V10
-## 2086 90 degrees V8 + KERS
+## 2086        90 degrees V8
 ## 2087 90 degrees V6 + MGUs
 ## 2088                  V10
 ## 2089 90 degrees V6 + MGUs
 ## 2090 90 degrees V6 + MGUs
-## 2091 90 degrees V8 + KERS
-## 2092 90 degrees V8 + KERS
-## 2093 90 degrees V8 + KERS
+## 2091        90 degrees V8
+## 2092        90 degrees V8
+## 2093        90 degrees V8
 ## 2094        90 degrees V8
 ## 2095 90 degrees V6 + MGUs
 ## 2096                  V10
-## 2097 90 degrees V8 + KERS
-## 2098 90 degrees V8 + KERS
+## 2097        90 degrees V8
+## 2098        90 degrees V8
 ## 2099 90 degrees V6 + MGUs
-## 2100 90 degrees V8 + KERS
+## 2100        90 degrees V8
 ## 2101 90 degrees V6 + MGUs
 ## 2102 90 degrees V6 + MGUs
 ## 2103        90 degrees V8
 ## 2104        90 degrees V8
 ## 2105        90 degrees V8
-## 2106 90 degrees V8 + KERS
+## 2106        90 degrees V8
 ## 2107                  V10
 ## 2108 90 degrees V6 + MGUs
 ## 2109                  V10
-## 2110 90 degrees V8 + KERS
+## 2110        90 degrees V8
 ## 2111 90 degrees V6 + MGUs
 ## 2112        90 degrees V8
 ## 2113                  V10
@@ -22022,9 +22019,9 @@ summary(model)</code></pre>
 ## 2118        90 degrees V8
 ## 2119 90 degrees V6 + MGUs
 ## 2120        90 degrees V8
-## 2121 90 degrees V8 + KERS
+## 2121        90 degrees V8
 ## 2122        90 degrees V8
-## 2123 90 degrees V8 + KERS
+## 2123        90 degrees V8
 ## 2124 90 degrees V6 + MGUs
 ## 2125        90 degrees V8
 ## 2126 90 degrees V6 + MGUs
@@ -22034,30 +22031,30 @@ summary(model)</code></pre>
 ## 2130                  V10
 ## 2131                  V10
 ## 2132 90 degrees V6 + MGUs
-## 2133 90 degrees V8 + KERS
-## 2134 90 degrees V8 + KERS
-## 2135 90 degrees V8 + KERS
-## 2136 90 degrees V8 + KERS
+## 2133        90 degrees V8
+## 2134        90 degrees V8
+## 2135        90 degrees V8
+## 2136        90 degrees V8
 ## 2137 90 degrees V6 + MGUs
 ## 2138 90 degrees V6 + MGUs
 ## 2139                  V10
 ## 2140                  V10
 ## 2141        90 degrees V8
-## 2142 90 degrees V8 + KERS
+## 2142        90 degrees V8
 ## 2143                  V10
-## 2144 90 degrees V8 + KERS
-## 2145 90 degrees V8 + KERS
-## 2146 90 degrees V8 + KERS
-## 2147 90 degrees V8 + KERS
+## 2144        90 degrees V8
+## 2145        90 degrees V8
+## 2146        90 degrees V8
+## 2147        90 degrees V8
 ## 2148 90 degrees V6 + MGUs
-## 2149 90 degrees V8 + KERS
+## 2149        90 degrees V8
 ## 2150        90 degrees V8
-## 2151 90 degrees V8 + KERS
+## 2151        90 degrees V8
 ## 2152                  V10
 ## 2153                  V10
 ## 2154                  V10
 ## 2155 90 degrees V6 + MGUs
-## 2156 90 degrees V8 + KERS
+## 2156        90 degrees V8
 ## 2157 90 degrees V6 + MGUs
 ## 2158 90 degrees V6 + MGUs
 ## 2159 90 degrees V6 + MGUs
@@ -22065,11 +22062,11 @@ summary(model)</code></pre>
 ## 2161 90 degrees V6 + MGUs
 ## 2162                  V10
 ## 2163                  V10
-## 2164 90 degrees V8 + KERS
+## 2164        90 degrees V8
 ## 2165 90 degrees V6 + MGUs
 ## 2166 90 degrees V6 + MGUs
 ## 2167 90 degrees V6 + MGUs
-## 2168 90 degrees V8 + KERS
+## 2168        90 degrees V8
 ## 2169        90 degrees V8
 ## 2170                  V10
 ## 2171                  V10
@@ -22228,12 +22225,12 @@ summary(model)</code></pre>
 ## 2324                  V10
 ## 2325                  V10
 ## 2326        90 degrees V8
-## 2327 90 degrees V8 + KERS
+## 2327        90 degrees V8
 ## 2328                  V10
-## 2329 90 degrees V8 + KERS
-## 2330 90 degrees V8 + KERS
-## 2331 90 degrees V8 + KERS
-## 2332 90 degrees V8 + KERS
+## 2329        90 degrees V8
+## 2330        90 degrees V8
+## 2331        90 degrees V8
+## 2332        90 degrees V8
 ## 2333        90 degrees V8
 ## 2334                  V10
 ## 2335        90 degrees V8
@@ -22241,37 +22238,37 @@ summary(model)</code></pre>
 ## 2337                  V10
 ## 2338                  V10
 ## 2339        90 degrees V8
-## 2340 90 degrees V8 + KERS
-## 2341 90 degrees V8 + KERS
-## 2342 90 degrees V8 + KERS
+## 2340        90 degrees V8
+## 2341        90 degrees V8
+## 2342        90 degrees V8
 ## 2343                  V10
-## 2344 90 degrees V8 + KERS
+## 2344        90 degrees V8
 ## 2345                  V10
 ## 2346                  V10
 ## 2347                  V10
 ## 2348                  V10
 ## 2349                  V10
 ## 2350                  V10
-## 2351 90 degrees V8 + KERS
+## 2351        90 degrees V8
 ## 2352                  V10
-## 2353 90 degrees V8 + KERS
-## 2354 90 degrees V8 + KERS
-## 2355 90 degrees V8 + KERS
-## 2356 90 degrees V8 + KERS
-## 2357 90 degrees V8 + KERS
+## 2353        90 degrees V8
+## 2354        90 degrees V8
+## 2355        90 degrees V8
+## 2356        90 degrees V8
+## 2357        90 degrees V8
 ## 2358                  V10
 ## 2359        90 degrees V8
 ## 2360                  V10
 ## 2361        90 degrees V8
 ## 2362        90 degrees V8
 ## 2363                  V10
-## 2364 90 degrees V8 + KERS
-## 2365 90 degrees V8 + KERS
+## 2364        90 degrees V8
+## 2365        90 degrees V8
 ## 2366        90 degrees V8
 ## 2367                  V10
 ## 2368                  V10
 ## 2369                  V10
-## 2370 90 degrees V8 + KERS
+## 2370        90 degrees V8
 ## 2371                  V10
 ## 2372                  V10
 ## 2373                  V10
@@ -22279,7 +22276,7 @@ summary(model)</code></pre>
 ## 2375        90 degrees V8
 ## 2376        90 degrees V8
 ## 2377                  V10
-## 2378 90 degrees V8 + KERS
+## 2378        90 degrees V8
 ## 2379                  V10
 ## 2380                  V10
 ## 2381                  V10
@@ -22289,13 +22286,13 @@ summary(model)</code></pre>
 ## 2385                  V10
 ## 2386        90 degrees V8
 ## 2387        90 degrees V8
-## 2388 90 degrees V8 + KERS
+## 2388        90 degrees V8
 ## 2389                  V10
 ## 2390        90 degrees V8
 ## 2391                  V10
-## 2392 90 degrees V8 + KERS
-## 2393 90 degrees V8 + KERS
-## 2394 90 degrees V8 + KERS
+## 2392        90 degrees V8
+## 2393        90 degrees V8
+## 2394        90 degrees V8
 ## 2395        90 degrees V8
 ## 2396        90 degrees V8
 ## 2397        90 degrees V8
@@ -22315,71 +22312,71 @@ summary(model)</code></pre>
 ## 2411        90 degrees V8
 ## 2412                  V10
 ## 2413        90 degrees V8
-## 2414 90 degrees V8 + KERS
+## 2414        90 degrees V8
 ## 2415                  V10
 ## 2416                  V10
 ## 2417        90 degrees V8
 ## 2418                  V10
 ## 2419                  V10
 ## 2420        90 degrees V8
-## 2421 90 degrees V8 + KERS
+## 2421        90 degrees V8
 ## 2422        90 degrees V8
 ## 2423                  V10
 ## 2424                  V10
 ## 2425                  V10
-## 2426 90 degrees V8 + KERS
-## 2427 90 degrees V8 + KERS
+## 2426        90 degrees V8
+## 2427        90 degrees V8
 ## 2428                  V10
 ## 2429                  V10
 ## 2430                  V10
 ## 2431        90 degrees V8
 ## 2432        90 degrees V8
-## 2433 90 degrees V8 + KERS
+## 2433        90 degrees V8
 ## 2434                  V10
-## 2435 90 degrees V8 + KERS
+## 2435        90 degrees V8
 ## 2436                  V10
 ## 2437                  V10
-## 2438 90 degrees V8 + KERS
+## 2438        90 degrees V8
 ## 2439                  V10
-## 2440 90 degrees V8 + KERS
-## 2441 90 degrees V8 + KERS
+## 2440        90 degrees V8
+## 2441        90 degrees V8
 ## 2442                  V10
 ## 2443                  V10
 ## 2444        90 degrees V8
 ## 2445        90 degrees V8
-## 2446 90 degrees V8 + KERS
+## 2446        90 degrees V8
 ## 2447                  V10
 ## 2448        90 degrees V8
 ## 2449                  V10
 ## 2450                  V10
 ## 2451                  V10
-## 2452 90 degrees V8 + KERS
-## 2453 90 degrees V8 + KERS
-## 2454 90 degrees V8 + KERS
-## 2455 90 degrees V8 + KERS
+## 2452        90 degrees V8
+## 2453        90 degrees V8
+## 2454        90 degrees V8
+## 2455        90 degrees V8
 ## 2456        90 degrees V8
 ## 2457                  V10
 ## 2458                  V10
-## 2459 90 degrees V8 + KERS
+## 2459        90 degrees V8
 ## 2460        90 degrees V8
-## 2461 90 degrees V8 + KERS
+## 2461        90 degrees V8
 ## 2462                  V10
 ## 2463        90 degrees V8
 ## 2464                  V10
 ## 2465        90 degrees V8
 ## 2466        90 degrees V8
-## 2467 90 degrees V8 + KERS
+## 2467        90 degrees V8
 ## 2468        90 degrees V8
 ## 2469                  V10
 ## 2470                  V10
-## 2471 90 degrees V8 + KERS
-## 2472 90 degrees V8 + KERS
+## 2471        90 degrees V8
+## 2472        90 degrees V8
 ## 2473                  V10
 ## 2474                  V10
 ## 2475                  V10
 ## 2476                  V10
 ## 2477                  V10
-## 2478 90 degrees V8 + KERS
+## 2478        90 degrees V8
 ## 2479        90 degrees V8
 ## 2480        90 degrees V8
 ## 2481                  V10
@@ -22388,9 +22385,9 @@ summary(model)</code></pre>
 ## 2484                  V10
 ## 2485                  V10
 ## 2486                  V10
-## 2487 90 degrees V8 + KERS
-## 2488 90 degrees V8 + KERS
-## 2489 90 degrees V8 + KERS
+## 2487        90 degrees V8
+## 2488        90 degrees V8
+## 2489        90 degrees V8
 ## 2490                  V10
 ## 2491                  V10
 ## 2492        90 degrees V8
@@ -22401,28 +22398,28 @@ summary(model)</code></pre>
 ## 2497                  V10
 ## 2498                  V10
 ## 2499        90 degrees V8
-## 2500 90 degrees V8 + KERS
+## 2500        90 degrees V8
 ## 2501        90 degrees V8
 ## 2502        90 degrees V8
 ## 2503        90 degrees V8
 ## 2504        90 degrees V8
 ## 2505                  V10
 ## 2506        90 degrees V8
-## 2507 90 degrees V8 + KERS
-## 2508 90 degrees V8 + KERS
+## 2507        90 degrees V8
+## 2508        90 degrees V8
 ## 2509                  V10
 ## 2510                  V10
 ## 2511        90 degrees V8
 ## 2512        90 degrees V8
-## 2513 90 degrees V8 + KERS
+## 2513        90 degrees V8
 ## 2514                  V10
 ## 2515        90 degrees V8
 ## 2516                  V10
 ## 2517        90 degrees V8
 ## 2518                  V10
-## 2519 90 degrees V8 + KERS
+## 2519        90 degrees V8
 ## 2520                  V10
-## 2521 90 degrees V8 + KERS
+## 2521        90 degrees V8
 ## 2522                  V10
 ## 2523        90 degrees V8
 ## 2524                  V10
@@ -22430,356 +22427,356 @@ summary(model)</code></pre>
 ## 2526                  V10
 ## 2527                  V10
 ## 2528                  V10
-## 2529 90 degrees V8 + KERS
+## 2529        90 degrees V8
 ## 2530                  V10
 ## 2531                  V10
 ## 2532                  V10
 ## 2533                  V10
 ## 2534        90 degrees V8
 ## 2535                  V10
-## 2536 90 degrees V8 + KERS
+## 2536        90 degrees V8
 ## 2537 90 degrees V6 + MGUs
-## 2538 90 degrees V8 + KERS
+## 2538        90 degrees V8
 ## 2539        90 degrees V8
-## 2540 90 degrees V8 + KERS
-## 2541 90 degrees V8 + KERS
-## 2542 90 degrees V8 + KERS
+## 2540        90 degrees V8
+## 2541        90 degrees V8
+## 2542        90 degrees V8
 ## 2543 90 degrees V6 + MGUs
-## 2544 90 degrees V8 + KERS
-## 2545 90 degrees V8 + KERS
+## 2544        90 degrees V8
+## 2545        90 degrees V8
 ## 2546 90 degrees V6 + MGUs
-## 2547 90 degrees V8 + KERS
+## 2547        90 degrees V8
 ## 2548        90 degrees V8
-## 2549 90 degrees V8 + KERS
+## 2549        90 degrees V8
 ## 2550 90 degrees V6 + MGUs
 ## 2551        90 degrees V8
-## 2552 90 degrees V8 + KERS
+## 2552        90 degrees V8
 ## 2553        90 degrees V8
-## 2554 90 degrees V8 + KERS
+## 2554        90 degrees V8
 ## 2555 90 degrees V6 + MGUs
-## 2556 90 degrees V8 + KERS
-## 2557 90 degrees V8 + KERS
-## 2558 90 degrees V8 + KERS
+## 2556        90 degrees V8
+## 2557        90 degrees V8
+## 2558        90 degrees V8
 ## 2559 90 degrees V6 + MGUs
 ## 2560        90 degrees V8
-## 2561 90 degrees V8 + KERS
+## 2561        90 degrees V8
 ## 2562        90 degrees V8
-## 2563 90 degrees V8 + KERS
+## 2563        90 degrees V8
 ## 2564        90 degrees V8
-## 2565 90 degrees V8 + KERS
-## 2566 90 degrees V8 + KERS
+## 2565        90 degrees V8
+## 2566        90 degrees V8
 ## 2567        90 degrees V8
-## 2568 90 degrees V8 + KERS
-## 2569 90 degrees V8 + KERS
-## 2570 90 degrees V8 + KERS
-## 2571 90 degrees V8 + KERS
-## 2572 90 degrees V8 + KERS
-## 2573 90 degrees V8 + KERS
-## 2574 90 degrees V8 + KERS
-## 2575 90 degrees V8 + KERS
-## 2576 90 degrees V8 + KERS
-## 2577 90 degrees V8 + KERS
+## 2568        90 degrees V8
+## 2569        90 degrees V8
+## 2570        90 degrees V8
+## 2571        90 degrees V8
+## 2572        90 degrees V8
+## 2573        90 degrees V8
+## 2574        90 degrees V8
+## 2575        90 degrees V8
+## 2576        90 degrees V8
+## 2577        90 degrees V8
 ## 2578        90 degrees V8
-## 2579 90 degrees V8 + KERS
-## 2580 90 degrees V8 + KERS
+## 2579        90 degrees V8
+## 2580        90 degrees V8
 ## 2581        90 degrees V8
-## 2582 90 degrees V8 + KERS
+## 2582        90 degrees V8
 ## 2583        90 degrees V8
-## 2584 90 degrees V8 + KERS
+## 2584        90 degrees V8
 ## 2585        90 degrees V8
 ## 2586        90 degrees V8
 ## 2587        90 degrees V8
-## 2588 90 degrees V8 + KERS
+## 2588        90 degrees V8
 ## 2589        90 degrees V8
-## 2590 90 degrees V8 + KERS
+## 2590        90 degrees V8
 ## 2591        90 degrees V8
 ## 2592        90 degrees V8
 ## 2593        90 degrees V8
-## 2594 90 degrees V8 + KERS
+## 2594        90 degrees V8
 ## 2595 90 degrees V6 + MGUs
-## 2596 90 degrees V8 + KERS
-## 2597 90 degrees V8 + KERS
-## 2598 90 degrees V8 + KERS
-## 2599 90 degrees V8 + KERS
+## 2596        90 degrees V8
+## 2597        90 degrees V8
+## 2598        90 degrees V8
+## 2599        90 degrees V8
 ## 2600 90 degrees V6 + MGUs
 ## 2601        90 degrees V8
-## 2602 90 degrees V8 + KERS
-## 2603 90 degrees V8 + KERS
-## 2604 90 degrees V8 + KERS
+## 2602        90 degrees V8
+## 2603        90 degrees V8
+## 2604        90 degrees V8
 ## 2605        90 degrees V8
-## 2606 90 degrees V8 + KERS
+## 2606        90 degrees V8
 ## 2607 90 degrees V6 + MGUs
-## 2608 90 degrees V8 + KERS
+## 2608        90 degrees V8
 ## 2609        90 degrees V8
-## 2610 90 degrees V8 + KERS
-## 2611 90 degrees V8 + KERS
-## 2612 90 degrees V8 + KERS
-## 2613 90 degrees V8 + KERS
-## 2614 90 degrees V8 + KERS
-## 2615 90 degrees V8 + KERS
-## 2616 90 degrees V8 + KERS
-## 2617 90 degrees V8 + KERS
+## 2610        90 degrees V8
+## 2611        90 degrees V8
+## 2612        90 degrees V8
+## 2613        90 degrees V8
+## 2614        90 degrees V8
+## 2615        90 degrees V8
+## 2616        90 degrees V8
+## 2617        90 degrees V8
 ## 2618        90 degrees V8
-## 2619 90 degrees V8 + KERS
+## 2619        90 degrees V8
 ## 2620 90 degrees V6 + MGUs
-## 2621 90 degrees V8 + KERS
-## 2622 90 degrees V8 + KERS
+## 2621        90 degrees V8
+## 2622        90 degrees V8
 ## 2623        90 degrees V8
 ## 2624 90 degrees V6 + MGUs
 ## 2625        90 degrees V8
 ## 2626        90 degrees V8
-## 2627 90 degrees V8 + KERS
-## 2628 90 degrees V8 + KERS
-## 2629 90 degrees V8 + KERS
+## 2627        90 degrees V8
+## 2628        90 degrees V8
+## 2629        90 degrees V8
 ## 2630        90 degrees V8
-## 2631 90 degrees V8 + KERS
+## 2631        90 degrees V8
 ## 2632        90 degrees V8
 ## 2633 90 degrees V6 + MGUs
 ## 2634 90 degrees V6 + MGUs
 ## 2635        90 degrees V8
-## 2636 90 degrees V8 + KERS
-## 2637 90 degrees V8 + KERS
+## 2636        90 degrees V8
+## 2637        90 degrees V8
 ## 2638        90 degrees V8
 ## 2639 90 degrees V6 + MGUs
 ## 2640 90 degrees V6 + MGUs
-## 2641 90 degrees V8 + KERS
+## 2641        90 degrees V8
 ## 2642        90 degrees V8
 ## 2643 90 degrees V6 + MGUs
-## 2644 90 degrees V8 + KERS
+## 2644        90 degrees V8
 ## 2645        90 degrees V8
-## 2646 90 degrees V8 + KERS
+## 2646        90 degrees V8
 ## 2647        90 degrees V8
-## 2648 90 degrees V8 + KERS
+## 2648        90 degrees V8
 ## 2649 90 degrees V6 + MGUs
 ## 2650 90 degrees V6 + MGUs
-## 2651 90 degrees V8 + KERS
-## 2652 90 degrees V8 + KERS
+## 2651        90 degrees V8
+## 2652        90 degrees V8
 ## 2653 90 degrees V6 + MGUs
-## 2654 90 degrees V8 + KERS
-## 2655 90 degrees V8 + KERS
+## 2654        90 degrees V8
+## 2655        90 degrees V8
 ## 2656        90 degrees V8
-## 2657 90 degrees V8 + KERS
-## 2658 90 degrees V8 + KERS
+## 2657        90 degrees V8
+## 2658        90 degrees V8
 ## 2659        90 degrees V8
-## 2660 90 degrees V8 + KERS
-## 2661 90 degrees V8 + KERS
-## 2662 90 degrees V8 + KERS
-## 2663 90 degrees V8 + KERS
+## 2660        90 degrees V8
+## 2661        90 degrees V8
+## 2662        90 degrees V8
+## 2663        90 degrees V8
 ## 2664        90 degrees V8
-## 2665 90 degrees V8 + KERS
+## 2665        90 degrees V8
 ## 2666        90 degrees V8
 ## 2667        90 degrees V8
 ## 2668        90 degrees V8
 ## 2669        90 degrees V8
-## 2670 90 degrees V8 + KERS
+## 2670        90 degrees V8
 ## 2671        90 degrees V8
 ## 2672        90 degrees V8
-## 2673 90 degrees V8 + KERS
-## 2674 90 degrees V8 + KERS
-## 2675 90 degrees V8 + KERS
+## 2673        90 degrees V8
+## 2674        90 degrees V8
+## 2675        90 degrees V8
 ## 2676                  V10
-## 2677 90 degrees V8 + KERS
-## 2678 90 degrees V8 + KERS
-## 2679 90 degrees V8 + KERS
+## 2677        90 degrees V8
+## 2678        90 degrees V8
+## 2679        90 degrees V8
 ## 2680                  V10
 ## 2681        90 degrees V8
 ## 2682        90 degrees V8
 ## 2683                  V10
 ## 2684                  V10
-## 2685 90 degrees V8 + KERS
-## 2686 90 degrees V8 + KERS
+## 2685        90 degrees V8
+## 2686        90 degrees V8
 ## 2687                  V10
-## 2688 90 degrees V8 + KERS
+## 2688        90 degrees V8
 ## 2689                  V10
-## 2690 90 degrees V8 + KERS
-## 2691 90 degrees V8 + KERS
+## 2690        90 degrees V8
+## 2691        90 degrees V8
 ## 2692        90 degrees V8
 ## 2693                  V10
-## 2694 90 degrees V8 + KERS
+## 2694        90 degrees V8
 ## 2695                  V10
-## 2696 90 degrees V8 + KERS
+## 2696        90 degrees V8
 ## 2697        90 degrees V8
 ## 2698                  V10
 ## 2699        90 degrees V8
 ## 2700                  V10
 ## 2701        90 degrees V8
-## 2702 90 degrees V8 + KERS
+## 2702        90 degrees V8
 ## 2703                  V10
-## 2704 90 degrees V8 + KERS
-## 2705 90 degrees V8 + KERS
-## 2706 90 degrees V8 + KERS
-## 2707 90 degrees V8 + KERS
+## 2704        90 degrees V8
+## 2705        90 degrees V8
+## 2706        90 degrees V8
+## 2707        90 degrees V8
 ## 2708        90 degrees V8
 ## 2709        90 degrees V8
 ## 2710        90 degrees V8
-## 2711 90 degrees V8 + KERS
-## 2712 90 degrees V8 + KERS
+## 2711        90 degrees V8
+## 2712        90 degrees V8
 ## 2713        90 degrees V8
-## 2714 90 degrees V8 + KERS
-## 2715 90 degrees V8 + KERS
-## 2716 90 degrees V8 + KERS
+## 2714        90 degrees V8
+## 2715        90 degrees V8
+## 2716        90 degrees V8
 ## 2717        90 degrees V8
 ## 2718        90 degrees V8
-## 2719 90 degrees V8 + KERS
+## 2719        90 degrees V8
 ## 2720                  V10
-## 2721 90 degrees V8 + KERS
-## 2722 90 degrees V8 + KERS
+## 2721        90 degrees V8
+## 2722        90 degrees V8
 ## 2723                  V10
-## 2724 90 degrees V8 + KERS
+## 2724        90 degrees V8
 ## 2725        90 degrees V8
 ## 2726        90 degrees V8
 ## 2727        90 degrees V8
 ## 2728                  V10
-## 2729 90 degrees V8 + KERS
-## 2730 90 degrees V8 + KERS
-## 2731 90 degrees V8 + KERS
-## 2732 90 degrees V8 + KERS
+## 2729        90 degrees V8
+## 2730        90 degrees V8
+## 2731        90 degrees V8
+## 2732        90 degrees V8
 ## 2733                  V10
 ## 2734        90 degrees V8
 ## 2735                  V10
 ## 2736                  V10
 ## 2737                  V10
 ## 2738        90 degrees V8
-## 2739 90 degrees V8 + KERS
+## 2739        90 degrees V8
 ## 2740                  V10
-## 2741 90 degrees V8 + KERS
+## 2741        90 degrees V8
 ## 2742        90 degrees V8
-## 2743 90 degrees V8 + KERS
+## 2743        90 degrees V8
 ## 2744        90 degrees V8
 ## 2745        90 degrees V8
 ## 2746        90 degrees V8
-## 2747 90 degrees V8 + KERS
-## 2748 90 degrees V8 + KERS
+## 2747        90 degrees V8
+## 2748        90 degrees V8
 ## 2749                  V10
 ## 2750                  V10
-## 2751 90 degrees V8 + KERS
+## 2751        90 degrees V8
 ## 2752        90 degrees V8
 ## 2753                  V10
-## 2754 90 degrees V8 + KERS
-## 2755 90 degrees V8 + KERS
-## 2756 90 degrees V8 + KERS
+## 2754        90 degrees V8
+## 2755        90 degrees V8
+## 2756        90 degrees V8
 ## 2757                  V10
-## 2758 90 degrees V8 + KERS
+## 2758        90 degrees V8
 ## 2759        90 degrees V8
 ## 2760        90 degrees V8
 ## 2761                  V10
-## 2762 90 degrees V8 + KERS
-## 2763 90 degrees V8 + KERS
+## 2762        90 degrees V8
+## 2763        90 degrees V8
 ## 2764                  V10
 ## 2765                  V10
-## 2766 90 degrees V8 + KERS
+## 2766        90 degrees V8
 ## 2767                  V10
-## 2768 90 degrees V8 + KERS
-## 2769 90 degrees V8 + KERS
+## 2768        90 degrees V8
+## 2769        90 degrees V8
 ## 2770        90 degrees V8
 ## 2771                  V10
 ## 2772        90 degrees V8
 ## 2773                  V10
 ## 2774                  V10
-## 2775 90 degrees V8 + KERS
+## 2775        90 degrees V8
 ## 2776                  V10
-## 2777 90 degrees V8 + KERS
-## 2778 90 degrees V8 + KERS
-## 2779 90 degrees V8 + KERS
-## 2780 90 degrees V8 + KERS
+## 2777        90 degrees V8
+## 2778        90 degrees V8
+## 2779        90 degrees V8
+## 2780        90 degrees V8
 ## 2781                  V10
-## 2782 90 degrees V8 + KERS
+## 2782        90 degrees V8
 ## 2783        90 degrees V8
-## 2784 90 degrees V8 + KERS
+## 2784        90 degrees V8
 ## 2785                  V10
-## 2786 90 degrees V8 + KERS
-## 2787 90 degrees V8 + KERS
-## 2788 90 degrees V8 + KERS
+## 2786        90 degrees V8
+## 2787        90 degrees V8
+## 2788        90 degrees V8
 ## 2789                  V10
 ## 2790        90 degrees V8
 ## 2791                  V10
 ## 2792                  V10
 ## 2793                  V10
-## 2794 90 degrees V8 + KERS
+## 2794        90 degrees V8
 ## 2795                  V10
 ## 2796                  V10
 ## 2797                  V10
-## 2798 90 degrees V8 + KERS
-## 2799 90 degrees V8 + KERS
-## 2800 90 degrees V8 + KERS
-## 2801 90 degrees V8 + KERS
+## 2798        90 degrees V8
+## 2799        90 degrees V8
+## 2800        90 degrees V8
+## 2801        90 degrees V8
 ## 2802                  V10
 ## 2803                  V10
 ## 2804        90 degrees V8
-## 2805 90 degrees V8 + KERS
+## 2805        90 degrees V8
 ## 2806                  V10
-## 2807 90 degrees V8 + KERS
-## 2808 90 degrees V8 + KERS
-## 2809 90 degrees V8 + KERS
+## 2807        90 degrees V8
+## 2808        90 degrees V8
+## 2809        90 degrees V8
 ## 2810                  V10
 ## 2811                  V10
-## 2812 90 degrees V8 + KERS
-## 2813 90 degrees V8 + KERS
+## 2812        90 degrees V8
+## 2813        90 degrees V8
 ## 2814        90 degrees V8
 ## 2815                  V10
 ## 2816                  V10
 ## 2817        90 degrees V8
-## 2818 90 degrees V8 + KERS
+## 2818        90 degrees V8
 ## 2819                  V10
-## 2820 90 degrees V8 + KERS
+## 2820        90 degrees V8
 ## 2821                  V10
-## 2822 90 degrees V8 + KERS
+## 2822        90 degrees V8
 ## 2823        90 degrees V8
 ## 2824                  V10
-## 2825 90 degrees V8 + KERS
+## 2825        90 degrees V8
 ## 2826        90 degrees V8
 ## 2827                  V10
-## 2828 90 degrees V8 + KERS
+## 2828        90 degrees V8
 ## 2829        90 degrees V8
 ## 2830        90 degrees V8
 ## 2831                  V10
 ## 2832                  V10
-## 2833 90 degrees V8 + KERS
-## 2834 90 degrees V8 + KERS
+## 2833        90 degrees V8
+## 2834        90 degrees V8
 ## 2835                  V10
-## 2836 90 degrees V8 + KERS
+## 2836        90 degrees V8
 ## 2837        90 degrees V8
-## 2838 90 degrees V8 + KERS
+## 2838        90 degrees V8
 ## 2839                  V10
-## 2840 90 degrees V8 + KERS
+## 2840        90 degrees V8
 ## 2841                  V10
 ## 2842        90 degrees V8
 ## 2843                  V10
-## 2844 90 degrees V8 + KERS
+## 2844        90 degrees V8
 ## 2845                  V10
-## 2846 90 degrees V8 + KERS
+## 2846        90 degrees V8
 ## 2847        90 degrees V8
-## 2848 90 degrees V8 + KERS
-## 2849 90 degrees V8 + KERS
-## 2850 90 degrees V8 + KERS
-## 2851 90 degrees V8 + KERS
-## 2852 90 degrees V8 + KERS
+## 2848        90 degrees V8
+## 2849        90 degrees V8
+## 2850        90 degrees V8
+## 2851        90 degrees V8
+## 2852        90 degrees V8
 ## 2853                  V10
 ## 2854                  V10
 ## 2855        90 degrees V8
-## 2856 90 degrees V8 + KERS
+## 2856        90 degrees V8
 ## 2857                  V10
 ## 2858        90 degrees V8
 ## 2859        90 degrees V8
 ## 2860                  V10
 ## 2861                  V10
-## 2862 90 degrees V8 + KERS
+## 2862        90 degrees V8
 ## 2863                  V10
-## 2864 90 degrees V8 + KERS
+## 2864        90 degrees V8
 ## 2865                  V10
-## 2866 90 degrees V8 + KERS
+## 2866        90 degrees V8
 ## 2867        90 degrees V8
 ## 2868                  V10
 ## 2869                  V10
 ## 2870        90 degrees V8
 ## 2871        90 degrees V8
 ## 2872                  V10
-## 2873 90 degrees V8 + KERS
+## 2873        90 degrees V8
 ## 2874        90 degrees V8
 ## 2875                  V10
-## 2876 90 degrees V8 + KERS
-## 2877 90 degrees V8 + KERS
-## 2878 90 degrees V8 + KERS
+## 2876        90 degrees V8
+## 2877        90 degrees V8
+## 2878        90 degrees V8
 ## 2879                  V10
 ## 2880        90 degrees V8
 ## 2881        90 degrees V8
@@ -22791,8 +22788,8 @@ summary(model)</code></pre>
 ## 2887                  V10
 ## 2888        90 degrees V8
 ## 2889                  V10
-## 2890 90 degrees V8 + KERS
-## 2891 90 degrees V8 + KERS
+## 2890        90 degrees V8
+## 2891        90 degrees V8
 ## 2892 90 degrees V6 + MGUs
 ## 2893                  V10
 ## 2894                  V10
@@ -22801,38 +22798,38 @@ summary(model)</code></pre>
 ## 2897 90 degrees V6 + MGUs
 ## 2898        90 degrees V8
 ## 2899                  V10
-## 2900 90 degrees V8 + KERS
+## 2900        90 degrees V8
 ## 2901 90 degrees V6 + MGUs
 ## 2902        90 degrees V8
 ## 2903                  V10
 ## 2904                  V10
 ## 2905                  V10
-## 2906 90 degrees V8 + KERS
+## 2906        90 degrees V8
 ## 2907 90 degrees V6 + MGUs
-## 2908 90 degrees V8 + KERS
-## 2909 90 degrees V8 + KERS
-## 2910 90 degrees V8 + KERS
+## 2908        90 degrees V8
+## 2909        90 degrees V8
+## 2910        90 degrees V8
 ## 2911 90 degrees V6 + MGUs
 ## 2912        90 degrees V8
 ## 2913                  V10
 ## 2914                  V10
-## 2915 90 degrees V8 + KERS
+## 2915        90 degrees V8
 ## 2916                  V10
 ## 2917                  V10
 ## 2918 90 degrees V6 + MGUs
-## 2919 90 degrees V8 + KERS
+## 2919        90 degrees V8
 ## 2920                  V10
-## 2921 90 degrees V8 + KERS
+## 2921        90 degrees V8
 ## 2922 90 degrees V6 + MGUs
 ## 2923 90 degrees V6 + MGUs
 ## 2924        90 degrees V8
 ## 2925                  V10
-## 2926 90 degrees V8 + KERS
+## 2926        90 degrees V8
 ## 2927                  V10
 ## 2928                  V10
 ## 2929        90 degrees V8
 ## 2930 90 degrees V6 + MGUs
-## 2931 90 degrees V8 + KERS
+## 2931        90 degrees V8
 ## 2932                  V10
 ## 2933 90 degrees V6 + MGUs
 ## 2934                  V10
@@ -22840,31 +22837,31 @@ summary(model)</code></pre>
 ## 2936 90 degrees V6 + MGUs
 ## 2937                  V10
 ## 2938                  V10
-## 2939 90 degrees V8 + KERS
+## 2939        90 degrees V8
 ## 2940 90 degrees V6 + MGUs
-## 2941 90 degrees V8 + KERS
+## 2941        90 degrees V8
 ## 2942                  V10
-## 2943 90 degrees V8 + KERS
-## 2944 90 degrees V8 + KERS
-## 2945 90 degrees V8 + KERS
+## 2943        90 degrees V8
+## 2944        90 degrees V8
+## 2945        90 degrees V8
 ## 2946                  V10
-## 2947 90 degrees V8 + KERS
-## 2948 90 degrees V8 + KERS
-## 2949 90 degrees V8 + KERS
+## 2947        90 degrees V8
+## 2948        90 degrees V8
+## 2949        90 degrees V8
 ## 2950        90 degrees V8
 ## 2951                  V10
 ## 2952                  V10
 ## 2953                  V10
 ## 2954        90 degrees V8
-## 2955 90 degrees V8 + KERS
-## 2956 90 degrees V8 + KERS
-## 2957 90 degrees V8 + KERS
-## 2958 90 degrees V8 + KERS
-## 2959 90 degrees V8 + KERS
+## 2955        90 degrees V8
+## 2956        90 degrees V8
+## 2957        90 degrees V8
+## 2958        90 degrees V8
+## 2959        90 degrees V8
 ## 2960                  V10
 ## 2961                  V10
-## 2962 90 degrees V8 + KERS
-## 2963 90 degrees V8 + KERS
+## 2962        90 degrees V8
+## 2963        90 degrees V8
 ## 2964        90 degrees V8
 ## 2965 90 degrees V6 + MGUs
 ## 2966                  V10
@@ -22874,16 +22871,16 @@ summary(model)</code></pre>
 ## 2970        90 degrees V8
 ## 2971                  V10
 ## 2972                  V10
-## 2973 90 degrees V8 + KERS
+## 2973        90 degrees V8
 ## 2974                  V10
 ## 2975        90 degrees V8
 ## 2976        90 degrees V8
-## 2977 90 degrees V8 + KERS
+## 2977        90 degrees V8
 ## 2978 90 degrees V6 + MGUs
 ## 2979        90 degrees V8
 ## 2980        90 degrees V8
 ## 2981 90 degrees V6 + MGUs
-## 2982 90 degrees V8 + KERS
+## 2982        90 degrees V8
 ## 2983                  V10
 ## 2984 90 degrees V6 + MGUs
 ## 2985        90 degrees V8
@@ -22893,88 +22890,88 @@ summary(model)</code></pre>
 ## 2989        90 degrees V8
 ## 2990                  V10
 ## 2991        90 degrees V8
-## 2992 90 degrees V8 + KERS
+## 2992        90 degrees V8
 ## 2993 90 degrees V6 + MGUs
-## 2994 90 degrees V8 + KERS
+## 2994        90 degrees V8
 ## 2995 90 degrees V6 + MGUs
 ## 2996                  V10
 ## 2997 90 degrees V6 + MGUs
-## 2998 90 degrees V8 + KERS
-## 2999 90 degrees V8 + KERS
+## 2998        90 degrees V8
+## 2999        90 degrees V8
 ## 3000        90 degrees V8
-## 3001 90 degrees V8 + KERS
+## 3001        90 degrees V8
 ## 3002                  V10
 ## 3003 90 degrees V6 + MGUs
 ## 3004 90 degrees V6 + MGUs
 ## 3005        90 degrees V8
-## 3006 90 degrees V8 + KERS
-## 3007 90 degrees V8 + KERS
-## 3008 90 degrees V8 + KERS
-## 3009 90 degrees V8 + KERS
+## 3006        90 degrees V8
+## 3007        90 degrees V8
+## 3008        90 degrees V8
+## 3009        90 degrees V8
 ## 3010        90 degrees V8
 ## 3011                  V10
-## 3012 90 degrees V8 + KERS
+## 3012        90 degrees V8
 ## 3013                  V10
 ## 3014                  V10
-## 3015 90 degrees V8 + KERS
+## 3015        90 degrees V8
 ## 3016                  V10
-## 3017 90 degrees V8 + KERS
+## 3017        90 degrees V8
 ## 3018                  V10
 ## 3019                  V10
 ## 3020 90 degrees V6 + MGUs
 ## 3021 90 degrees V6 + MGUs
 ## 3022                  V10
-## 3023 90 degrees V8 + KERS
+## 3023        90 degrees V8
 ## 3024 90 degrees V6 + MGUs
 ## 3025 90 degrees V6 + MGUs
 ## 3026                  V10
 ## 3027                  V10
 ## 3028        90 degrees V8
-## 3029 90 degrees V8 + KERS
+## 3029        90 degrees V8
 ## 3030                  V10
-## 3031 90 degrees V8 + KERS
-## 3032 90 degrees V8 + KERS
+## 3031        90 degrees V8
+## 3032        90 degrees V8
 ## 3033        90 degrees V8
 ## 3034 90 degrees V6 + MGUs
 ## 3035                  V10
 ## 3036                  V10
 ## 3037        90 degrees V8
 ## 3038 90 degrees V6 + MGUs
-## 3039 90 degrees V8 + KERS
+## 3039        90 degrees V8
 ## 3040                  V10
-## 3041 90 degrees V8 + KERS
-## 3042 90 degrees V8 + KERS
+## 3041        90 degrees V8
+## 3042        90 degrees V8
 ## 3043        90 degrees V8
-## 3044 90 degrees V8 + KERS
+## 3044        90 degrees V8
 ## 3045                  V10
 ## 3046        90 degrees V8
-## 3047 90 degrees V8 + KERS
+## 3047        90 degrees V8
 ## 3048        90 degrees V8
-## 3049 90 degrees V8 + KERS
+## 3049        90 degrees V8
 ## 3050                  V10
 ## 3051 90 degrees V6 + MGUs
 ## 3052        90 degrees V8
 ## 3053        90 degrees V8
-## 3054 90 degrees V8 + KERS
+## 3054        90 degrees V8
 ## 3055                  V10
 ## 3056                  V10
 ## 3057 90 degrees V6 + MGUs
-## 3058 90 degrees V8 + KERS
+## 3058        90 degrees V8
 ## 3059                  V10
 ## 3060        90 degrees V8
-## 3061 90 degrees V8 + KERS
+## 3061        90 degrees V8
 ## 3062                  V10
 ## 3063                  V10
 ## 3064                  V10
-## 3065 90 degrees V8 + KERS
+## 3065        90 degrees V8
 ## 3066        90 degrees V8
-## 3067 90 degrees V8 + KERS
+## 3067        90 degrees V8
 ## 3068 90 degrees V6 + MGUs
 ## 3069 90 degrees V6 + MGUs
-## 3070 90 degrees V8 + KERS
+## 3070        90 degrees V8
 ## 3071                  V10
 ## 3072                  V10
-## 3073 90 degrees V8 + KERS
+## 3073        90 degrees V8
 ## 3074 90 degrees V6 + MGUs
 ## 3075                  V10
 ## 3076                  V10
@@ -22988,37 +22985,37 @@ summary(model)</code></pre>
 ## 3084                  V10
 ## 3085        90 degrees V8
 ## 3086 90 degrees V6 + MGUs
-## 3087 90 degrees V8 + KERS
-## 3088 90 degrees V8 + KERS
+## 3087        90 degrees V8
+## 3088        90 degrees V8
 ## 3089        90 degrees V8
 ## 3090 90 degrees V6 + MGUs
-## 3091 90 degrees V8 + KERS
+## 3091        90 degrees V8
 ## 3092                  V10
-## 3093 90 degrees V8 + KERS
+## 3093        90 degrees V8
 ## 3094        90 degrees V8
-## 3095 90 degrees V8 + KERS
+## 3095        90 degrees V8
 ## 3096        90 degrees V8
 ## 3097                  V10
-## 3098 90 degrees V8 + KERS
-## 3099 90 degrees V8 + KERS
+## 3098        90 degrees V8
+## 3099        90 degrees V8
 ## 3100                  V10
 ## 3101                  V10
-## 3102 90 degrees V8 + KERS
+## 3102        90 degrees V8
 ## 3103                  V10
 ## 3104                  V10
 ## 3105                  V10
 ## 3106                  V10
 ## 3107                  V10
-## 3108 90 degrees V8 + KERS
+## 3108        90 degrees V8
 ## 3109 90 degrees V6 + MGUs
 ## 3110        90 degrees V8
-## 3111 90 degrees V8 + KERS
-## 3112 90 degrees V8 + KERS
+## 3111        90 degrees V8
+## 3112        90 degrees V8
 ## 3113                  V10
 ## 3114 90 degrees V6 + MGUs
 ## 3115        90 degrees V8
-## 3116 90 degrees V8 + KERS
-## 3117 90 degrees V8 + KERS
+## 3116        90 degrees V8
+## 3117        90 degrees V8
 ## 3118                  V10
 ## 3119                  V10
 ## 3120                  V10
@@ -23030,26 +23027,26 @@ summary(model)</code></pre>
 ## 3126        90 degrees V8
 ## 3127                  V10
 ## 3128 90 degrees V6 + MGUs
-## 3129 90 degrees V8 + KERS
+## 3129        90 degrees V8
 ## 3130 90 degrees V6 + MGUs
-## 3131 90 degrees V8 + KERS
+## 3131        90 degrees V8
 ## 3132 90 degrees V6 + MGUs
-## 3133 90 degrees V8 + KERS
-## 3134 90 degrees V8 + KERS
+## 3133        90 degrees V8
+## 3134        90 degrees V8
 ## 3135                  V10
 ## 3136                  V10
 ## 3137        90 degrees V8
 ## 3138                  V10
 ## 3139                  V10
-## 3140 90 degrees V8 + KERS
+## 3140        90 degrees V8
 ## 3141 90 degrees V6 + MGUs
-## 3142 90 degrees V8 + KERS
+## 3142        90 degrees V8
 ## 3143                  V10
 ## 3144        90 degrees V8
-## 3145 90 degrees V8 + KERS
+## 3145        90 degrees V8
 ## 3146                  V10
-## 3147 90 degrees V8 + KERS
-## 3148 90 degrees V8 + KERS
+## 3147        90 degrees V8
+## 3148        90 degrees V8
 ## 3149        90 degrees V8
 ## 3150                  V10
 ## 3151                  V10
@@ -23060,38 +23057,38 @@ summary(model)</code></pre>
 ## 3156                  V10
 ## 3157                  V10
 ## 3158                  V10
-## 3159 90 degrees V8 + KERS
+## 3159        90 degrees V8
 ## 3160                  V10
 ## 3161        90 degrees V8
-## 3162 90 degrees V8 + KERS
+## 3162        90 degrees V8
 ## 3163 90 degrees V6 + MGUs
-## 3164 90 degrees V8 + KERS
+## 3164        90 degrees V8
 ## 3165                  V10
-## 3166 90 degrees V8 + KERS
+## 3166        90 degrees V8
 ## 3167        90 degrees V8
 ## 3168 90 degrees V6 + MGUs
 ## 3169                  V10
-## 3170 90 degrees V8 + KERS
+## 3170        90 degrees V8
 ## 3171        90 degrees V8
 ## 3172 90 degrees V6 + MGUs
-## 3173 90 degrees V8 + KERS
+## 3173        90 degrees V8
 ## 3174 90 degrees V6 + MGUs
-## 3175 90 degrees V8 + KERS
+## 3175        90 degrees V8
 ## 3176        90 degrees V8
 ## 3177        90 degrees V8
 ## 3178        90 degrees V8
-## 3179 90 degrees V8 + KERS
-## 3180 90 degrees V8 + KERS
-## 3181 90 degrees V8 + KERS
+## 3179        90 degrees V8
+## 3180        90 degrees V8
+## 3181        90 degrees V8
 ## 3182 90 degrees V6 + MGUs
-## 3183 90 degrees V8 + KERS
-## 3184 90 degrees V8 + KERS
+## 3183        90 degrees V8
+## 3184        90 degrees V8
 ## 3185 90 degrees V6 + MGUs
 ## 3186 90 degrees V6 + MGUs
 ## 3187                  V10
 ## 3188                  V10
 ## 3189        90 degrees V8
-## 3190 90 degrees V8 + KERS
+## 3190        90 degrees V8
 ## 3191        90 degrees V8
 ## 3192        90 degrees V8
 ## 3193                  V10
@@ -23126,11 +23123,11 @@ summary(model)</code></pre>
 ## 3222 90 degrees V6 + MGUs
 ## 3223 90 degrees V6 + MGUs
 ## 3224 90 degrees V6 + MGUs
-## 3225 90 degrees V8 + KERS
-## 3226 90 degrees V8 + KERS
-## 3227 90 degrees V8 + KERS
-## 3228 90 degrees V8 + KERS
-## 3229 90 degrees V8 + KERS
+## 3225        90 degrees V8
+## 3226        90 degrees V8
+## 3227        90 degrees V8
+## 3228        90 degrees V8
+## 3229        90 degrees V8
 ## 3230 90 degrees V6 + MGUs
 ## 3231 90 degrees V6 + MGUs
 ## 3232 90 degrees V6 + MGUs
@@ -23138,30 +23135,30 @@ summary(model)</code></pre>
 ## 3234 90 degrees V6 + MGUs
 ## 3235 90 degrees V6 + MGUs
 ## 3236 90 degrees V6 + MGUs
-## 3237 90 degrees V8 + KERS
+## 3237        90 degrees V8
 ## 3238 90 degrees V6 + MGUs
 ## 3239 90 degrees V6 + MGUs
 ## 3240 90 degrees V6 + MGUs
 ## 3241 90 degrees V6 + MGUs
 ## 3242 90 degrees V6 + MGUs
-## 3243 90 degrees V8 + KERS
+## 3243        90 degrees V8
 ## 3244 90 degrees V6 + MGUs
-## 3245 90 degrees V8 + KERS
+## 3245        90 degrees V8
 ## 3246 90 degrees V6 + MGUs
 ## 3247 90 degrees V6 + MGUs
-## 3248 90 degrees V8 + KERS
+## 3248        90 degrees V8
 ## 3249 90 degrees V6 + MGUs
 ## 3250 90 degrees V6 + MGUs
 ## 3251 90 degrees V6 + MGUs
 ## 3252 90 degrees V6 + MGUs
 ## 3253 90 degrees V6 + MGUs
 ## 3254 90 degrees V6 + MGUs
-## 3255 90 degrees V8 + KERS
+## 3255        90 degrees V8
 ## 3256 90 degrees V6 + MGUs
 ## 3257 90 degrees V6 + MGUs
 ## 3258 90 degrees V6 + MGUs
-## 3259 90 degrees V8 + KERS
-## 3260 90 degrees V8 + KERS
+## 3259        90 degrees V8
+## 3260        90 degrees V8
 ## 3261 90 degrees V6 + MGUs
 ## 3262 90 degrees V6 + MGUs
 ## 3263        90 degrees V8
@@ -23169,20 +23166,20 @@ summary(model)</code></pre>
 ## 3265 90 degrees V6 + MGUs
 ## 3266 90 degrees V6 + MGUs
 ## 3267 90 degrees V6 + MGUs
-## 3268 90 degrees V8 + KERS
+## 3268        90 degrees V8
 ## 3269 90 degrees V6 + MGUs
-## 3270 90 degrees V8 + KERS
+## 3270        90 degrees V8
 ## 3271 90 degrees V6 + MGUs
-## 3272 90 degrees V8 + KERS
-## 3273 90 degrees V8 + KERS
+## 3272        90 degrees V8
+## 3273        90 degrees V8
 ## 3274 90 degrees V6 + MGUs
 ## 3275        90 degrees V8
 ## 3276        90 degrees V8
 ## 3277        90 degrees V8
 ## 3278 90 degrees V6 + MGUs
-## 3279 90 degrees V8 + KERS
-## 3280 90 degrees V8 + KERS
-## 3281 90 degrees V8 + KERS
+## 3279        90 degrees V8
+## 3280        90 degrees V8
+## 3281        90 degrees V8
 ## 3282 90 degrees V6 + MGUs
 ## 3283 90 degrees V6 + MGUs
 ## 3284 90 degrees V6 + MGUs
@@ -23192,19 +23189,19 @@ summary(model)</code></pre>
 ## 3288 90 degrees V6 + MGUs
 ## 3289 90 degrees V6 + MGUs
 ## 3290        90 degrees V8
-## 3291 90 degrees V8 + KERS
+## 3291        90 degrees V8
 ## 3292 90 degrees V6 + MGUs
 ## 3293 90 degrees V6 + MGUs
 ## 3294 90 degrees V6 + MGUs
-## 3295 90 degrees V8 + KERS
+## 3295        90 degrees V8
 ## 3296 90 degrees V6 + MGUs
-## 3297 90 degrees V8 + KERS
+## 3297        90 degrees V8
 ## 3298 90 degrees V6 + MGUs
-## 3299 90 degrees V8 + KERS
+## 3299        90 degrees V8
 ## 3300 90 degrees V6 + MGUs
 ## 3301 90 degrees V6 + MGUs
 ## 3302 90 degrees V6 + MGUs
-## 3303 90 degrees V8 + KERS
+## 3303        90 degrees V8
 ## 3304 90 degrees V6 + MGUs
 ## 3305 90 degrees V6 + MGUs
 ## 3306 90 degrees V6 + MGUs
@@ -23215,94 +23212,94 @@ summary(model)</code></pre>
 ## 3311 90 degrees V6 + MGUs
 ## 3312 90 degrees V6 + MGUs
 ## 3313 90 degrees V6 + MGUs
-## 3314 90 degrees V8 + KERS
+## 3314        90 degrees V8
 ## 3315 90 degrees V6 + MGUs
-## 3316 90 degrees V8 + KERS
+## 3316        90 degrees V8
 ## 3317 90 degrees V6 + MGUs
-## 3318 90 degrees V8 + KERS
+## 3318        90 degrees V8
 ## 3319 90 degrees V6 + MGUs
 ## 3320 90 degrees V6 + MGUs
 ## 3321        90 degrees V8
-## 3322 90 degrees V8 + KERS
+## 3322        90 degrees V8
 ## 3323 90 degrees V6 + MGUs
 ## 3324        90 degrees V8
-## 3325 90 degrees V8 + KERS
-## 3326 90 degrees V8 + KERS
+## 3325        90 degrees V8
+## 3326        90 degrees V8
 ## 3327 90 degrees V6 + MGUs
 ## 3328 90 degrees V6 + MGUs
-## 3329 90 degrees V8 + KERS
+## 3329        90 degrees V8
 ## 3330 90 degrees V6 + MGUs
 ## 3331        90 degrees V8
 ## 3332        90 degrees V8
-## 3333 90 degrees V8 + KERS
+## 3333        90 degrees V8
 ## 3334 90 degrees V6 + MGUs
-## 3335 90 degrees V8 + KERS
+## 3335        90 degrees V8
 ## 3336 90 degrees V6 + MGUs
 ## 3337 90 degrees V6 + MGUs
 ## 3338        90 degrees V8
 ## 3339 90 degrees V6 + MGUs
-## 3340 90 degrees V8 + KERS
-## 3341 90 degrees V8 + KERS
+## 3340        90 degrees V8
+## 3341        90 degrees V8
 ## 3342 90 degrees V6 + MGUs
-## 3343 90 degrees V8 + KERS
+## 3343        90 degrees V8
 ## 3344 90 degrees V6 + MGUs
 ## 3345 90 degrees V6 + MGUs
 ## 3346 90 degrees V6 + MGUs
 ## 3347 90 degrees V6 + MGUs
-## 3348 90 degrees V8 + KERS
+## 3348        90 degrees V8
 ## 3349        90 degrees V8
-## 3350 90 degrees V8 + KERS
+## 3350        90 degrees V8
 ## 3351 90 degrees V6 + MGUs
-## 3352 90 degrees V8 + KERS
-## 3353 90 degrees V8 + KERS
-## 3354 90 degrees V8 + KERS
+## 3352        90 degrees V8
+## 3353        90 degrees V8
+## 3354        90 degrees V8
 ## 3355 90 degrees V6 + MGUs
 ## 3356 90 degrees V6 + MGUs
 ## 3357 90 degrees V6 + MGUs
 ## 3358 90 degrees V6 + MGUs
 ## 3359 90 degrees V6 + MGUs
 ## 3360 90 degrees V6 + MGUs
-## 3361 90 degrees V8 + KERS
-## 3362 90 degrees V8 + KERS
-## 3363 90 degrees V8 + KERS
-## 3364 90 degrees V8 + KERS
+## 3361        90 degrees V8
+## 3362        90 degrees V8
+## 3363        90 degrees V8
+## 3364        90 degrees V8
 ## 3365 90 degrees V6 + MGUs
-## 3366 90 degrees V8 + KERS
-## 3367 90 degrees V8 + KERS
-## 3368 90 degrees V8 + KERS
+## 3366        90 degrees V8
+## 3367        90 degrees V8
+## 3368        90 degrees V8
 ## 3369 90 degrees V6 + MGUs
 ## 3370        90 degrees V8
 ## 3371 90 degrees V6 + MGUs
 ## 3372 90 degrees V6 + MGUs
 ## 3373 90 degrees V6 + MGUs
-## 3374 90 degrees V8 + KERS
-## 3375 90 degrees V8 + KERS
+## 3374        90 degrees V8
+## 3375        90 degrees V8
 ## 3376 90 degrees V6 + MGUs
-## 3377 90 degrees V8 + KERS
+## 3377        90 degrees V8
 ## 3378 90 degrees V6 + MGUs
 ## 3379        90 degrees V8
-## 3380 90 degrees V8 + KERS
-## 3381 90 degrees V8 + KERS
+## 3380        90 degrees V8
+## 3381        90 degrees V8
 ## 3382 90 degrees V6 + MGUs
 ## 3383        90 degrees V8
 ## 3384 90 degrees V6 + MGUs
 ## 3385        90 degrees V8
 ## 3386 90 degrees V6 + MGUs
-## 3387 90 degrees V8 + KERS
-## 3388 90 degrees V8 + KERS
-## 3389 90 degrees V8 + KERS
+## 3387        90 degrees V8
+## 3388        90 degrees V8
+## 3389        90 degrees V8
 ## 3390 90 degrees V6 + MGUs
 ## 3391 90 degrees V6 + MGUs
 ## 3392 90 degrees V6 + MGUs
-## 3393 90 degrees V8 + KERS
+## 3393        90 degrees V8
 ## 3394        90 degrees V8
-## 3395 90 degrees V8 + KERS
+## 3395        90 degrees V8
 ## 3396 90 degrees V6 + MGUs
-## 3397 90 degrees V8 + KERS
-## 3398 90 degrees V8 + KERS
-## 3399 90 degrees V8 + KERS
-## 3400 90 degrees V8 + KERS
-## 3401 90 degrees V8 + KERS
+## 3397        90 degrees V8
+## 3398        90 degrees V8
+## 3399        90 degrees V8
+## 3400        90 degrees V8
+## 3401        90 degrees V8
 ## 3402 90 degrees V6 + MGUs
 ## 3403        90 degrees V8
 ## 3404 90 degrees V6 + MGUs
@@ -23312,36 +23309,36 @@ summary(model)</code></pre>
 ## 3408 90 degrees V6 + MGUs
 ## 3409 90 degrees V6 + MGUs
 ## 3410 90 degrees V6 + MGUs
-## 3411 90 degrees V8 + KERS
+## 3411        90 degrees V8
 ## 3412 90 degrees V6 + MGUs
 ## 3413 90 degrees V6 + MGUs
 ## 3414 90 degrees V6 + MGUs
 ## 3415 90 degrees V6 + MGUs
-## 3416 90 degrees V8 + KERS
-## 3417 90 degrees V8 + KERS
-## 3418 90 degrees V8 + KERS
+## 3416        90 degrees V8
+## 3417        90 degrees V8
+## 3418        90 degrees V8
 ## 3419 90 degrees V6 + MGUs
 ## 3420 90 degrees V6 + MGUs
 ## 3421 90 degrees V6 + MGUs
 ## 3422 90 degrees V6 + MGUs
-## 3423 90 degrees V8 + KERS
+## 3423        90 degrees V8
 ## 3424 90 degrees V6 + MGUs
 ## 3425 90 degrees V6 + MGUs
 ## 3426 90 degrees V6 + MGUs
-## 3427 90 degrees V8 + KERS
+## 3427        90 degrees V8
 ## 3428 90 degrees V6 + MGUs
 ## 3429 90 degrees V6 + MGUs
-## 3430 90 degrees V8 + KERS
+## 3430        90 degrees V8
 ## 3431 90 degrees V6 + MGUs
 ## 3432 90 degrees V6 + MGUs
-## 3433 90 degrees V8 + KERS
+## 3433        90 degrees V8
 ## 3434 90 degrees V6 + MGUs
 ## 3435 90 degrees V6 + MGUs
 ## 3436 90 degrees V6 + MGUs
 ## 3437 90 degrees V6 + MGUs
 ## 3438 90 degrees V6 + MGUs
 ## 3439 90 degrees V6 + MGUs
-## 3440 90 degrees V8 + KERS
+## 3440        90 degrees V8
 ## 3441 90 degrees V6 + MGUs
 ## 3442 90 degrees V6 + MGUs
 ## 3443 90 degrees V6 + MGUs
@@ -23349,34 +23346,34 @@ summary(model)</code></pre>
 ## 3445 90 degrees V6 + MGUs
 ## 3446 90 degrees V6 + MGUs
 ## 3447 90 degrees V6 + MGUs
-## 3448 90 degrees V8 + KERS
-## 3449 90 degrees V8 + KERS
+## 3448        90 degrees V8
+## 3449        90 degrees V8
 ## 3450 90 degrees V6 + MGUs
 ## 3451 90 degrees V6 + MGUs
-## 3452 90 degrees V8 + KERS
+## 3452        90 degrees V8
 ## 3453        90 degrees V8
-## 3454 90 degrees V8 + KERS
+## 3454        90 degrees V8
 ## 3455 90 degrees V6 + MGUs
 ## 3456 90 degrees V6 + MGUs
 ## 3457 90 degrees V6 + MGUs
 ## 3458 90 degrees V6 + MGUs
 ## 3459 90 degrees V6 + MGUs
-## 3460 90 degrees V8 + KERS
-## 3461 90 degrees V8 + KERS
-## 3462 90 degrees V8 + KERS
+## 3460        90 degrees V8
+## 3461        90 degrees V8
+## 3462        90 degrees V8
 ## 3463 90 degrees V6 + MGUs
 ## 3464 90 degrees V6 + MGUs
-## 3465 90 degrees V8 + KERS
+## 3465        90 degrees V8
 ## 3466 90 degrees V6 + MGUs
 ## 3467 90 degrees V6 + MGUs
 ## 3468 90 degrees V6 + MGUs
 ## 3469 90 degrees V6 + MGUs
 ## 3470        90 degrees V8
 ## 3471 90 degrees V6 + MGUs
-## 3472 90 degrees V8 + KERS
-## 3473 90 degrees V8 + KERS
+## 3472        90 degrees V8
+## 3473        90 degrees V8
 ## 3474 90 degrees V6 + MGUs
-## 3475 90 degrees V8 + KERS
+## 3475        90 degrees V8
 ## 3476        90 degrees V8
 ## 3477        90 degrees V8
 ## 3478 90 degrees V6 + MGUs
@@ -23387,35 +23384,35 @@ summary(model)</code></pre>
 ## 3483 90 degrees V6 + MGUs
 ## 3484 90 degrees V6 + MGUs
 ## 3485 90 degrees V6 + MGUs
-## 3486 90 degrees V8 + KERS
+## 3486        90 degrees V8
 ## 3487 90 degrees V6 + MGUs
 ## 3488 90 degrees V6 + MGUs
-## 3489 90 degrees V8 + KERS
-## 3490 90 degrees V8 + KERS
-## 3491 90 degrees V8 + KERS
+## 3489        90 degrees V8
+## 3490        90 degrees V8
+## 3491        90 degrees V8
 ## 3492 90 degrees V6 + MGUs
 ## 3493 90 degrees V6 + MGUs
 ## 3494 90 degrees V6 + MGUs
 ## 3495 90 degrees V6 + MGUs
-## 3496 90 degrees V8 + KERS
-## 3497 90 degrees V8 + KERS
+## 3496        90 degrees V8
+## 3497        90 degrees V8
 ## 3498 90 degrees V6 + MGUs
-## 3499 90 degrees V8 + KERS
+## 3499        90 degrees V8
 ## 3500 90 degrees V6 + MGUs
 ## 3501        90 degrees V8
 ## 3502 90 degrees V6 + MGUs
 ## 3503 90 degrees V6 + MGUs
 ## 3504        90 degrees V8
 ## 3505 90 degrees V6 + MGUs
-## 3506 90 degrees V8 + KERS
+## 3506        90 degrees V8
 ## 3507        90 degrees V8
 ## 3508 90 degrees V6 + MGUs
 ## 3509 90 degrees V6 + MGUs
-## 3510 90 degrees V8 + KERS
-## 3511 90 degrees V8 + KERS
+## 3510        90 degrees V8
+## 3511        90 degrees V8
 ## 3512 90 degrees V6 + MGUs
 ## 3513 90 degrees V6 + MGUs
-## 3514 90 degrees V8 + KERS
+## 3514        90 degrees V8
 ## 3515                  V10
 ## 3516                  V10
 ## 3517                  V10
@@ -23430,13 +23427,13 @@ summary(model)</code></pre>
 ## 3526        90 degrees V8
 ## 3527                  V10
 ## 3528                  V10
-## 3529 90 degrees V8 + KERS
+## 3529        90 degrees V8
 ## 3530                  V10
 ## 3531        90 degrees V8
 ## 3532                  V10
 ## 3533                  V10
 ## 3534                  V10
-## 3535 90 degrees V8 + KERS
+## 3535        90 degrees V8
 ## 3536        90 degrees V8
 ## 3537                  V10
 ## 3538        90 degrees V8
@@ -23476,7 +23473,7 @@ summary(model)</code></pre>
 ## 3572        90 degrees V8
 ## 3573        90 degrees V8
 ## 3574                  V10
-## 3575 90 degrees V8 + KERS
+## 3575        90 degrees V8
 ## 3576                  V10
 ## 3577        90 degrees V8
 ## 3578                  V10
@@ -23487,23 +23484,23 @@ summary(model)</code></pre>
 ## 3583                  V10
 ## 3584                  V10
 ## 3585        90 degrees V8
-## 3586 90 degrees V8 + KERS
+## 3586        90 degrees V8
 ## 3587                  V10
 ## 3588                  V10
 ## 3589        90 degrees V8
 ## 3590                  V10
-## 3591 90 degrees V8 + KERS
-## 3592 90 degrees V8 + KERS
+## 3591        90 degrees V8
+## 3592        90 degrees V8
 ## 3593                  V10
 ## 3594                  V10
 ## 3595                  V10
 ## 3596                  V10
-## 3597 90 degrees V8 + KERS
-## 3598 90 degrees V8 + KERS
+## 3597        90 degrees V8
+## 3598        90 degrees V8
 ## 3599        90 degrees V8
 ## 3600        90 degrees V8
 ## 3601                  V10
-## 3602 90 degrees V8 + KERS
+## 3602        90 degrees V8
 ## 3603        90 degrees V8
 ## 3604                  V10
 ## 3605                  V10
@@ -23511,14 +23508,14 @@ summary(model)</code></pre>
 ## 3607        90 degrees V8
 ## 3608                  V10
 ## 3609        90 degrees V8
-## 3610 90 degrees V8 + KERS
+## 3610        90 degrees V8
 ## 3611        90 degrees V8
 ## 3612        90 degrees V8
 ## 3613                  V10
 ## 3614                  V10
 ## 3615                  V10
-## 3616 90 degrees V8 + KERS
-## 3617 90 degrees V8 + KERS
+## 3616        90 degrees V8
+## 3617        90 degrees V8
 ## 3618                  V10
 ## 3619                  V10
 ## 3620        90 degrees V8
@@ -23526,8 +23523,8 @@ summary(model)</code></pre>
 ## 3622                  V10
 ## 3623                  V10
 ## 3624                  V10
-## 3625 90 degrees V8 + KERS
-## 3626 90 degrees V8 + KERS
+## 3625        90 degrees V8
+## 3626        90 degrees V8
 ## 3627                  V10
 ## 3628                  V10
 ## 3629                  V10
@@ -23549,7 +23546,7 @@ summary(model)</code></pre>
 ## 3645                  V10
 ## 3646                  V10
 ## 3647                  V10
-## 3648 90 degrees V8 + KERS
+## 3648        90 degrees V8
 ## 3649        90 degrees V8
 ## 3650                  V10
 ## 3651                  V10
@@ -23568,7 +23565,7 @@ summary(model)</code></pre>
 ## 3664        90 degrees V8
 ## 3665        90 degrees V8
 ## 3666                  V10
-## 3667 90 degrees V8 + KERS
+## 3667        90 degrees V8
 ## 3668        90 degrees V8
 ## 3669                  V10
 ## 3670                  V10
@@ -23585,34 +23582,34 @@ summary(model)</code></pre>
 ## 3681                  V10
 ## 3682                  V10
 ## 3683                  V10
-## 3684 90 degrees V8 + KERS
+## 3684        90 degrees V8
 ## 3685                  V10
 ## 3686        90 degrees V8
 ## 3687                  V10
 ## 3688                  V10
-## 3689 90 degrees V8 + KERS
+## 3689        90 degrees V8
 ## 3690                  V10
-## 3691 90 degrees V8 + KERS
-## 3692 90 degrees V8 + KERS
+## 3691        90 degrees V8
+## 3692        90 degrees V8
 ## 3693                  V10
 ## 3694                  V10
-## 3695 90 degrees V8 + KERS
+## 3695        90 degrees V8
 ## 3696                  V10
 ## 3697                  V10
 ## 3698                  V10
-## 3699 90 degrees V8 + KERS
+## 3699        90 degrees V8
 ## 3700                  V10
-## 3701 90 degrees V8 + KERS
+## 3701        90 degrees V8
 ## 3702                  V10
 ## 3703                  V10
 ## 3704                  V10
 ## 3705                  V10
 ## 3706                  V10
-## 3707 90 degrees V8 + KERS
+## 3707        90 degrees V8
 ## 3708        90 degrees V8
 ## 3709        90 degrees V8
 ## 3710                  V10
-## 3711 90 degrees V8 + KERS
+## 3711        90 degrees V8
 ## 3712                  V10
 ## 3713                  V10
 ## 3714        90 degrees V8
@@ -23621,7 +23618,7 @@ summary(model)</code></pre>
 ## 3717                  V10
 ## 3718                  V10
 ## 3719        90 degrees V8
-## 3720 90 degrees V8 + KERS
+## 3720        90 degrees V8
 ## 3721                  V10
 ## 3722        90 degrees V8
 ## 3723                  V10
@@ -23632,18 +23629,18 @@ summary(model)</code></pre>
 ## 3728                  V10
 ## 3729                  V10
 ## 3730                  V10
-## 3731 90 degrees V8 + KERS
-## 3732 90 degrees V8 + KERS
-## 3733 90 degrees V8 + KERS
+## 3731        90 degrees V8
+## 3732        90 degrees V8
+## 3733        90 degrees V8
 ## 3734        90 degrees V8
-## 3735 90 degrees V8 + KERS
+## 3735        90 degrees V8
 ## 3736        90 degrees V8
 ## 3737                  V10
 ## 3738        90 degrees V8
 ## 3739                  V10
-## 3740 90 degrees V8 + KERS
-## 3741 90 degrees V8 + KERS
-## 3742 90 degrees V8 + KERS
+## 3740        90 degrees V8
+## 3741        90 degrees V8
+## 3742        90 degrees V8
 ## 3743                  V10
 ## 3744        90 degrees V8
 ## 3745                  V10
@@ -23651,14 +23648,14 @@ summary(model)</code></pre>
 ## 3747                  V10
 ## 3748                  V10
 ## 3749        90 degrees V8
-## 3750 90 degrees V8 + KERS
-## 3751 90 degrees V8 + KERS
-## 3752 90 degrees V8 + KERS
+## 3750        90 degrees V8
+## 3751        90 degrees V8
+## 3752        90 degrees V8
 ## 3753                  V10
-## 3754 90 degrees V8 + KERS
+## 3754        90 degrees V8
 ## 3755                  V10
 ## 3756                  V10
-## 3757 90 degrees V8 + KERS
+## 3757        90 degrees V8
 ## 3758                  V10
 ## 3759                  V10
 ## 3760                  V10
@@ -23669,17 +23666,17 @@ summary(model)</code></pre>
 ## 3765                  V10
 ## 3766                  V10
 ## 3767                  V10
-## 3768 90 degrees V8 + KERS
+## 3768        90 degrees V8
 ## 3769                  V10
 ## 3770                  V10
 ## 3771        90 degrees V8
 ## 3772        90 degrees V8
 ## 3773                  V10
-## 3774 90 degrees V8 + KERS
+## 3774        90 degrees V8
 ## 3775                  V10
 ## 3776                  V10
 ## 3777        90 degrees V8
-## 3778 90 degrees V8 + KERS
+## 3778        90 degrees V8
 ## 3779                  V10
 ## 3780        90 degrees V8
 ## 3781                  V10
@@ -23687,13 +23684,13 @@ summary(model)</code></pre>
 ## 3783                  V10
 ## 3784                  V10
 ## 3785        90 degrees V8
-## 3786 90 degrees V8 + KERS
+## 3786        90 degrees V8
 ## 3787        90 degrees V8
 ## 3788                  V10
 ## 3789                  V10
-## 3790 90 degrees V8 + KERS
-## 3791 90 degrees V8 + KERS
-## 3792 90 degrees V8 + KERS
+## 3790        90 degrees V8
+## 3791        90 degrees V8
+## 3792        90 degrees V8
 ## 3793                  V10
 ## 3794        90 degrees V8
 ## 3795        90 degrees V8
@@ -23701,15 +23698,15 @@ summary(model)</code></pre>
 ## 3797        90 degrees V8
 ## 3798                  V10
 ## 3799                  V10
-## 3800 90 degrees V8 + KERS
+## 3800        90 degrees V8
 ## 3801        90 degrees V8
 ## 3802        90 degrees V8
 ## 3803                  V10
-## 3804 90 degrees V8 + KERS
+## 3804        90 degrees V8
 ## 3805                  V10
 ## 3806        90 degrees V8
 ## 3807                  V10
-## 3808 90 degrees V8 + KERS
+## 3808        90 degrees V8
 ## 3809        90 degrees V8
 ## 3810        90 degrees V8
 ## 3811        90 degrees V8
@@ -23721,7 +23718,7 @@ summary(model)</code></pre>
 ## 3817                  V10
 ## 3818        90 degrees V8
 ## 3819                  V10
-## 3820 90 degrees V8 + KERS
+## 3820        90 degrees V8
 ## 3821                  V10
 ## 3822                  V10
 ## 3823                  V10
@@ -23730,51 +23727,51 @@ summary(model)</code></pre>
 ## 3826        90 degrees V8
 ## 3827        90 degrees V8
 ## 3828        90 degrees V8
-## 3829 90 degrees V8 + KERS
-## 3830 90 degrees V8 + KERS
-## 3831 90 degrees V8 + KERS
-## 3832 90 degrees V8 + KERS
+## 3829        90 degrees V8
+## 3830        90 degrees V8
+## 3831        90 degrees V8
+## 3832        90 degrees V8
 ## 3833        90 degrees V8
 ## 3834                  V10
 ## 3835        90 degrees V8
-## 3836 90 degrees V8 + KERS
+## 3836        90 degrees V8
 ## 3837                  V10
-## 3838 90 degrees V8 + KERS
+## 3838        90 degrees V8
 ## 3839                  V10
 ## 3840                  V10
 ## 3841        90 degrees V8
-## 3842 90 degrees V8 + KERS
+## 3842        90 degrees V8
 ## 3843                  V10
-## 3844 90 degrees V8 + KERS
-## 3845 90 degrees V8 + KERS
+## 3844        90 degrees V8
+## 3845        90 degrees V8
 ## 3846        90 degrees V8
 ## 3847                  V10
 ## 3848        90 degrees V8
-## 3849 90 degrees V8 + KERS
+## 3849        90 degrees V8
 ## 3850                  V10
 ## 3851                  V10
 ## 3852                  V10
-## 3853 90 degrees V8 + KERS
+## 3853        90 degrees V8
 ## 3854        90 degrees V8
 ## 3855        90 degrees V8
 ## 3856                  V10
 ## 3857        90 degrees V8
-## 3858 90 degrees V8 + KERS
+## 3858        90 degrees V8
 ## 3859                  V10
 ## 3860        90 degrees V8
 ## 3861                  V10
 ## 3862        90 degrees V8
-## 3863 90 degrees V8 + KERS
-## 3864 90 degrees V8 + KERS
+## 3863        90 degrees V8
+## 3864        90 degrees V8
 ## 3865                  V10
 ## 3866                  V10
 ## 3867                  V10
 ## 3868                  V10
 ## 3869                  V10
-## 3870 90 degrees V8 + KERS
+## 3870        90 degrees V8
 ## 3871                  V10
 ## 3872                  V10
-## 3873 90 degrees V8 + KERS
+## 3873        90 degrees V8
 ## 3874                  V10
 ## 3875        90 degrees V8
 ## 3876                  V10
@@ -23782,26 +23779,26 @@ summary(model)</code></pre>
 ## 3878        90 degrees V8
 ## 3879                  V10
 ## 3880                  V10
-## 3881 90 degrees V8 + KERS
+## 3881        90 degrees V8
 ## 3882                  V10
-## 3883 90 degrees V8 + KERS
+## 3883        90 degrees V8
 ## 3884                  V10
 ## 3885                  V10
-## 3886 90 degrees V8 + KERS
+## 3886        90 degrees V8
 ## 3887        90 degrees V8
 ## 3888        90 degrees V8
 ## 3889                  V10
 ## 3890                  V10
-## 3891 90 degrees V8 + KERS
+## 3891        90 degrees V8
 ## 3892        90 degrees V8
 ## 3893                  V10
-## 3894 90 degrees V8 + KERS
+## 3894        90 degrees V8
 ## 3895        90 degrees V8
 ## 3896                  V10
 ## 3897                  V10
-## 3898 90 degrees V8 + KERS
+## 3898        90 degrees V8
 ## 3899                  V10
-## 3900 90 degrees V8 + KERS
+## 3900        90 degrees V8
 ## 3901                  V10
 ## 3902                  V10
 ## 3903                  V10
@@ -23934,83 +23931,83 @@ summary(model)</code></pre>
 ## 4030        90 degrees V8
 ## 4031                  V10
 ## 4032        90 degrees V8
-## 4033 90 degrees V8 + KERS
-## 4034 90 degrees V8 + KERS
-## 4035 90 degrees V8 + KERS
-## 4036 90 degrees V8 + KERS
-## 4037 90 degrees V8 + KERS
+## 4033        90 degrees V8
+## 4034        90 degrees V8
+## 4035        90 degrees V8
+## 4036        90 degrees V8
+## 4037        90 degrees V8
 ## 4038        90 degrees V8
-## 4039 90 degrees V8 + KERS
+## 4039        90 degrees V8
 ## 4040                  V10
-## 4041 90 degrees V8 + KERS
+## 4041        90 degrees V8
 ## 4042        90 degrees V8
 ## 4043        90 degrees V8
 ## 4044        90 degrees V8
 ## 4045        90 degrees V8
-## 4046 90 degrees V8 + KERS
-## 4047 90 degrees V8 + KERS
+## 4046        90 degrees V8
+## 4047        90 degrees V8
 ## 4048        90 degrees V8
 ## 4049        90 degrees V8
 ## 4050                  V10
 ## 4051        90 degrees V8
-## 4052 90 degrees V8 + KERS
+## 4052        90 degrees V8
 ## 4053        90 degrees V8
-## 4054 90 degrees V8 + KERS
-## 4055 90 degrees V8 + KERS
+## 4054        90 degrees V8
+## 4055        90 degrees V8
 ## 4056        90 degrees V8
 ## 4057        90 degrees V8
-## 4058 90 degrees V8 + KERS
+## 4058        90 degrees V8
 ## 4059        90 degrees V8
 ## 4060        90 degrees V8
-## 4061 90 degrees V8 + KERS
-## 4062 90 degrees V8 + KERS
-## 4063 90 degrees V8 + KERS
-## 4064 90 degrees V8 + KERS
+## 4061        90 degrees V8
+## 4062        90 degrees V8
+## 4063        90 degrees V8
+## 4064        90 degrees V8
 ## 4065        90 degrees V8
-## 4066 90 degrees V8 + KERS
-## 4067 90 degrees V8 + KERS
+## 4066        90 degrees V8
+## 4067        90 degrees V8
 ## 4068        90 degrees V8
-## 4069 90 degrees V8 + KERS
+## 4069        90 degrees V8
 ## 4070        90 degrees V8
 ## 4071                  V10
-## 4072 90 degrees V8 + KERS
+## 4072        90 degrees V8
 ## 4073        90 degrees V8
-## 4074 90 degrees V8 + KERS
-## 4075 90 degrees V8 + KERS
+## 4074        90 degrees V8
+## 4075        90 degrees V8
 ## 4076        90 degrees V8
 ## 4077        90 degrees V8
-## 4078 90 degrees V8 + KERS
-## 4079 90 degrees V8 + KERS
-## 4080 90 degrees V8 + KERS
+## 4078        90 degrees V8
+## 4079        90 degrees V8
+## 4080        90 degrees V8
 ## 4081        90 degrees V8
-## 4082 90 degrees V8 + KERS
-## 4083 90 degrees V8 + KERS
+## 4082        90 degrees V8
+## 4083        90 degrees V8
 ## 4084        90 degrees V8
-## 4085 90 degrees V8 + KERS
+## 4085        90 degrees V8
 ## 4086        90 degrees V8
-## 4087 90 degrees V8 + KERS
-## 4088 90 degrees V8 + KERS
-## 4089 90 degrees V8 + KERS
+## 4087        90 degrees V8
+## 4088        90 degrees V8
+## 4089        90 degrees V8
 ## 4090                  V10
-## 4091 90 degrees V8 + KERS
+## 4091        90 degrees V8
 ## 4092        90 degrees V8
-## 4093 90 degrees V8 + KERS
-## 4094 90 degrees V8 + KERS
+## 4093        90 degrees V8
+## 4094        90 degrees V8
 ## 4095        90 degrees V8
 ## 4096        90 degrees V8
-## 4097 90 degrees V8 + KERS
-## 4098 90 degrees V8 + KERS
+## 4097        90 degrees V8
+## 4098        90 degrees V8
 ## 4099        90 degrees V8
 ## 4100        90 degrees V8
 ## 4101        90 degrees V8
-## 4102 90 degrees V8 + KERS
-## 4103 90 degrees V8 + KERS
+## 4102        90 degrees V8
+## 4103        90 degrees V8
 ## 4104        90 degrees V8
-## 4105 90 degrees V8 + KERS
-## 4106 90 degrees V8 + KERS
+## 4105        90 degrees V8
+## 4106        90 degrees V8
 ## 4107        90 degrees V8
 ## 4108        90 degrees V8
-## 4109 90 degrees V8 + KERS
+## 4109        90 degrees V8
 ## 4110        90 degrees V8
 ## 4111        90 degrees V8
 ## 4112        90 degrees V8
@@ -24124,35 +24121,35 @@ summary(model)</code></pre>
 ## 4220        90 degrees V8
 ## 4221        90 degrees V8
 ## 4222        90 degrees V8
-## 4223 90 degrees V8 + KERS
+## 4223        90 degrees V8
 ## 4224        90 degrees V8
 ## 4225        90 degrees V8
 ## 4226        90 degrees V8
 ## 4227        90 degrees V8
-## 4228 90 degrees V8 + KERS
+## 4228        90 degrees V8
 ## 4229        90 degrees V8
 ## 4230        90 degrees V8
 ## 4231        90 degrees V8
 ## 4232        90 degrees V8
 ## 4233        90 degrees V8
-## 4234 90 degrees V8 + KERS
+## 4234        90 degrees V8
 ## 4235        90 degrees V8
-## 4236 90 degrees V8 + KERS
+## 4236        90 degrees V8
 ## 4237        90 degrees V8
-## 4238 90 degrees V8 + KERS
-## 4239 90 degrees V8 + KERS
+## 4238        90 degrees V8
+## 4239        90 degrees V8
 ## 4240        90 degrees V8
 ## 4241        90 degrees V8
-## 4242 90 degrees V8 + KERS
+## 4242        90 degrees V8
 ## 4243                  V10
 ## 4244                  V10
 ## 4245                  V10
 ## 4246                  V10
 ## 4247                  V10
 ## 4248                  V10
-## 4249 90 degrees V8 + KERS
+## 4249        90 degrees V8
 ## 4250                  V10
-## 4251 90 degrees V8 + KERS
+## 4251        90 degrees V8
 ## 4252        90 degrees V8
 ## 4253        90 degrees V8
 ## 4254                  V10
@@ -24160,56 +24157,56 @@ summary(model)</code></pre>
 ## 4256                  V10
 ## 4257        90 degrees V8
 ## 4258                  V10
-## 4259 90 degrees V8 + KERS
-## 4260 90 degrees V8 + KERS
-## 4261 90 degrees V8 + KERS
+## 4259        90 degrees V8
+## 4260        90 degrees V8
+## 4261        90 degrees V8
 ## 4262                  V10
 ## 4263                  V10
 ## 4264                  V10
 ## 4265                  V10
 ## 4266                  V10
-## 4267 90 degrees V8 + KERS
-## 4268 90 degrees V8 + KERS
+## 4267        90 degrees V8
+## 4268        90 degrees V8
 ## 4269                  V10
 ## 4270                  V10
 ## 4271                  V10
 ## 4272                  V10
-## 4273 90 degrees V8 + KERS
+## 4273        90 degrees V8
 ## 4274                  V10
-## 4275 90 degrees V8 + KERS
-## 4276 90 degrees V8 + KERS
+## 4275        90 degrees V8
+## 4276        90 degrees V8
 ## 4277                  V10
 ## 4278        90 degrees V8
 ## 4279                  V10
-## 4280 90 degrees V8 + KERS
+## 4280        90 degrees V8
 ## 4281                  V10
 ## 4282                  V10
-## 4283 90 degrees V8 + KERS
-## 4284 90 degrees V8 + KERS
+## 4283        90 degrees V8
+## 4284        90 degrees V8
 ## 4285                  V10
-## 4286 90 degrees V8 + KERS
-## 4287 90 degrees V8 + KERS
+## 4286        90 degrees V8
+## 4287        90 degrees V8
 ## 4288                  V10
 ## 4289                  V10
-## 4290 90 degrees V8 + KERS
+## 4290        90 degrees V8
 ## 4291        90 degrees V8
 ## 4292                  V10
 ## 4293        90 degrees V8
-## 4294 90 degrees V8 + KERS
-## 4295 90 degrees V8 + KERS
-## 4296 90 degrees V8 + KERS
+## 4294        90 degrees V8
+## 4295        90 degrees V8
+## 4296        90 degrees V8
 ## 4297                  V10
 ## 4298                  V10
 ## 4299                  V10
 ## 4300                  V10
 ## 4301                  V10
-## 4302 90 degrees V8 + KERS
-## 4303 90 degrees V8 + KERS
-## 4304 90 degrees V8 + KERS
+## 4302        90 degrees V8
+## 4303        90 degrees V8
+## 4304        90 degrees V8
 ## 4305                  V10
 ## 4306                  V10
 ## 4307                  V10
-## 4308 90 degrees V8 + KERS
+## 4308        90 degrees V8
 ## 4309                  V10
 ## 4310                  V10
 ## 4311                  V10
@@ -24217,49 +24214,49 @@ summary(model)</code></pre>
 ## 4313                  V10
 ## 4314        90 degrees V8
 ## 4315        90 degrees V8
-## 4316 90 degrees V8 + KERS
+## 4316        90 degrees V8
 ## 4317                  V10
 ## 4318                  V10
-## 4319 90 degrees V8 + KERS
+## 4319        90 degrees V8
 ## 4320        90 degrees V8
 ## 4321                  V10
 ## 4322                  V10
-## 4323 90 degrees V8 + KERS
+## 4323        90 degrees V8
 ## 4324                  V10
 ## 4325                  V10
 ## 4326                  V10
-## 4327 90 degrees V8 + KERS
+## 4327        90 degrees V8
 ## 4328                  V10
 ## 4329                  V10
 ## 4330                  V10
-## 4331 90 degrees V8 + KERS
+## 4331        90 degrees V8
 ## 4332        90 degrees V8
 ## 4333                  V10
-## 4334 90 degrees V8 + KERS
-## 4335 90 degrees V8 + KERS
+## 4334        90 degrees V8
+## 4335        90 degrees V8
 ## 4336        90 degrees V8
-## 4337 90 degrees V8 + KERS
-## 4338 90 degrees V8 + KERS
-## 4339 90 degrees V8 + KERS
+## 4337        90 degrees V8
+## 4338        90 degrees V8
+## 4339        90 degrees V8
 ## 4340                  V10
 ## 4341        90 degrees V8
 ## 4342                  V10
 ## 4343                  V10
 ## 4344                  V10
 ## 4345                  V10
-## 4346 90 degrees V8 + KERS
-## 4347 90 degrees V8 + KERS
+## 4346        90 degrees V8
+## 4347        90 degrees V8
 ## 4348                  V10
-## 4349 90 degrees V8 + KERS
+## 4349        90 degrees V8
 ## 4350                  V10
 ## 4351                  V10
 ## 4352                  V10
-## 4353 90 degrees V8 + KERS
-## 4354 90 degrees V8 + KERS
+## 4353        90 degrees V8
+## 4354        90 degrees V8
 ## 4355                  V10
 ## 4356                  V10
 ## 4357                  V10
-## 4358 90 degrees V8 + KERS
+## 4358        90 degrees V8
 ## 4359                  V10
 ## 4360        90 degrees V8
 ## 4361                  V10
@@ -24268,61 +24265,61 @@ summary(model)</code></pre>
 ## 4364                  V10
 ## 4365                  V10
 ## 4366        90 degrees V8
-## 4367 90 degrees V8 + KERS
+## 4367        90 degrees V8
 ## 4368                  V10
 ## 4369                  V10
 ## 4370                  V10
-## 4371 90 degrees V8 + KERS
+## 4371        90 degrees V8
 ## 4372                  V10
 ## 4373                  V10
-## 4374 90 degrees V8 + KERS
+## 4374        90 degrees V8
 ## 4375                  V10
 ## 4376                  V10
 ## 4377                  V10
 ## 4378                  V10
 ## 4379                  V10
-## 4380 90 degrees V8 + KERS
+## 4380        90 degrees V8
 ## 4381                  V10
 ## 4382        90 degrees V8
-## 4383 90 degrees V8 + KERS
-## 4384 90 degrees V8 + KERS
-## 4385 90 degrees V8 + KERS
+## 4383        90 degrees V8
+## 4384        90 degrees V8
+## 4385        90 degrees V8
 ## 4386                  V10
-## 4387 90 degrees V8 + KERS
+## 4387        90 degrees V8
 ## 4388                  V10
-## 4389 90 degrees V8 + KERS
+## 4389        90 degrees V8
 ## 4390                  V10
-## 4391 90 degrees V8 + KERS
+## 4391        90 degrees V8
 ## 4392                  V10
 ## 4393                  V10
 ## 4394        90 degrees V8
 ## 4395                  V10
 ## 4396        90 degrees V8
-## 4397 90 degrees V8 + KERS
+## 4397        90 degrees V8
 ## 4398                  V10
 ## 4399        90 degrees V8
 ## 4400                  V10
 ## 4401                  V10
 ## 4402                  V10
-## 4403 90 degrees V8 + KERS
+## 4403        90 degrees V8
 ## 4404                  V10
-## 4405 90 degrees V8 + KERS
-## 4406 90 degrees V8 + KERS
+## 4405        90 degrees V8
+## 4406        90 degrees V8
 ## 4407                  V10
-## 4408 90 degrees V8 + KERS
+## 4408        90 degrees V8
 ## 4409                  V10
 ## 4410                  V10
 ## 4411                  V10
 ## 4412                  V10
-## 4413 90 degrees V8 + KERS
+## 4413        90 degrees V8
 ## 4414                  V10
-## 4415 90 degrees V8 + KERS
+## 4415        90 degrees V8
 ## 4416                  V10
 ## 4417                  V10
 ## 4418                  V10
 ## 4419                  V10
-## 4420 90 degrees V8 + KERS
-## 4421 90 degrees V8 + KERS
+## 4420        90 degrees V8
+## 4421        90 degrees V8
 ## 4422                  V10
 ## 4423                  V10
 ## 4424                  V10
@@ -24433,7 +24430,7 @@ summary(model)</code></pre>
 ## 4529                  V10
 ## 4530        90 degrees V8
 ## 4531        90 degrees V8
-## 4532 90 degrees V8 + KERS
+## 4532        90 degrees V8
 ## 4533                  V10
 ## 4534        90 degrees V8
 ## 4535                  V10
@@ -24460,14 +24457,14 @@ summary(model)</code></pre>
 ## 4556                  V10
 ## 4557        90 degrees V8
 ## 4558                  V10
-## 4559 90 degrees V8 + KERS
+## 4559        90 degrees V8
 ## 4560                  V10
 ## 4561                  V10
 ## 4562        90 degrees V8
 ## 4563                  V10
 ## 4564        90 degrees V8
 ## 4565                  V10
-## 4566 90 degrees V8 + KERS
+## 4566        90 degrees V8
 ## 4567        90 degrees V8
 ## 4568                  V10
 ## 4569        90 degrees V8
@@ -24621,76 +24618,76 @@ summary(model)</code></pre>
 ## 4717                  V10
 ## 4718                  V10
 ## 4719                  V10
-## 4720 90 degrees V8 + KERS
+## 4720        90 degrees V8
 ## 4721                  V10
 ## 4722                  V10
-## 4723 90 degrees V8 + KERS
+## 4723        90 degrees V8
 ## 4724                  V10
-## 4725 90 degrees V8 + KERS
-## 4726 90 degrees V8 + KERS
+## 4725        90 degrees V8
+## 4726        90 degrees V8
 ## 4727                  V10
 ## 4728                  V10
 ## 4729                  V10
-## 4730 90 degrees V8 + KERS
-## 4731 90 degrees V8 + KERS
-## 4732 90 degrees V8 + KERS
+## 4730        90 degrees V8
+## 4731        90 degrees V8
+## 4732        90 degrees V8
 ## 4733                  V10
 ## 4734                  V10
 ## 4735                  V10
-## 4736 90 degrees V8 + KERS
-## 4737 90 degrees V8 + KERS
+## 4736        90 degrees V8
+## 4737        90 degrees V8
 ## 4738                  V10
 ## 4739                  V10
 ## 4740                  V10
-## 4741 90 degrees V8 + KERS
-## 4742 90 degrees V8 + KERS
+## 4741        90 degrees V8
+## 4742        90 degrees V8
 ## 4743                  V10
-## 4744 90 degrees V8 + KERS
-## 4745 90 degrees V8 + KERS
+## 4744        90 degrees V8
+## 4745        90 degrees V8
 ## 4746                  V10
-## 4747 90 degrees V8 + KERS
+## 4747        90 degrees V8
 ## 4748                  V10
-## 4749 90 degrees V8 + KERS
-## 4750 90 degrees V8 + KERS
-## 4751 90 degrees V8 + KERS
-## 4752 90 degrees V8 + KERS
+## 4749        90 degrees V8
+## 4750        90 degrees V8
+## 4751        90 degrees V8
+## 4752        90 degrees V8
 ## 4753                  V10
 ## 4754                  V10
 ## 4755                  V10
-## 4756 90 degrees V8 + KERS
+## 4756        90 degrees V8
 ## 4757                  V10
 ## 4758                  V10
 ## 4759                  V10
-## 4760 90 degrees V8 + KERS
+## 4760        90 degrees V8
 ## 4761        90 degrees V8
-## 4762 90 degrees V8 + KERS
+## 4762        90 degrees V8
 ## 4763                  V10
 ## 4764                  V10
 ## 4765                  V10
 ## 4766        90 degrees V8
 ## 4767        90 degrees V8
-## 4768 90 degrees V8 + KERS
+## 4768        90 degrees V8
 ## 4769                  V10
-## 4770 90 degrees V8 + KERS
+## 4770        90 degrees V8
 ## 4771                  V10
 ## 4772        90 degrees V8
-## 4773 90 degrees V8 + KERS
-## 4774 90 degrees V8 + KERS
-## 4775 90 degrees V8 + KERS
+## 4773        90 degrees V8
+## 4774        90 degrees V8
+## 4775        90 degrees V8
 ## 4776                  V10
 ## 4777                  V10
 ## 4778                  V10
-## 4779 90 degrees V8 + KERS
-## 4780 90 degrees V8 + KERS
-## 4781 90 degrees V8 + KERS
+## 4779        90 degrees V8
+## 4780        90 degrees V8
+## 4781        90 degrees V8
 ## 4782        90 degrees V8
-## 4783 90 degrees V8 + KERS
+## 4783        90 degrees V8
 ## 4784                  V10
 ## 4785                  V10
 ## 4786                  V10
 ## 4787                  V10
 ## 4788                  V10
-## 4789 90 degrees V8 + KERS
+## 4789        90 degrees V8
 ## 4790                  V10
 ## 4791                  V10
 ## 4792                  V10
@@ -24699,15 +24696,15 @@ summary(model)</code></pre>
 ## 4795                  V10
 ## 4796                  V10
 ## 4797        90 degrees V8
-## 4798 90 degrees V8 + KERS
-## 4799 90 degrees V8 + KERS
+## 4798        90 degrees V8
+## 4799        90 degrees V8
 ## 4800                  V10
 ## 4801        90 degrees V8
 ## 4802                  V10
 ## 4803                  V10
 ## 4804                  V10
-## 4805 90 degrees V8 + KERS
-## 4806 90 degrees V8 + KERS
+## 4805        90 degrees V8
+## 4806        90 degrees V8
 ## 4807        90 degrees V8
 ## 4808                  V10
 ## 4809                  V10
@@ -24720,53 +24717,53 @@ summary(model)</code></pre>
 ## 4816        90 degrees V8
 ## 4817                  V10
 ## 4818                  V10
-## 4819 90 degrees V8 + KERS
-## 4820 90 degrees V8 + KERS
-## 4821 90 degrees V8 + KERS
+## 4819        90 degrees V8
+## 4820        90 degrees V8
+## 4821        90 degrees V8
 ## 4822                  V10
-## 4823 90 degrees V8 + KERS
-## 4824 90 degrees V8 + KERS
-## 4825 90 degrees V8 + KERS
-## 4826 90 degrees V8 + KERS
+## 4823        90 degrees V8
+## 4824        90 degrees V8
+## 4825        90 degrees V8
+## 4826        90 degrees V8
 ## 4827                  V10
 ## 4828                  V10
-## 4829 90 degrees V8 + KERS
+## 4829        90 degrees V8
 ## 4830                  V10
 ## 4831                  V10
-## 4832 90 degrees V8 + KERS
-## 4833 90 degrees V8 + KERS
+## 4832        90 degrees V8
+## 4833        90 degrees V8
 ## 4834                  V10
-## 4835 90 degrees V8 + KERS
-## 4836 90 degrees V8 + KERS
-## 4837 90 degrees V8 + KERS
+## 4835        90 degrees V8
+## 4836        90 degrees V8
+## 4837        90 degrees V8
 ## 4838                  V10
-## 4839 90 degrees V8 + KERS
-## 4840 90 degrees V8 + KERS
-## 4841 90 degrees V8 + KERS
-## 4842 90 degrees V8 + KERS
+## 4839        90 degrees V8
+## 4840        90 degrees V8
+## 4841        90 degrees V8
+## 4842        90 degrees V8
 ## 4843                  V10
-## 4844 90 degrees V8 + KERS
+## 4844        90 degrees V8
 ## 4845                  V10
-## 4846 90 degrees V8 + KERS
+## 4846        90 degrees V8
 ## 4847                  V10
 ## 4848                  V10
-## 4849 90 degrees V8 + KERS
+## 4849        90 degrees V8
 ## 4850                  V10
-## 4851 90 degrees V8 + KERS
-## 4852 90 degrees V8 + KERS
+## 4851        90 degrees V8
+## 4852        90 degrees V8
 ## 4853                  V10
-## 4854 90 degrees V8 + KERS
+## 4854        90 degrees V8
 ## 4855                  V10
-## 4856 90 degrees V8 + KERS
+## 4856        90 degrees V8
 ## 4857                  V10
-## 4858 90 degrees V8 + KERS
-## 4859 90 degrees V8 + KERS
+## 4858        90 degrees V8
+## 4859        90 degrees V8
 ## 4860                  V10
-## 4861 90 degrees V8 + KERS
+## 4861        90 degrees V8
 ## 4862                  V10
 ## 4863                  V10
-## 4864 90 degrees V8 + KERS
-## 4865 90 degrees V8 + KERS
+## 4864        90 degrees V8
+## 4865        90 degrees V8
 ## 4866                  V10
 ## 4867                  V10
 ## 4868                  V10
@@ -25438,144 +25435,144 @@ summary(model)</code></pre>
 ## 5534                  V10
 ## 5535                  V10
 ## 5536                  V10
-## 5537 90 degrees V8 + KERS
-## 5538 90 degrees V8 + KERS
-## 5539 90 degrees V8 + KERS
-## 5540 90 degrees V8 + KERS
-## 5541 90 degrees V8 + KERS
-## 5542 90 degrees V8 + KERS
-## 5543 90 degrees V8 + KERS
-## 5544 90 degrees V8 + KERS
-## 5545 90 degrees V8 + KERS
-## 5546 90 degrees V8 + KERS
-## 5547 90 degrees V8 + KERS
-## 5548 90 degrees V8 + KERS
-## 5549 90 degrees V8 + KERS
-## 5550 90 degrees V8 + KERS
-## 5551 90 degrees V8 + KERS
-## 5552 90 degrees V8 + KERS
-## 5553 90 degrees V8 + KERS
-## 5554 90 degrees V8 + KERS
-## 5555 90 degrees V8 + KERS
-## 5556 90 degrees V8 + KERS
-## 5557 90 degrees V8 + KERS
-## 5558 90 degrees V8 + KERS
-## 5559 90 degrees V8 + KERS
-## 5560 90 degrees V8 + KERS
-## 5561 90 degrees V8 + KERS
-## 5562 90 degrees V8 + KERS
-## 5563 90 degrees V8 + KERS
-## 5564 90 degrees V8 + KERS
-## 5565 90 degrees V8 + KERS
-## 5566 90 degrees V8 + KERS
-## 5567 90 degrees V8 + KERS
-## 5568 90 degrees V8 + KERS
-## 5569 90 degrees V8 + KERS
-## 5570 90 degrees V8 + KERS
-## 5571 90 degrees V8 + KERS
-## 5572 90 degrees V8 + KERS
-## 5573 90 degrees V8 + KERS
-## 5574 90 degrees V8 + KERS
-## 5575 90 degrees V8 + KERS
-## 5576 90 degrees V8 + KERS
-## 5577 90 degrees V8 + KERS
-## 5578 90 degrees V8 + KERS
-## 5579 90 degrees V8 + KERS
-## 5580 90 degrees V8 + KERS
-## 5581 90 degrees V8 + KERS
-## 5582 90 degrees V8 + KERS
-## 5583 90 degrees V8 + KERS
-## 5584 90 degrees V8 + KERS
-## 5585 90 degrees V8 + KERS
-## 5586 90 degrees V8 + KERS
-## 5587 90 degrees V8 + KERS
-## 5588 90 degrees V8 + KERS
-## 5589 90 degrees V8 + KERS
-## 5590 90 degrees V8 + KERS
-## 5591 90 degrees V8 + KERS
-## 5592 90 degrees V8 + KERS
-## 5593 90 degrees V8 + KERS
-## 5594 90 degrees V8 + KERS
-## 5595 90 degrees V8 + KERS
-## 5596 90 degrees V8 + KERS
-## 5597 90 degrees V8 + KERS
-## 5598 90 degrees V8 + KERS
-## 5599 90 degrees V8 + KERS
-## 5600 90 degrees V8 + KERS
-## 5601 90 degrees V8 + KERS
-## 5602 90 degrees V8 + KERS
-## 5603 90 degrees V8 + KERS
-## 5604 90 degrees V8 + KERS
-## 5605 90 degrees V8 + KERS
-## 5606 90 degrees V8 + KERS
-## 5607 90 degrees V8 + KERS
-## 5608 90 degrees V8 + KERS
-## 5609 90 degrees V8 + KERS
-## 5610 90 degrees V8 + KERS
-## 5611 90 degrees V8 + KERS
-## 5612 90 degrees V8 + KERS
-## 5613 90 degrees V8 + KERS
-## 5614 90 degrees V8 + KERS
-## 5615 90 degrees V8 + KERS
-## 5616 90 degrees V8 + KERS
-## 5617 90 degrees V8 + KERS
-## 5618 90 degrees V8 + KERS
-## 5619 90 degrees V8 + KERS
-## 5620 90 degrees V8 + KERS
-## 5621 90 degrees V8 + KERS
-## 5622 90 degrees V8 + KERS
-## 5623 90 degrees V8 + KERS
-## 5624 90 degrees V8 + KERS
-## 5625 90 degrees V8 + KERS
-## 5626 90 degrees V8 + KERS
-## 5627 90 degrees V8 + KERS
-## 5628 90 degrees V8 + KERS
-## 5629 90 degrees V8 + KERS
-## 5630 90 degrees V8 + KERS
-## 5631 90 degrees V8 + KERS
-## 5632 90 degrees V8 + KERS
-## 5633 90 degrees V8 + KERS
-## 5634 90 degrees V8 + KERS
-## 5635 90 degrees V8 + KERS
-## 5636 90 degrees V8 + KERS
-## 5637 90 degrees V8 + KERS
-## 5638 90 degrees V8 + KERS
-## 5639 90 degrees V8 + KERS
+## 5537        90 degrees V8
+## 5538        90 degrees V8
+## 5539        90 degrees V8
+## 5540        90 degrees V8
+## 5541        90 degrees V8
+## 5542        90 degrees V8
+## 5543        90 degrees V8
+## 5544        90 degrees V8
+## 5545        90 degrees V8
+## 5546        90 degrees V8
+## 5547        90 degrees V8
+## 5548        90 degrees V8
+## 5549        90 degrees V8
+## 5550        90 degrees V8
+## 5551        90 degrees V8
+## 5552        90 degrees V8
+## 5553        90 degrees V8
+## 5554        90 degrees V8
+## 5555        90 degrees V8
+## 5556        90 degrees V8
+## 5557        90 degrees V8
+## 5558        90 degrees V8
+## 5559        90 degrees V8
+## 5560        90 degrees V8
+## 5561        90 degrees V8
+## 5562        90 degrees V8
+## 5563        90 degrees V8
+## 5564        90 degrees V8
+## 5565        90 degrees V8
+## 5566        90 degrees V8
+## 5567        90 degrees V8
+## 5568        90 degrees V8
+## 5569        90 degrees V8
+## 5570        90 degrees V8
+## 5571        90 degrees V8
+## 5572        90 degrees V8
+## 5573        90 degrees V8
+## 5574        90 degrees V8
+## 5575        90 degrees V8
+## 5576        90 degrees V8
+## 5577        90 degrees V8
+## 5578        90 degrees V8
+## 5579        90 degrees V8
+## 5580        90 degrees V8
+## 5581        90 degrees V8
+## 5582        90 degrees V8
+## 5583        90 degrees V8
+## 5584        90 degrees V8
+## 5585        90 degrees V8
+## 5586        90 degrees V8
+## 5587        90 degrees V8
+## 5588        90 degrees V8
+## 5589        90 degrees V8
+## 5590        90 degrees V8
+## 5591        90 degrees V8
+## 5592        90 degrees V8
+## 5593        90 degrees V8
+## 5594        90 degrees V8
+## 5595        90 degrees V8
+## 5596        90 degrees V8
+## 5597        90 degrees V8
+## 5598        90 degrees V8
+## 5599        90 degrees V8
+## 5600        90 degrees V8
+## 5601        90 degrees V8
+## 5602        90 degrees V8
+## 5603        90 degrees V8
+## 5604        90 degrees V8
+## 5605        90 degrees V8
+## 5606        90 degrees V8
+## 5607        90 degrees V8
+## 5608        90 degrees V8
+## 5609        90 degrees V8
+## 5610        90 degrees V8
+## 5611        90 degrees V8
+## 5612        90 degrees V8
+## 5613        90 degrees V8
+## 5614        90 degrees V8
+## 5615        90 degrees V8
+## 5616        90 degrees V8
+## 5617        90 degrees V8
+## 5618        90 degrees V8
+## 5619        90 degrees V8
+## 5620        90 degrees V8
+## 5621        90 degrees V8
+## 5622        90 degrees V8
+## 5623        90 degrees V8
+## 5624        90 degrees V8
+## 5625        90 degrees V8
+## 5626        90 degrees V8
+## 5627        90 degrees V8
+## 5628        90 degrees V8
+## 5629        90 degrees V8
+## 5630        90 degrees V8
+## 5631        90 degrees V8
+## 5632        90 degrees V8
+## 5633        90 degrees V8
+## 5634        90 degrees V8
+## 5635        90 degrees V8
+## 5636        90 degrees V8
+## 5637        90 degrees V8
+## 5638        90 degrees V8
+## 5639        90 degrees V8
 ## 5640 90 degrees V6 + MGUs
 ## 5641 90 degrees V6 + MGUs
 ## 5642 90 degrees V6 + MGUs
-## 5643 90 degrees V8 + KERS
+## 5643        90 degrees V8
 ## 5644 90 degrees V6 + MGUs
 ## 5645 90 degrees V6 + MGUs
 ## 5646 90 degrees V6 + MGUs
 ## 5647 90 degrees V6 + MGUs
-## 5648 90 degrees V8 + KERS
-## 5649 90 degrees V8 + KERS
-## 5650 90 degrees V8 + KERS
-## 5651 90 degrees V8 + KERS
+## 5648        90 degrees V8
+## 5649        90 degrees V8
+## 5650        90 degrees V8
+## 5651        90 degrees V8
 ## 5652 90 degrees V6 + MGUs
 ## 5653 90 degrees V6 + MGUs
 ## 5654 90 degrees V6 + MGUs
 ## 5655 90 degrees V6 + MGUs
-## 5656 90 degrees V8 + KERS
+## 5656        90 degrees V8
 ## 5657 90 degrees V6 + MGUs
-## 5658 90 degrees V8 + KERS
+## 5658        90 degrees V8
 ## 5659 90 degrees V6 + MGUs
 ## 5660 90 degrees V6 + MGUs
 ## 5661 90 degrees V6 + MGUs
-## 5662 90 degrees V8 + KERS
+## 5662        90 degrees V8
 ## 5663 90 degrees V6 + MGUs
 ## 5664 90 degrees V6 + MGUs
 ## 5665 90 degrees V6 + MGUs
 ## 5666 90 degrees V6 + MGUs
-## 5667 90 degrees V8 + KERS
+## 5667        90 degrees V8
 ## 5668 90 degrees V6 + MGUs
 ## 5669 90 degrees V6 + MGUs
 ## 5670 90 degrees V6 + MGUs
 ## 5671 90 degrees V6 + MGUs
 ## 5672 90 degrees V6 + MGUs
 ## 5673 90 degrees V6 + MGUs
-## 5674 90 degrees V8 + KERS
+## 5674        90 degrees V8
 ## 5675 90 degrees V6 + MGUs
 ## 5676 90 degrees V6 + MGUs
 ## 5677 90 degrees V6 + MGUs
@@ -25583,25 +25580,25 @@ summary(model)</code></pre>
 ## 5679 90 degrees V6 + MGUs
 ## 5680 90 degrees V6 + MGUs
 ## 5681 90 degrees V6 + MGUs
-## 5682 90 degrees V8 + KERS
+## 5682        90 degrees V8
 ## 5683 90 degrees V6 + MGUs
-## 5684 90 degrees V8 + KERS
+## 5684        90 degrees V8
 ## 5685 90 degrees V6 + MGUs
-## 5686 90 degrees V8 + KERS
+## 5686        90 degrees V8
 ## 5687 90 degrees V6 + MGUs
-## 5688 90 degrees V8 + KERS
+## 5688        90 degrees V8
 ## 5689 90 degrees V6 + MGUs
 ## 5690 90 degrees V6 + MGUs
 ## 5691 90 degrees V6 + MGUs
-## 5692 90 degrees V8 + KERS
+## 5692        90 degrees V8
 ## 5693 90 degrees V6 + MGUs
 ## 5694 90 degrees V6 + MGUs
 ## 5695 90 degrees V6 + MGUs
-## 5696 90 degrees V8 + KERS
+## 5696        90 degrees V8
 ## 5697 90 degrees V6 + MGUs
 ## 5698 90 degrees V6 + MGUs
-## 5699 90 degrees V8 + KERS
-## 5700 90 degrees V8 + KERS
+## 5699        90 degrees V8
+## 5700        90 degrees V8
 ## 5701 90 degrees V6 + MGUs
 ## 5702 90 degrees V6 + MGUs
 ## 5703 90 degrees V6 + MGUs
@@ -25615,14 +25612,14 @@ summary(model)</code></pre>
 ## 5711 90 degrees V6 + MGUs
 ## 5712 90 degrees V6 + MGUs
 ## 5713 90 degrees V6 + MGUs
-## 5714 90 degrees V8 + KERS
+## 5714        90 degrees V8
 ## 5715 90 degrees V6 + MGUs
-## 5716 90 degrees V8 + KERS
-## 5717 90 degrees V8 + KERS
+## 5716        90 degrees V8
+## 5717        90 degrees V8
 ## 5718 90 degrees V6 + MGUs
-## 5719 90 degrees V8 + KERS
+## 5719        90 degrees V8
 ## 5720 90 degrees V6 + MGUs
-## 5721 90 degrees V8 + KERS
+## 5721        90 degrees V8
 ## 5722 90 degrees V6 + MGUs
 ## 5723 90 degrees V6 + MGUs
 ## 5724 90 degrees V6 + MGUs
@@ -25630,30 +25627,30 @@ summary(model)</code></pre>
 ## 5726 90 degrees V6 + MGUs
 ## 5727 90 degrees V6 + MGUs
 ## 5728 90 degrees V6 + MGUs
-## 5729 90 degrees V8 + KERS
-## 5730 90 degrees V8 + KERS
+## 5729        90 degrees V8
+## 5730        90 degrees V8
 ## 5731 90 degrees V6 + MGUs
 ## 5732 90 degrees V6 + MGUs
 ## 5733 90 degrees V6 + MGUs
-## 5734 90 degrees V8 + KERS
+## 5734        90 degrees V8
 ## 5735 90 degrees V6 + MGUs
 ## 5736 90 degrees V6 + MGUs
-## 5737 90 degrees V8 + KERS
-## 5738 90 degrees V8 + KERS
+## 5737        90 degrees V8
+## 5738        90 degrees V8
 ## 5739 90 degrees V6 + MGUs
 ## 5740 90 degrees V6 + MGUs
 ## 5741 90 degrees V6 + MGUs
-## 5742 90 degrees V8 + KERS
+## 5742        90 degrees V8
 ## 5743 90 degrees V6 + MGUs
 ## 5744 90 degrees V6 + MGUs
-## 5745 90 degrees V8 + KERS
-## 5746 90 degrees V8 + KERS
-## 5747 90 degrees V8 + KERS
+## 5745        90 degrees V8
+## 5746        90 degrees V8
+## 5747        90 degrees V8
 ## 5748 90 degrees V6 + MGUs
 ## 5749 90 degrees V6 + MGUs
-## 5750 90 degrees V8 + KERS
+## 5750        90 degrees V8
 ## 5751 90 degrees V6 + MGUs
-## 5752 90 degrees V8 + KERS
+## 5752        90 degrees V8
 ## 5753 90 degrees V6 + MGUs
 ## 5754 90 degrees V6 + MGUs
 ## 5755 90 degrees V6 + MGUs
@@ -25663,22 +25660,22 @@ summary(model)</code></pre>
 ## 5759 90 degrees V6 + MGUs
 ## 5760 90 degrees V6 + MGUs
 ## 5761 90 degrees V6 + MGUs
-## 5762 90 degrees V8 + KERS
+## 5762        90 degrees V8
 ## 5763 90 degrees V6 + MGUs
-## 5764 90 degrees V8 + KERS
+## 5764        90 degrees V8
 ## 5765 90 degrees V6 + MGUs
 ## 5766 90 degrees V6 + MGUs
 ## 5767 90 degrees V6 + MGUs
 ## 5768 90 degrees V6 + MGUs
 ## 5769 90 degrees V6 + MGUs
-## 5770 90 degrees V8 + KERS
+## 5770        90 degrees V8
 ## 5771 90 degrees V6 + MGUs
 ## 5772 90 degrees V6 + MGUs
 ## 5773 90 degrees V6 + MGUs
-## 5774 90 degrees V8 + KERS
-## 5775 90 degrees V8 + KERS
+## 5774        90 degrees V8
+## 5775        90 degrees V8
 ## 5776 90 degrees V6 + MGUs
-## 5777 90 degrees V8 + KERS
+## 5777        90 degrees V8
 ## 5778 90 degrees V6 + MGUs
 ## 5779 90 degrees V6 + MGUs
 ## 5780 90 degrees V6 + MGUs
@@ -25689,11 +25686,11 @@ summary(model)</code></pre>
 ## 5785 90 degrees V6 + MGUs
 ## 5786 90 degrees V6 + MGUs
 ## 5787 90 degrees V6 + MGUs
-## 5788 90 degrees V8 + KERS
+## 5788        90 degrees V8
 ## 5789 90 degrees V6 + MGUs
-## 5790 90 degrees V8 + KERS
+## 5790        90 degrees V8
 ## 5791 90 degrees V6 + MGUs
-## 5792 90 degrees V8 + KERS
+## 5792        90 degrees V8
 ## 5793 90 degrees V6 + MGUs
 ## 5794 90 degrees V6 + MGUs
 ## 5795 90 degrees V6 + MGUs
@@ -25718,107 +25715,107 @@ summary(model)</code></pre>
 ## 5814 90 degrees V6 + MGUs
 ## 5815 90 degrees V6 + MGUs
 ## 5816 90 degrees V6 + MGUs
-## 5817 90 degrees V8 + KERS
+## 5817        90 degrees V8
 ## 5818 90 degrees V6 + MGUs
 ## 5819 90 degrees V6 + MGUs
-## 5820 90 degrees V8 + KERS
+## 5820        90 degrees V8
 ## 5821 90 degrees V6 + MGUs
-## 5822 90 degrees V8 + KERS
-## 5823 90 degrees V8 + KERS
+## 5822        90 degrees V8
+## 5823        90 degrees V8
 ## 5824 90 degrees V6 + MGUs
-## 5825 90 degrees V8 + KERS
-## 5826 90 degrees V8 + KERS
-## 5827 90 degrees V8 + KERS
-## 5828 90 degrees V8 + KERS
-## 5829 90 degrees V8 + KERS
-## 5830 90 degrees V8 + KERS
-## 5831 90 degrees V8 + KERS
-## 5832 90 degrees V8 + KERS
-## 5833 90 degrees V8 + KERS
-## 5834 90 degrees V8 + KERS
-## 5835 90 degrees V8 + KERS
-## 5836 90 degrees V8 + KERS
-## 5837 90 degrees V8 + KERS
-## 5838 90 degrees V8 + KERS
-## 5839 90 degrees V8 + KERS
-## 5840 90 degrees V8 + KERS
-## 5841 90 degrees V8 + KERS
+## 5825        90 degrees V8
+## 5826        90 degrees V8
+## 5827        90 degrees V8
+## 5828        90 degrees V8
+## 5829        90 degrees V8
+## 5830        90 degrees V8
+## 5831        90 degrees V8
+## 5832        90 degrees V8
+## 5833        90 degrees V8
+## 5834        90 degrees V8
+## 5835        90 degrees V8
+## 5836        90 degrees V8
+## 5837        90 degrees V8
+## 5838        90 degrees V8
+## 5839        90 degrees V8
+## 5840        90 degrees V8
+## 5841        90 degrees V8
 ## 5842 90 degrees V6 + MGUs
-## 5843 90 degrees V8 + KERS
-## 5844 90 degrees V8 + KERS
-## 5845 90 degrees V8 + KERS
+## 5843        90 degrees V8
+## 5844        90 degrees V8
+## 5845        90 degrees V8
 ## 5846 90 degrees V6 + MGUs
 ## 5847 90 degrees V6 + MGUs
-## 5848 90 degrees V8 + KERS
-## 5849 90 degrees V8 + KERS
+## 5848        90 degrees V8
+## 5849        90 degrees V8
 ## 5850 90 degrees V6 + MGUs
-## 5851 90 degrees V8 + KERS
-## 5852 90 degrees V8 + KERS
-## 5853 90 degrees V8 + KERS
-## 5854 90 degrees V8 + KERS
-## 5855 90 degrees V8 + KERS
+## 5851        90 degrees V8
+## 5852        90 degrees V8
+## 5853        90 degrees V8
+## 5854        90 degrees V8
+## 5855        90 degrees V8
 ## 5856 90 degrees V6 + MGUs
-## 5857 90 degrees V8 + KERS
-## 5858 90 degrees V8 + KERS
-## 5859 90 degrees V8 + KERS
+## 5857        90 degrees V8
+## 5858        90 degrees V8
+## 5859        90 degrees V8
 ## 5860 90 degrees V6 + MGUs
-## 5861 90 degrees V8 + KERS
-## 5862 90 degrees V8 + KERS
-## 5863 90 degrees V8 + KERS
-## 5864 90 degrees V8 + KERS
-## 5865 90 degrees V8 + KERS
-## 5866 90 degrees V8 + KERS
-## 5867 90 degrees V8 + KERS
-## 5868 90 degrees V8 + KERS
-## 5869 90 degrees V8 + KERS
-## 5870 90 degrees V8 + KERS
-## 5871 90 degrees V8 + KERS
+## 5861        90 degrees V8
+## 5862        90 degrees V8
+## 5863        90 degrees V8
+## 5864        90 degrees V8
+## 5865        90 degrees V8
+## 5866        90 degrees V8
+## 5867        90 degrees V8
+## 5868        90 degrees V8
+## 5869        90 degrees V8
+## 5870        90 degrees V8
+## 5871        90 degrees V8
 ## 5872 90 degrees V6 + MGUs
-## 5873 90 degrees V8 + KERS
-## 5874 90 degrees V8 + KERS
-## 5875 90 degrees V8 + KERS
+## 5873        90 degrees V8
+## 5874        90 degrees V8
+## 5875        90 degrees V8
 ## 5876 90 degrees V6 + MGUs
-## 5877 90 degrees V8 + KERS
+## 5877        90 degrees V8
 ## 5878 90 degrees V6 + MGUs
-## 5879 90 degrees V8 + KERS
+## 5879        90 degrees V8
 ## 5880 90 degrees V6 + MGUs
-## 5881 90 degrees V8 + KERS
-## 5882 90 degrees V8 + KERS
-## 5883 90 degrees V8 + KERS
+## 5881        90 degrees V8
+## 5882        90 degrees V8
+## 5883        90 degrees V8
 ## 5884 90 degrees V6 + MGUs
-## 5885 90 degrees V8 + KERS
+## 5885        90 degrees V8
 ## 5886 90 degrees V6 + MGUs
-## 5887 90 degrees V8 + KERS
-## 5888 90 degrees V8 + KERS
+## 5887        90 degrees V8
+## 5888        90 degrees V8
 ## 5889 90 degrees V6 + MGUs
-## 5890 90 degrees V8 + KERS
-## 5891 90 degrees V8 + KERS
+## 5890        90 degrees V8
+## 5891        90 degrees V8
 ## 5892 90 degrees V6 + MGUs
-## 5893 90 degrees V8 + KERS
-## 5894 90 degrees V8 + KERS
-## 5895 90 degrees V8 + KERS
-## 5896 90 degrees V8 + KERS
-## 5897 90 degrees V8 + KERS
-## 5898 90 degrees V8 + KERS
+## 5893        90 degrees V8
+## 5894        90 degrees V8
+## 5895        90 degrees V8
+## 5896        90 degrees V8
+## 5897        90 degrees V8
+## 5898        90 degrees V8
 ## 5899 90 degrees V6 + MGUs
 ## 5900 90 degrees V6 + MGUs
 ## 5901 90 degrees V6 + MGUs
 ## 5902 90 degrees V6 + MGUs
-## 5903 90 degrees V8 + KERS
+## 5903        90 degrees V8
 ## 5904 90 degrees V6 + MGUs
-## 5905 90 degrees V8 + KERS
-## 5906 90 degrees V8 + KERS
-## 5907 90 degrees V8 + KERS
+## 5905        90 degrees V8
+## 5906        90 degrees V8
+## 5907        90 degrees V8
 ## 5908 90 degrees V6 + MGUs
-## 5909 90 degrees V8 + KERS
-## 5910 90 degrees V8 + KERS
+## 5909        90 degrees V8
+## 5910        90 degrees V8
 ## 5911 90 degrees V6 + MGUs
 ## 5912 90 degrees V6 + MGUs
 ## 5913 90 degrees V6 + MGUs
 ## 5914 90 degrees V6 + MGUs
-## 5915 90 degrees V8 + KERS
+## 5915        90 degrees V8
 ## 5916 90 degrees V6 + MGUs
-## 5917 90 degrees V8 + KERS
+## 5917        90 degrees V8
 ## 5918 90 degrees V6 + MGUs
 ## 5919 90 degrees V6 + MGUs
 ## 5920 90 degrees V6 + MGUs
@@ -25829,77 +25826,77 @@ summary(model)</code></pre>
 ## 5925 90 degrees V6 + MGUs
 ## 5926 90 degrees V6 + MGUs
 ## 5927 90 degrees V6 + MGUs
-## 5928 90 degrees V8 + KERS
+## 5928        90 degrees V8
 ## 5929 90 degrees V6 + MGUs
 ## 5930 90 degrees V6 + MGUs
 ## 5931 90 degrees V6 + MGUs
 ## 5932 90 degrees V6 + MGUs
-## 5933 90 degrees V8 + KERS
+## 5933        90 degrees V8
 ## 5934 90 degrees V6 + MGUs
 ## 5935 90 degrees V6 + MGUs
-## 5936 90 degrees V8 + KERS
+## 5936        90 degrees V8
 ## 5937 90 degrees V6 + MGUs
 ## 5938 90 degrees V6 + MGUs
 ## 5939 90 degrees V6 + MGUs
 ## 5940 90 degrees V6 + MGUs
-## 5941 90 degrees V8 + KERS
-## 5942 90 degrees V8 + KERS
+## 5941        90 degrees V8
+## 5942        90 degrees V8
 ## 5943 90 degrees V6 + MGUs
 ## 5944 90 degrees V6 + MGUs
 ## 5945 90 degrees V6 + MGUs
-## 5946 90 degrees V8 + KERS
+## 5946        90 degrees V8
 ## 5947 90 degrees V6 + MGUs
 ## 5948 90 degrees V6 + MGUs
-## 5949 90 degrees V8 + KERS
+## 5949        90 degrees V8
 ## 5950 90 degrees V6 + MGUs
 ## 5951 90 degrees V6 + MGUs
 ## 5952 90 degrees V6 + MGUs
 ## 5953 90 degrees V6 + MGUs
-## 5954 90 degrees V8 + KERS
+## 5954        90 degrees V8
 ## 5955 90 degrees V6 + MGUs
-## 5956 90 degrees V8 + KERS
-## 5957 90 degrees V8 + KERS
+## 5956        90 degrees V8
+## 5957        90 degrees V8
 ## 5958 90 degrees V6 + MGUs
-## 5959 90 degrees V8 + KERS
+## 5959        90 degrees V8
 ## 5960 90 degrees V6 + MGUs
 ## 5961 90 degrees V6 + MGUs
 ## 5962 90 degrees V6 + MGUs
-## 5963 90 degrees V8 + KERS
+## 5963        90 degrees V8
 ## 5964 90 degrees V6 + MGUs
 ## 5965 90 degrees V6 + MGUs
 ## 5966 90 degrees V6 + MGUs
 ## 5967 90 degrees V6 + MGUs
 ## 5968 90 degrees V6 + MGUs
-## 5969 90 degrees V8 + KERS
+## 5969        90 degrees V8
 ## 5970 90 degrees V6 + MGUs
-## 5971 90 degrees V8 + KERS
+## 5971        90 degrees V8
 ## 5972 90 degrees V6 + MGUs
 ## 5973 90 degrees V6 + MGUs
-## 5974 90 degrees V8 + KERS
+## 5974        90 degrees V8
 ## 5975 90 degrees V6 + MGUs
 ## 5976 90 degrees V6 + MGUs
-## 5977 90 degrees V8 + KERS
+## 5977        90 degrees V8
 ## 5978 90 degrees V6 + MGUs
 ## 5979 90 degrees V6 + MGUs
 ## 5980 90 degrees V6 + MGUs
-## 5981 90 degrees V8 + KERS
+## 5981        90 degrees V8
 ## 5982 90 degrees V6 + MGUs
 ## 5983 90 degrees V6 + MGUs
 ## 5984 90 degrees V6 + MGUs
-## 5985 90 degrees V8 + KERS
+## 5985        90 degrees V8
 ## 5986 90 degrees V6 + MGUs
-## 5987 90 degrees V8 + KERS
+## 5987        90 degrees V8
 ## 5988 90 degrees V6 + MGUs
 ## 5989 90 degrees V6 + MGUs
-## 5990 90 degrees V8 + KERS
-## 5991 90 degrees V8 + KERS
+## 5990        90 degrees V8
+## 5991        90 degrees V8
 ## 5992 90 degrees V6 + MGUs
 ## 5993 90 degrees V6 + MGUs
-## 5994 90 degrees V8 + KERS
-## 5995 90 degrees V8 + KERS
+## 5994        90 degrees V8
+## 5995        90 degrees V8
 ## 5996 90 degrees V6 + MGUs
 ## 5997 90 degrees V6 + MGUs
-## 5998 90 degrees V8 + KERS
+## 5998        90 degrees V8
 ## 5999 90 degrees V6 + MGUs
 ## 6000 90 degrees V6 + MGUs
 ## 6001 90 degrees V6 + MGUs
@@ -25910,20 +25907,20 @@ summary(model)</code></pre>
 ## 6006 90 degrees V6 + MGUs
 ## 6007 90 degrees V6 + MGUs
 ## 6008 90 degrees V6 + MGUs
-## 6009 90 degrees V8 + KERS
+## 6009        90 degrees V8
 ## 6010 90 degrees V6 + MGUs
-## 6011 90 degrees V8 + KERS
-## 6012 90 degrees V8 + KERS
+## 6011        90 degrees V8
+## 6012        90 degrees V8
 ## 6013 90 degrees V6 + MGUs
-## 6014 90 degrees V8 + KERS
+## 6014        90 degrees V8
 ## 6015 90 degrees V6 + MGUs
-## 6016 90 degrees V8 + KERS
-## 6017 90 degrees V8 + KERS
+## 6016        90 degrees V8
+## 6017        90 degrees V8
 ## 6018 90 degrees V6 + MGUs
 ## 6019 90 degrees V6 + MGUs
 ## 6020 90 degrees V6 + MGUs
 ## 6021 90 degrees V6 + MGUs
-## 6022 90 degrees V8 + KERS
+## 6022        90 degrees V8
 ## 6023 90 degrees V6 + MGUs
 ## 6024 90 degrees V6 + MGUs
 ## 6025 90 degrees V6 + MGUs
@@ -25942,215 +25939,215 @@ summary(model)</code></pre>
 ## 6038 90 degrees V6 + MGUs
 ## 6039 90 degrees V6 + MGUs
 ## 6040 90 degrees V6 + MGUs
-## 6041 90 degrees V8 + KERS
-## 6042 90 degrees V8 + KERS
+## 6041        90 degrees V8
+## 6042        90 degrees V8
 ## 6043 90 degrees V6 + MGUs
-## 6044 90 degrees V8 + KERS
+## 6044        90 degrees V8
 ## 6045 90 degrees V6 + MGUs
 ## 6046 90 degrees V6 + MGUs
-## 6047 90 degrees V8 + KERS
-## 6048 90 degrees V8 + KERS
-## 6049 90 degrees V8 + KERS
+## 6047        90 degrees V8
+## 6048        90 degrees V8
+## 6049        90 degrees V8
 ## 6050 90 degrees V6 + MGUs
 ## 6051 90 degrees V6 + MGUs
 ## 6052 90 degrees V6 + MGUs
-## 6053 90 degrees V8 + KERS
-## 6054 90 degrees V8 + KERS
-## 6055 90 degrees V8 + KERS
+## 6053        90 degrees V8
+## 6054        90 degrees V8
+## 6055        90 degrees V8
 ## 6056 90 degrees V6 + MGUs
 ## 6057 90 degrees V6 + MGUs
 ## 6058 90 degrees V6 + MGUs
 ## 6059 90 degrees V6 + MGUs
 ## 6060 90 degrees V6 + MGUs
 ## 6061 90 degrees V6 + MGUs
-## 6062 90 degrees V8 + KERS
+## 6062        90 degrees V8
 ## 6063 90 degrees V6 + MGUs
 ## 6064 90 degrees V6 + MGUs
 ## 6065 90 degrees V6 + MGUs
-## 6066 90 degrees V8 + KERS
-## 6067 90 degrees V8 + KERS
-## 6068 90 degrees V8 + KERS
+## 6066        90 degrees V8
+## 6067        90 degrees V8
+## 6068        90 degrees V8
 ## 6069 90 degrees V6 + MGUs
 ## 6070 90 degrees V6 + MGUs
-## 6071 90 degrees V8 + KERS
-## 6072 90 degrees V8 + KERS
+## 6071        90 degrees V8
+## 6072        90 degrees V8
 ## 6073 90 degrees V6 + MGUs
 ## 6074 90 degrees V6 + MGUs
-## 6075 90 degrees V8 + KERS
-## 6076 90 degrees V8 + KERS
+## 6075        90 degrees V8
+## 6076        90 degrees V8
 ## 6077 90 degrees V6 + MGUs
 ## 6078 90 degrees V6 + MGUs
 ## 6079 90 degrees V6 + MGUs
 ## 6080 90 degrees V6 + MGUs
-## 6081 90 degrees V8 + KERS
-## 6082 90 degrees V8 + KERS
-## 6083 90 degrees V8 + KERS
-## 6084 90 degrees V8 + KERS
-## 6085 90 degrees V8 + KERS
-## 6086 90 degrees V8 + KERS
-## 6087 90 degrees V8 + KERS
-## 6088 90 degrees V8 + KERS
-## 6089 90 degrees V8 + KERS
-## 6090 90 degrees V8 + KERS
-## 6091 90 degrees V8 + KERS
-## 6092 90 degrees V8 + KERS
-## 6093 90 degrees V8 + KERS
-## 6094 90 degrees V8 + KERS
-## 6095 90 degrees V8 + KERS
-## 6096 90 degrees V8 + KERS
-## 6097 90 degrees V8 + KERS
-## 6098 90 degrees V8 + KERS
-## 6099 90 degrees V8 + KERS
-## 6100 90 degrees V8 + KERS
-## 6101 90 degrees V8 + KERS
-## 6102 90 degrees V8 + KERS
-## 6103 90 degrees V8 + KERS
-## 6104 90 degrees V8 + KERS
-## 6105 90 degrees V8 + KERS
-## 6106 90 degrees V8 + KERS
-## 6107 90 degrees V8 + KERS
-## 6108 90 degrees V8 + KERS
-## 6109 90 degrees V8 + KERS
-## 6110 90 degrees V8 + KERS
-## 6111 90 degrees V8 + KERS
-## 6112 90 degrees V8 + KERS
-## 6113 90 degrees V8 + KERS
-## 6114 90 degrees V8 + KERS
-## 6115 90 degrees V8 + KERS
-## 6116 90 degrees V8 + KERS
-## 6117 90 degrees V8 + KERS
-## 6118 90 degrees V8 + KERS
-## 6119 90 degrees V8 + KERS
-## 6120 90 degrees V8 + KERS
-## 6121 90 degrees V8 + KERS
-## 6122 90 degrees V8 + KERS
-## 6123 90 degrees V8 + KERS
-## 6124 90 degrees V8 + KERS
-## 6125 90 degrees V8 + KERS
-## 6126 90 degrees V8 + KERS
-## 6127 90 degrees V8 + KERS
-## 6128 90 degrees V8 + KERS
-## 6129 90 degrees V8 + KERS
-## 6130 90 degrees V8 + KERS
-## 6131 90 degrees V8 + KERS
-## 6132 90 degrees V8 + KERS
-## 6133 90 degrees V8 + KERS
-## 6134 90 degrees V8 + KERS
-## 6135 90 degrees V8 + KERS
-## 6136 90 degrees V8 + KERS
-## 6137 90 degrees V8 + KERS
-## 6138 90 degrees V8 + KERS
-## 6139 90 degrees V8 + KERS
-## 6140 90 degrees V8 + KERS
-## 6141 90 degrees V8 + KERS
-## 6142 90 degrees V8 + KERS
-## 6143 90 degrees V8 + KERS
-## 6144 90 degrees V8 + KERS
-## 6145 90 degrees V8 + KERS
-## 6146 90 degrees V8 + KERS
-## 6147 90 degrees V8 + KERS
-## 6148 90 degrees V8 + KERS
-## 6149 90 degrees V8 + KERS
-## 6150 90 degrees V8 + KERS
-## 6151 90 degrees V8 + KERS
-## 6152 90 degrees V8 + KERS
-## 6153 90 degrees V8 + KERS
-## 6154 90 degrees V8 + KERS
-## 6155 90 degrees V8 + KERS
-## 6156 90 degrees V8 + KERS
-## 6157 90 degrees V8 + KERS
-## 6158 90 degrees V8 + KERS
-## 6159 90 degrees V8 + KERS
-## 6160 90 degrees V8 + KERS
-## 6161 90 degrees V8 + KERS
-## 6162 90 degrees V8 + KERS
-## 6163 90 degrees V8 + KERS
-## 6164 90 degrees V8 + KERS
-## 6165 90 degrees V8 + KERS
-## 6166 90 degrees V8 + KERS
-## 6167 90 degrees V8 + KERS
-## 6168 90 degrees V8 + KERS
-## 6169 90 degrees V8 + KERS
-## 6170 90 degrees V8 + KERS
-## 6171 90 degrees V8 + KERS
-## 6172 90 degrees V8 + KERS
-## 6173 90 degrees V8 + KERS
-## 6174 90 degrees V8 + KERS
-## 6175 90 degrees V8 + KERS
-## 6176 90 degrees V8 + KERS
-## 6177 90 degrees V8 + KERS
-## 6178 90 degrees V8 + KERS
-## 6179 90 degrees V8 + KERS
-## 6180 90 degrees V8 + KERS
-## 6181 90 degrees V8 + KERS
-## 6182 90 degrees V8 + KERS
-## 6183 90 degrees V8 + KERS
-## 6184 90 degrees V8 + KERS
-## 6185 90 degrees V8 + KERS
-## 6186 90 degrees V8 + KERS
-## 6187 90 degrees V8 + KERS
-## 6188 90 degrees V8 + KERS
-## 6189 90 degrees V8 + KERS
-## 6190 90 degrees V8 + KERS
-## 6191 90 degrees V8 + KERS
-## 6192 90 degrees V8 + KERS
-## 6193 90 degrees V8 + KERS
-## 6194 90 degrees V8 + KERS
-## 6195 90 degrees V8 + KERS
-## 6196 90 degrees V8 + KERS
-## 6197 90 degrees V8 + KERS
-## 6198 90 degrees V8 + KERS
-## 6199 90 degrees V8 + KERS
-## 6200 90 degrees V8 + KERS
-## 6201 90 degrees V8 + KERS
-## 6202 90 degrees V8 + KERS
-## 6203 90 degrees V8 + KERS
-## 6204 90 degrees V8 + KERS
-## 6205 90 degrees V8 + KERS
-## 6206 90 degrees V8 + KERS
-## 6207 90 degrees V8 + KERS
-## 6208 90 degrees V8 + KERS
-## 6209 90 degrees V8 + KERS
-## 6210 90 degrees V8 + KERS
-## 6211 90 degrees V8 + KERS
-## 6212 90 degrees V8 + KERS
-## 6213 90 degrees V8 + KERS
-## 6214 90 degrees V8 + KERS
+## 6081        90 degrees V8
+## 6082        90 degrees V8
+## 6083        90 degrees V8
+## 6084        90 degrees V8
+## 6085        90 degrees V8
+## 6086        90 degrees V8
+## 6087        90 degrees V8
+## 6088        90 degrees V8
+## 6089        90 degrees V8
+## 6090        90 degrees V8
+## 6091        90 degrees V8
+## 6092        90 degrees V8
+## 6093        90 degrees V8
+## 6094        90 degrees V8
+## 6095        90 degrees V8
+## 6096        90 degrees V8
+## 6097        90 degrees V8
+## 6098        90 degrees V8
+## 6099        90 degrees V8
+## 6100        90 degrees V8
+## 6101        90 degrees V8
+## 6102        90 degrees V8
+## 6103        90 degrees V8
+## 6104        90 degrees V8
+## 6105        90 degrees V8
+## 6106        90 degrees V8
+## 6107        90 degrees V8
+## 6108        90 degrees V8
+## 6109        90 degrees V8
+## 6110        90 degrees V8
+## 6111        90 degrees V8
+## 6112        90 degrees V8
+## 6113        90 degrees V8
+## 6114        90 degrees V8
+## 6115        90 degrees V8
+## 6116        90 degrees V8
+## 6117        90 degrees V8
+## 6118        90 degrees V8
+## 6119        90 degrees V8
+## 6120        90 degrees V8
+## 6121        90 degrees V8
+## 6122        90 degrees V8
+## 6123        90 degrees V8
+## 6124        90 degrees V8
+## 6125        90 degrees V8
+## 6126        90 degrees V8
+## 6127        90 degrees V8
+## 6128        90 degrees V8
+## 6129        90 degrees V8
+## 6130        90 degrees V8
+## 6131        90 degrees V8
+## 6132        90 degrees V8
+## 6133        90 degrees V8
+## 6134        90 degrees V8
+## 6135        90 degrees V8
+## 6136        90 degrees V8
+## 6137        90 degrees V8
+## 6138        90 degrees V8
+## 6139        90 degrees V8
+## 6140        90 degrees V8
+## 6141        90 degrees V8
+## 6142        90 degrees V8
+## 6143        90 degrees V8
+## 6144        90 degrees V8
+## 6145        90 degrees V8
+## 6146        90 degrees V8
+## 6147        90 degrees V8
+## 6148        90 degrees V8
+## 6149        90 degrees V8
+## 6150        90 degrees V8
+## 6151        90 degrees V8
+## 6152        90 degrees V8
+## 6153        90 degrees V8
+## 6154        90 degrees V8
+## 6155        90 degrees V8
+## 6156        90 degrees V8
+## 6157        90 degrees V8
+## 6158        90 degrees V8
+## 6159        90 degrees V8
+## 6160        90 degrees V8
+## 6161        90 degrees V8
+## 6162        90 degrees V8
+## 6163        90 degrees V8
+## 6164        90 degrees V8
+## 6165        90 degrees V8
+## 6166        90 degrees V8
+## 6167        90 degrees V8
+## 6168        90 degrees V8
+## 6169        90 degrees V8
+## 6170        90 degrees V8
+## 6171        90 degrees V8
+## 6172        90 degrees V8
+## 6173        90 degrees V8
+## 6174        90 degrees V8
+## 6175        90 degrees V8
+## 6176        90 degrees V8
+## 6177        90 degrees V8
+## 6178        90 degrees V8
+## 6179        90 degrees V8
+## 6180        90 degrees V8
+## 6181        90 degrees V8
+## 6182        90 degrees V8
+## 6183        90 degrees V8
+## 6184        90 degrees V8
+## 6185        90 degrees V8
+## 6186        90 degrees V8
+## 6187        90 degrees V8
+## 6188        90 degrees V8
+## 6189        90 degrees V8
+## 6190        90 degrees V8
+## 6191        90 degrees V8
+## 6192        90 degrees V8
+## 6193        90 degrees V8
+## 6194        90 degrees V8
+## 6195        90 degrees V8
+## 6196        90 degrees V8
+## 6197        90 degrees V8
+## 6198        90 degrees V8
+## 6199        90 degrees V8
+## 6200        90 degrees V8
+## 6201        90 degrees V8
+## 6202        90 degrees V8
+## 6203        90 degrees V8
+## 6204        90 degrees V8
+## 6205        90 degrees V8
+## 6206        90 degrees V8
+## 6207        90 degrees V8
+## 6208        90 degrees V8
+## 6209        90 degrees V8
+## 6210        90 degrees V8
+## 6211        90 degrees V8
+## 6212        90 degrees V8
+## 6213        90 degrees V8
+## 6214        90 degrees V8
 ## 6215 90 degrees V6 + MGUs
 ## 6216 90 degrees V6 + MGUs
-## 6217 90 degrees V8 + KERS
-## 6218 90 degrees V8 + KERS
-## 6219 90 degrees V8 + KERS
-## 6220 90 degrees V8 + KERS
+## 6217        90 degrees V8
+## 6218        90 degrees V8
+## 6219        90 degrees V8
+## 6220        90 degrees V8
 ## 6221 90 degrees V6 + MGUs
 ## 6222 90 degrees V6 + MGUs
-## 6223 90 degrees V8 + KERS
-## 6224 90 degrees V8 + KERS
-## 6225 90 degrees V8 + KERS
-## 6226 90 degrees V8 + KERS
-## 6227 90 degrees V8 + KERS
+## 6223        90 degrees V8
+## 6224        90 degrees V8
+## 6225        90 degrees V8
+## 6226        90 degrees V8
+## 6227        90 degrees V8
 ## 6228 90 degrees V6 + MGUs
 ## 6229 90 degrees V6 + MGUs
-## 6230 90 degrees V8 + KERS
-## 6231 90 degrees V8 + KERS
-## 6232 90 degrees V8 + KERS
-## 6233 90 degrees V8 + KERS
-## 6234 90 degrees V8 + KERS
-## 6235 90 degrees V8 + KERS
+## 6230        90 degrees V8
+## 6231        90 degrees V8
+## 6232        90 degrees V8
+## 6233        90 degrees V8
+## 6234        90 degrees V8
+## 6235        90 degrees V8
 ## 6236 90 degrees V6 + MGUs
 ## 6237 90 degrees V6 + MGUs
 ## 6238 90 degrees V6 + MGUs
-## 6239 90 degrees V8 + KERS
-## 6240 90 degrees V8 + KERS
-## 6241 90 degrees V8 + KERS
+## 6239        90 degrees V8
+## 6240        90 degrees V8
+## 6241        90 degrees V8
 ## 6242 90 degrees V6 + MGUs
 ## 6243 90 degrees V6 + MGUs
 ## 6244 90 degrees V6 + MGUs
 ## 6245 90 degrees V6 + MGUs
-## 6246 90 degrees V8 + KERS
-## 6247 90 degrees V8 + KERS
+## 6246        90 degrees V8
+## 6247        90 degrees V8
 ## 6248 90 degrees V6 + MGUs
-## 6249 90 degrees V8 + KERS
+## 6249        90 degrees V8
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 2911 rows ]</code></pre>
 </div>
 
