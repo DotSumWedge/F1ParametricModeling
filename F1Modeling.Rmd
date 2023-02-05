@@ -1,8 +1,10 @@
 ---
 title: "Formula 1 Analysis"
-author: "Santiago Gutierrez"
-date: '`r Sys.Date()`'
+author: "Santiago Gutierrez, Derek Rogers, Shawn Deng"
+date: "`r Sys.Date()`"
 output:
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
     number_sections: yes
@@ -52,22 +54,23 @@ h1,h2,h3,h4,h5,h6,p,
 
 # - Introduction
 <hr>
-
 <div style="width: 100%;">
 
-  <div style="background-color: #00D2BE;width:9px;height:351px;float: left;"></div>
+  <div style="background-color: #00D2BE;width:9px;height:785px;float: left;"></div>
   
   
-  <div style="float:left; margin-left:25px; margin-top:15px; font-size:20px; color:black;">
+  <div style="float:left; margin-left:0px; margin-top:15px; font-size:20px; color:black;">
   </div>
-  
-   In this analysis, we will analyze Formula 1 data from the year 2,000 and onward. The reason for this time frame is because of two things: the first begin that there no active drivers that began their F1 careers before the year 2,000, and the second being that beginning in the year 2,000, it was mandated that all racecars have the same engine size, which would change overtime.
+In this analysis, we will analyze Formula 1 data from the year 2,000 and onward. The reason for this time frame is because of two things: the first begin that there no active drivers that began their F1 careers before the year 2,000, and the second being that, beginning in the year 2,000, it was mandated that all racecars have the same engine size, which would change overtime.
    
-! [Alt text] (Visuals/Era_By_Engine_Size.png)
+![](Visuals/Era_By_Engine_Size.png)
+<br>
+<br>
 
-   Furthermore, our analysis dives into the relationship between a driver's starting position and the likelihood of obtaining a certain finishing result. One would assume that the better one qualifies, the higher the change of winning the race. Also, it is known that there are a few big teams/drivers who have dominated the sport over the years and continue to do so, thus providing relatively consistent results. One can easily assume that certain teams are much more likely to win a Grand Prix thus those teams are more statistically significant in determining the result of a race. Because of this, we also investigate the relationship between the results/points given the constructors (teams) and drivers.
-   
-   Lastly, we create several prediction models that allow for predicting a race results. We use ONLY the parameters that one would have available just before a race: the team name, the driver name, the era (engine size) and the starting position.
+
+Furthermore, our analysis dives into the relationship between a driver's starting position and the likelihood of obtaining a certain finishing result. One would assume that the better one qualifies, the higher the change of winning the race. Also, it is known that there are a few big teams/drivers who have dominated the sport over the years and continue to do so, thus providing relatively consistent results. One can easily assume that certain teams are much more likely to win a Grand Prix thus those teams are more statistically significant in determining the result of a race. Because of this, we also investigate the relationship between the results/points given the constructors (teams) and drivers.
+
+Lastly, we create several prediction models that allow for predicting a race results. We use ONLY the parameters that one would have available just before a race: the team name, the driver name, the era (engine size) and the starting position.
 
 <br>
 
@@ -87,16 +90,18 @@ library(class)
 
 # - EDA
 <hr>
-
 **Starting Position Vs Race Result**
 <br>
-Unfortunately, due to lack of programming knowledge, we were unable to create the plot that we wanted. However, we found exactly what we needed online and thus decided to include that plot as a PDF with the source tagged just below it.
+Unfortunately, due to lack of programming knowledge, we were unable to create the plot that we wanted. However, we found exactly what we needed online and thus decided to include that plot with the source tagged just below it.
 
 From the plot, one can see that there does in-fact appear to be a relationship between a driver's starting position. It is clear that the higher one starts on the grid, the higher the probability of winning the race. In addition these findings, we also noted that the lower one starts on the grid, the higher the probability of not finishing the race (DFN), which could make sense if one assumes that drivers towards the back are driving much less conservatively and thus more aggressive than those towards the front.
 
-! [Alt text] (Visuals/Qualifying_Vs_Result.png)
-Source: 
+![Result Probability By Qualifying Position](Visuals/Qualifying_Vs_Result.png)
+Source: MrBookman_LibraryCop"(Reddit User)
+<br>
+[Click Here to Visit Source](https://www.reddit.com/r/dataisbeautiful/comments/rgt8wz/oc_formula_1_probability_of_grand_prix_result_by/)
 
+<br>
 **Constructor/Driver Vs Race Result**
 <br>
 
@@ -107,7 +112,6 @@ Source:
 
 # - Modeling Data
 <hr>
-
 **The data includes all race results since the year 2,000 and the following attributes:**
 <ul>
   <li>Drive name/id   // currently only the 25 drivers with the most race results have a unique name. All other drivers have there names labeled 'Other'.</li>
@@ -124,6 +128,8 @@ F1DataFrame = read.csv("ModelingData/F1ModelingCustomCategoricalVariables.csv")
 
 head(F1DataFrame)
 ```
+
+<br>
 
 **Logic to split data into training and testing sets.**
 ```{r}
@@ -143,10 +149,10 @@ testingDataframe = modelDataframe[-trainingIndices,]
 
 # - Model 1 (Liner Regression)
 <hr>
-
 **The Model**
 <br>
 mymodel<-lm(positionOrder ~ grid + name + fullname + era, data = F1DataFrame)
+<br>
 
 **Residuals Vs Fitted Plot**
 <ul>
@@ -172,7 +178,9 @@ mymodel<-lm(positionOrder ~ grid + name + fullname + era, data = F1DataFrame)
 par(mfrow = c(1,1))
 plot(mymodel)
 ```
+
 <br>
+
 **Model Summary Statistics**
 
 <ul>
@@ -183,7 +191,9 @@ plot(mymodel)
 ```{r}
 summary(mymodel)
 ```
-<br?
+
+<br>
+
 **Investigation**
 <ul>
   <li>The grouping of low starting positions and high finishing positions during the era of up to 12 cylinders explains the irregularities from normality in the models residual plots and lack of statistical significance in the model for stating position.</li>
@@ -198,7 +208,10 @@ ggplot(data = F1DataFrame, aes(x = grid, y = positionOrder, colour = era)) +
      y="finishing position", 
      x="starting position")
 ```
+
 <br>
+<br>
+
 <ul>
   <li>Plots look similar to the full model as expected.</li>
 </ul>
@@ -222,7 +235,9 @@ mymodel<-lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1Da
 par(mfrow = c(1,1))
 plot(mymodel)
 ```
+
 <br>
+
 **Model 2 Summary Statistics**
 <ul>
   <li>The model performs significantly better With R-squared values going from 0.27 to 0.32.</li>
@@ -236,7 +251,6 @@ summary(mymodel)
 
 # - Model 3 (Liner Regression)
 <hr>
-
 <ul>
   <li>Taking out the data from the 12 cylinders era further improves the R-squared values to 0.39
   <li>Surprisingly starting position doesn't appear to be statistically significant which doesn't make sense. One would expect there to be a strong correlation between starting position and finishing position.</li>
@@ -249,7 +263,9 @@ simpleModel = lm(positionOrder ~ grid, data = F1DataFrame)
 par(mfrow = c(1,1))
 plot(mymodel)
 ```
+
 <br>
+
 **Model 3 Summary Statistics**
 ```{r}
 summary(mymodel)
@@ -264,7 +280,6 @@ summary(simpleModel)
 
 # Plots for Each Era
 <hr>
-
 </ul>
   <li>Seems to show a weak but significant correlation between better starting positions with better finishing positions.</li>
   <li>All plots appear to have comparable distributions.</li>
@@ -305,7 +320,6 @@ V8MGUsplot
 
 # - Model 4 (KNN)
 <hr>
-
 <ul>
   <li>This model also performed well relative to the first two. It also provides the least amount of error, so we chose this as the best model - regardless of Model 3 having a higher R-squared.
 </ul>
@@ -320,3 +334,6 @@ knn.fit<-train(positionOrder~.,
                )
 knn.fit
 ```
+
+<br>
+# THANK YOU!
