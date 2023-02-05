@@ -131,6 +131,7 @@ summary(mymodel)
 ```{r}
 F1DataFrame = F1DataFrame %>% filter(F1DataFrame$year >= "2000")
 mymodel<-lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1DataFrame)
+simpleModel = lm(positionOrder ~ grid, data = F1DataFrame)
 par(mfrow = c(1,1))
 plot(mymodel)
 ```
@@ -138,7 +139,9 @@ plot(mymodel)
 ```{r}
 summary(mymodel)
 ```
-
+```{r}
+summary(simpleModel)
+```
 # Starting vs finishing plots for each era
 
 Seems to show a weak but significant correlation between better starting positions with better finishing positions
