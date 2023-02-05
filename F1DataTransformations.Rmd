@@ -1,35 +1,36 @@
 ---
 title: "F1 Data Transformations"
-author: "Derek Rogers"
-date: "2023-01-28"
+author: "Santiago Gutierrez"
+date: '`r Sys.Date()`'
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup}
+knitr::opts_knit$set(root.dir = '/Users/santigtz/Desktop/SMU_D.S./Semester_2/6372-AppliedStatistics/Project_1/F1ParametricModeling')
 ```
 
-```{r}
+
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
 ```
 
 ```{r}
-circuitsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/circuits.csv")
-constructorResultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_results.csv")
-constructorStandingsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructor_standings.csv")
-constructorsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/constructors.csv")
-driverStandingsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/driver_standings.csv")
-driversDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/drivers.csv")
-lapTimesDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/lap_times.csv")
-pitStopsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/pit_stops.csv")
-qualifyingDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/qualifying.csv")
-racesDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/races.csv")
-resultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/results.csv")
-seasonsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/seasons.csv")
-sprint_resultsDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/sprint_results.csv")
-statusDataFrame = read.csv("C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/Data/status.csv")
+circuitsDataFrame = read.csv("Data/circuits.csv")
+constructorResultsDataFrame = read.csv("Data/constructor_results.csv")
+constructorStandingsDataFrame = read.csv("Data/constructor_standings.csv")
+constructorsDataFrame = read.csv("Data/constructors.csv", header=TRUE)
+driverStandingsDataFrame = read.csv("Data/driver_standings.csv")
+driversDataFrame = read.csv("Data/drivers.csv")
+lapTimesDataFrame = read.csv("Data/lap_Times.csv")
+pitStopsDataFrame = read.csv("Data/pit_stops.csv")
+qualifyingDataFrame = read.csv("Data/qualifying.csv")
+racesDataFrame = read.csv("Data/races.csv")
+resultsDataFrame = read.csv("Data/results.csv")
+seasonsDataFrame = read.csv("Data/seasons.csv")
+sprint_resultsDataFrame = read.csv("Data/sprint_results.csv")
+statusDataFrame = read.csv("Data/status.csv")
 
 # Fill in the 2 missing altitudes
 circuitsDataFrame[circuitsDataFrame$name == "Losail International Circuit",]$alt = 14
@@ -135,7 +136,7 @@ head(raceResultsDataFrame)
 
 # Save dataframe to a .csv file for modeling
 ```{r}
-write.csv(raceResultsDataFrame, "C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1Modeling.csv")
+write.csv(raceResultsDataFrame, "ModelingData/F1Modeling.csv")
 ```
 
 ## Formatting dataframe for modeling with specific constructors and drivers as categorical variables
@@ -223,7 +224,7 @@ unique(raceResultsDataFrame$fullname)
 
 # Save dataframe with specific constructor and drivers as categorical variables to a .csv file for modeling
 ```{r}
-write.csv(raceResultsDataFrame, "C:/SMU MS Data Science/AppliedStatistics6372/Project1/F1ParametricModeling/ModelingData/F1ModelingCustomCategoricalVariables.csv")
+write.csv(raceResultsDataFrame, "ModelingData/F1ModelingCustomCategoricalVariables.csv")
 ```
 
 
