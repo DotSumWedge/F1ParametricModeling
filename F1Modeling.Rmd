@@ -12,6 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(dplyr)
 library(ggplot2)
+library(caret)
+library(class)
+
+library(Boruta)
 ```
 
 # Import modeling data
@@ -130,7 +134,7 @@ summary(mymodel)
 
 ```{r}
 F1DataFrame = F1DataFrame %>% filter(F1DataFrame$year >= "2000")
-mymodel<-lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1DataFrame)
+mymodel = lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1DataFrame)
 simpleModel = lm(positionOrder ~ grid, data = F1DataFrame)
 par(mfrow = c(1,1))
 plot(mymodel)
@@ -179,6 +183,25 @@ V8KERSplot
 V8MGUsplot
 ```
 
-```{r}
+# knn modeling
 
+```{r}
+set.seed(1234)
+fitControl<-trainControl(method="repeatedcv",number=10,repeats=1)
+knn.fit<-train(positionOrder~.,
+               data=modelDataframe,
+               method="knn",
+               trControl=fitControl,
+               tuneGrid=expand.grid(k=c(1:10,20,30))
+               )
+knn.fit
+```
+
+```{r}
+NBModel <- Train
+NBModel$Attrition <- if_else(NBModel$Attrition == "No", 0, 1)
+boruta_output <- Boruta(Attrition ~ ., data=NBModel, doTrace=2)
+boruta_signif <- names(boruta_output$finalDecision[boruta_output$finalDecision %in% c("Confirmed", "Tentative")])
+print(boruta_signif)
+plot(boruta_output, cex.axis=.7, las=2, xlab="", main="Variable Importance")
 ```
