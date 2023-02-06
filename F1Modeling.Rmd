@@ -194,7 +194,7 @@ plot(mymodel)
 **Model Summary Statistics**
 
 <ul>
-  <li>The model doesn't not perform well With R-squared values at 0.25.</li>
+  <li>The model doesn't not perform well with an R-squared value at 0.25 and the standard error at 6.48.</li>
   <li>Surprisingly starting position doesn't appear to have a strong of a correlation with the race result as we originally expected. One would expect there to be a strong correlation between starting position and finishing position.</li>
 </ul>
 
@@ -237,9 +237,8 @@ plot(mymodel)
 # - Model 2 (Liner Regression)
 <hr>
 <ul>
-  <li>Taking out the data from the 12 cylinders era further improves the R-squared values to 0.39
+  <li>Taking out the data from the 12 cylinders era further improves the R-squared values to 0.37 and the standard error to 4.94.
   <li>Now starting position appears to be statistically significant which matches our intuition.</li>
-  <li>This model appears to be the best and provides the highest R-squared of all the models, but not the least amount of error.</li>
 </ul>
 ```{r}
 F1DataFrame = F1DataFrame %>% filter(F1DataFrame$year >= "2000")
@@ -299,7 +298,7 @@ V6plot
 # - Model 3 (KNN)
 <hr>
 <ul>
-  <li>This model also performed well relative to the first two. It also provides the least amount of error, so we chose this as the best model - regardless of Model 2 having a higher R-squared.
+  <li>This model appears to be the best and provides the highest R-squared of all the models at 0.45 and relatively low standard error at 5.53.</li>
 </ul>
 ```{r}
 set.seed(1234)
@@ -314,4 +313,4 @@ knn.fit
 ```
 
 <br>
-#THANK YOU!
+THANK YOU!
