@@ -39,7 +39,7 @@ circuitsDataFrame[circuitsDataFrame$name == "Losail International Circuit",]$alt
 circuitsDataFrame[circuitsDataFrame$name == "Miami International Autodrome",]$alt = 1
 
 # Only look at data from 1989 onward
-racesDataFrame = racesDataFrame %>% filter(racesDataFrame$year >= "2000")
+racesDataFrame = racesDataFrame %>% filter(racesDataFrame$year >= "1989")
 
 # Convert altitude from character to numeric
 circuitsDataFrame$alt = as.numeric(circuitsDataFrame$alt)
@@ -145,7 +145,7 @@ write.csv(raceResultsDataFrame, "ModelingData/F1Modeling.csv")
 
 # Show the number of times constructors appear in the raceResultsDataframe and keep the 25 most popular constructors
 ```{r}
-uniqueConstructorResults = raceResultsDataFrame %>% group_by(name) %>% tally()
+uniqueConstructorResults = raceResultsDataFrame %>% filter(raceResultsDataFrame$year >= "2000") %>% group_by(name) %>% tally()
 
 uniqueConstructorResults$n = as.numeric(uniqueConstructorResults$n)
 
@@ -162,7 +162,7 @@ uniqueConstructorResults
 
 # Show the number of times drivers appear in the raceResultsDataframe and keep the 25 drives with the highest number of races
 ```{r}
-uniqueDriverResults = raceResultsDataFrame %>% group_by(driverId) %>% tally()
+uniqueDriverResults = raceResultsDataFrame %>% filter(raceResultsDataFrame$year >= "2000") %>% group_by(driverId) %>% tally()
 
 uniqueDriverResults$n = as.numeric(uniqueDriverResults$n)
 
