@@ -97,6 +97,7 @@ library(class)
 Unfortunately, due to lack of programming knowledge, we were unable to create the plot that we wanted. However, we found exactly what we needed online and thus decided to include that plot with the source tagged just below it.
 
 From the plot, one can see that there does in-fact appear to be a relationship between a driver's starting position. It is clear that the higher one starts on the grid, the higher the probability of winning the race. In addition these findings, we also noted that the lower one starts on the grid, the higher the probability of not finishing the race (DFN), which could make sense if one assumes that drivers towards the back are driving much less conservatively and thus more aggressive than those towards the front.
+<br>
 
 ![Result Probability By Qualifying Position](Visuals/Qualifying_Vs_Result.png)
 Source: MrBookman_LibraryCop"(Reddit User)
@@ -104,13 +105,19 @@ Source: MrBookman_LibraryCop"(Reddit User)
 [Click Here to Visit Source](https://www.reddit.com/r/dataisbeautiful/comments/rgt8wz/oc_formula_1_probability_of_grand_prix_result_by/)
 
 <br>
+<br>
 **Constructor/Driver Vs Race Result**
 <br>
-
-
-
 <br>
+From the results below, it is clear that Mercedes has the highest number of top positions throughout Formula 1 history, which is without a doubt the reason for their extreme success in F1 racing. Higher average position leads to higher average points and ultimately the season trophy. Remember, one does not have to win every race in order to win the season trophy - it's all about points.
 
+![](Visuals/Constructor_Position.png)
+<br>
+<br>
+This plot below depicts the drivers' count by race result. Given the results from the previous plot, one would expect a Mercedes driver to have the highest number of top-5 finishing positions. Sure and behold, the Kubica appears to have a higher number of top-5 finishing positions in comparison to the other drivers. Amon appears to be a more consistent driver but has less top-5 results.
+![](Visuals/Driver_Position.png)
+<br>
+<br>
 
 # - Modeling Data
 <hr>
@@ -152,6 +159,7 @@ testingDataframe = modelDataframe[-trainingIndices,]
 # - Model 1 (Liner Regression)
 <hr>
 **The Model**
+Our initial model includes all of the data from 1989 and onward without any data cleaning.
 <br>
 mymodel<-lm(positionOrder ~ grid + name + fullname + era, data = F1DataFrame)
 <br>
@@ -186,8 +194,8 @@ plot(mymodel)
 **Model Summary Statistics**
 
 <ul>
-  <li>The model doesn't not perform well With R-squared values at 0.27.</li>
-  <li>Surprisingly starting position doesn't appear to be statistically significant which doesn't make sense. One would expect there to be a strong correlation between starting position and finishing position.</li>
+  <li>The model doesn't not perform well With R-squared values at 0.25.</li>
+  <li>Surprisingly starting position doesn't appear to have a strong of a correlation with the race result as we originally expected. One would expect there to be a strong correlation between starting position and finishing position.</li>
 </ul>
 
 ```{r}
@@ -228,31 +236,6 @@ plot(mymodel)
 
 # - Model 2 (Liner Regression)
 <hr>
-
-<ul>
-  <li>The residual plots look similar to the first model.</li>
-</ul>
-```{r}
-mymodel<-lm(positionOrder ~ grid + name + fullname + era + grid:era, data = F1DataFrame)
-par(mfrow = c(1,1))
-plot(mymodel)
-```
-
-<br>
-
-**Model 2 Summary Statistics**
-<ul>
-  <li>The model performs significantly better With R-squared values going from 0.27 to 0.32.</li>
-</ul>
-```{r}
-summary(mymodel)
-```
-
-
-<br>
-
-# - Model 3 (Liner Regression)
-<hr>
 <ul>
   <li>Taking out the data from the 12 cylinders era further improves the R-squared values to 0.39
   <li>Now starting position appears to be statistically significant which matches our intuition.</li>
@@ -268,7 +251,7 @@ plot(mymodel)
 
 <br>
 
-**Model 3 Summary Statistics**
+**Model 2 Summary Statistics**
 ```{r}
 summary(mymodel)
 ```
@@ -280,7 +263,7 @@ summary(simpleModel)
 
 <br>
 
-# Plots for Each Era
+# - Plots for Each Era
 <hr>
 </ul>
   <li>Seems to show a weak but significant correlation between better starting positions with better finishing positions.</li>
@@ -289,34 +272,34 @@ summary(simpleModel)
 ```{r}
 V10plot = F1DataFrame %>% filter(F1DataFrame$era == "V10") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
   geom_point(position = "jitter", size = .8) +
-  labs(title="starting vs finishing position by era", 
-     y="finishing position", 
-     x="starting position")
+  labs(title="Starting vs Finishing Position for V10 Era", 
+     y="Finishing Position", 
+     x="Starting Position") + theme(legend.position = "none")
 
 V8plot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V8") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
   geom_point(position = "jitter", size = .8) +
-  labs(title="starting vs finishing position by era", 
-     y="finishing position", 
-     x="starting position")
+  labs(title="Starting vs Finishing Position for V8 Era", 
+     y="Finishing Position", 
+     x="Starting Position") + theme(legend.position = "none")
 
-V8MGUsplot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V6 + MGUs") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
+V6plot = F1DataFrame %>% filter(F1DataFrame$era == "90 degrees V6 + MGUs") %>% ggplot(aes(x = grid, y = positionOrder, colour = era)) + 
   geom_point(position = "jitter", size = .8) +
-  labs(title="starting vs finishing position by era", 
-     y="finishing position", 
-     x="starting position")
+  labs(title="Starting vs Finishing Position for V6 Era", 
+     y="Finishing Position", 
+     x="Starting Position") + theme(legend.position = "none")
 
 V10plot
 V8plot
-V8MGUsplot
+V6plot
 ```
 
 
 <br>
 
-# - Model 4 (KNN)
+# - Model 3 (KNN)
 <hr>
 <ul>
-  <li>This model also performed well relative to the first two. It also provides the least amount of error, so we chose this as the best model - regardless of Model 3 having a higher R-squared.
+  <li>This model also performed well relative to the first two. It also provides the least amount of error, so we chose this as the best model - regardless of Model 2 having a higher R-squared.
 </ul>
 ```{r}
 set.seed(1234)
@@ -331,4 +314,4 @@ knn.fit
 ```
 
 <br>
-# THANK YOU!
+#THANK YOU!
