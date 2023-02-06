@@ -116,7 +116,7 @@ Source: MrBookman_LibraryCop"(Reddit User)
 <hr>
 **The data includes all race results since the year 2,000 and the following attributes:**
 <ul>
-  <li>Drive name/id   // currently only the 25 drivers with the most race results have a unique name. All other drivers have there names labeled 'Other'.</li>
+  <li>Driver name/id   // currently only the 25 drivers with the most race results have a unique name. All other drivers have there names labeled 'Other'.</li>
   <li>Constructor name/id   // currently only the 25 constructors with the most reace results have a unique name. All other constructors have there names labeled 'Other'.</li>
   <li>Race name/id.</li>
   <li>Starting position labeled 'grid'.</li>
